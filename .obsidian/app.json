@@ -1,0 +1,15 @@
+{
+  "showInlineTitle": false,
+  "attachmentFolderPath": "./Picture",
+  "newLinkFormat": "relative",
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": true,
+  "useMarkdownLinks": true,
+  "vimMode": false,
+  "useTab": false,
+  "spellcheck": false,
+  "readableLineLength": true,
+  "showUnsupportedFiles": false,
+  "showIndentGuide": true,
+  "rightToLeft": false
+}
