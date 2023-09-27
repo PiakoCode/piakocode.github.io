@@ -6,6 +6,8 @@
 
 ### Pytorch基础训练
 
+[线性回归](深度学习/深度学习.md#线性回归)
+
 ```python
 import torch
 import torch.nn as nn

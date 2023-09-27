@@ -42,6 +42,63 @@ zero_x = torch.zeros(5, 3, dtype=torch.long)
 print(zero_x)
 ```
 
+## 网络层
+
+
+### 线性回归
+
+[线性回归](深度学习/深度学习.md#线性回归)
+
+[Pytorch基础训练](Code-人工智能.md#Pytorch基础训练)
+
+```python
+# 输入特征x和目标值y
+x = torch.tensor([[1.0], [2.0], [3.0], [4.0]])
+y = torch.tensor([[2.0], [4.0], [6.0], [8.0]])
+```
+
+定义模型：
+
+```python
+class LinearRegression(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(LinearRegression, self).__init__()
+        self.linear = nn.Linear(input_dim, output_dim)
+
+    def forward(self, x):
+        return self.linear(x)
+
+# 模型实例化
+model = LinearRegression(1, 1)
+```
+
+### softmax
+
+[softmax](深度学习/深度学习.md#softmax)
+
+在PyTorch中，可以使用torch.nn.functional.softmax函数来进行softmax操作。softmax函数将一个向量映射成一个概率分布，使得向量中的元素都处于0和1之间，并且所有元素的和等于1。
+
+以下是一个使用PyTorch的softmax函数的示例代码：
+
+```python
+import torch
+import torch.nn.functional as F
+
+# 输入向量
+x = torch.tensor([1.0, 2.0, 3.0])
+
+# 使用softmax函数
+output = F.softmax(x, dim=0)
+
+print(output)
+```
+
+在上述代码中，我们首先创建了一个输入向量x。然后通过调用F.softmax函数来对输入向量进行softmax操作。dim参数指定了在哪个维度上进行softmax操作，这里我们将其设置为0，表示对向量中的每个元素进行softmax操作。
+
+运行上述代码，将会输出softmax操作后的结果。结果是一个包含三个元素的向量，每个元素都是一个概率值，且所有元素的和等于1。
+
+注意：在PyTorch中，torch.nn.functional.softmax函数会直接对输入进行softmax操作，并返回softmax后的结果。相比之下，torch.nn.Softmax模块会返回一个Softmax函数的实例，需要通过调用该实例的forward方法来进行softmax操作。在大多数情况下，我们使用torch.nn.functional.softmax函数即可。
+
 
 ## 操作
 
@@ -278,11 +335,36 @@ model = MLP(input_dim, hidden_dim, output_dim)
 
 
 
+## 数据处理
+
+### 下载数据集
+
+以MNIST为例
+
+```python
+import torch
+from torchvision import datasets, transforms
+
+# 定义数据转换
+transform = transforms.Compose([
+    transforms.ToTensor(),                  # 将图像转换为Tensor
+    transforms.Normalize((0.1307,), (0.3081,))  # 对图像进行标准化
+])
+
+# 下载MNIST训练集
+train_dataset = datasets.MNIST(root='./data', train=True, transform=transform, download=True)
+
+# 下载MNIST测试集
+test_dataset = datasets.MNIST(root='./data', train=False, transform=transform, download=True)
+```
 
 
-## 数据加载
 
-## 数据预处理
+
+
+### 数据加载
+
+### 数据预处理
 
 ## 查看每一层的结构
 

@@ -13,23 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "人工智能/Code-人工智能.md",
+                "file": "人工智能/深度学习/卷积神经网络/卷积神经网络基础.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "c471b5f35443d7b4",
+            "id": "a79d98677bf33239",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "人工智能/深度学习/Python-matplotlib画图.pdf"
+                "file": "人工智能/Pytorch使用.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "be645194ec32dd81",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "人工智能/Code-人工智能.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -58,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "pytorch",
+                "query": "卷积",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -87,7 +102,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281
+    "width": 281,
+    "collapsed": true
   },
   "right": {
     "id": "780603ec7a00ca36",
@@ -103,7 +119,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "人工智能/Code-人工智能.md"
+                "file": "人工智能/Pytorch使用.md"
               }
             }
           },
@@ -113,7 +129,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "人工智能/Code-人工智能.md",
+                "file": "人工智能/Pytorch使用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +146,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "人工智能/Code-人工智能.md",
+                "file": "人工智能/Pytorch使用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -196,13 +212,25 @@
       "obsidian-file-cleaner:清理文件": false
     }
   },
-  "active": "bf7bcfa5b4244127",
+  "active": "a79d98677bf33239",
   "lastOpenFiles": [
-    "人工智能/深度学习/Python-matplotlib画图.pdf",
+    "人工智能/深度学习/卷积神经网络/卷积神经网络基础.md",
     "人工智能/Code-人工智能.md",
-    "人工智能/Picture/Pasted image 20230926193355.png",
     "人工智能/Pytorch使用.md",
+    "工具使用/gdb常用命令.md",
+    "其他/MIT6.S081 操作系统/4. Lab Traps.md",
+    "软件开发/Rust/0.安装Rust和Hello,World.md",
+    "我的笔记/小记.md",
+    "其他/CSAPP/异常.md",
+    "工具使用/Bash 脚本.md",
+    "软件开发/C/ELF文件结构.md",
+    "工具使用/Linux笔记.md",
+    "工具使用/tmux.md",
+    "工具使用/Redis 使用.md",
+    "obsidian 好用的插件.md",
     "人工智能/深度学习/深度学习.md",
+    "人工智能/深度学习/Python-matplotlib画图.pdf",
+    "人工智能/Picture/Pasted image 20230926193355.png",
     "软件开发/Jwt结构.md",
     "人工智能/机器学习/pdf_file/4. [上] 线性回归 .pdf",
     "人工智能/机器学习/pdf_file/3. KNN.pdf",
@@ -221,21 +249,10 @@
     "Todo List.md",
     "软件开发/Java/SpringBoot/SpringBoot笔记（二）数据交互.md",
     "软件开发/Java/Spring/SSM笔记（一）Spring基础.md",
-    "软件开发/Java/Spring/SSM笔记（三）SpringSecurity基础.md",
-    "软件开发/Java/SpringCloud/SpringCloud笔记（三）.md",
-    "软件开发/Java/Spring/Mybatis.md",
-    "人工智能/机器学习/机器学习（二）.md",
     "人工智能/机器学习/pdf_file",
     "a.out",
     "软件开发/Java/SpringCloud",
-    "软件开发/Java/SpringCloud笔记/SpringCould笔记（二）.md",
-    "软件开发/Java/SpringCloud笔记/SpringCloud笔记（四）.md",
-    "软件开发/Java/SpringCloud笔记/SpringCloud笔记（三）.md",
-    "软件开发/Java/SpringCloud笔记/SpringCloud笔记（一）.md",
     "软件开发/Java/SpringCloud笔记",
-    "软件开发/Java/SpringBoot/SpringBoot.md",
-    "软件开发/Java/Spring/SSM笔记（二）SpringMvc基础.md",
-    "软件开发/C++/C++.md",
     "人工智能/Picture/CY48UG(I[N9(WV56G6[E}(0.png",
     "软件开发/Java/SpringBoot",
     "人工智能/机器学习/seaborn/Picture/Pasted image 20230916162622.png",

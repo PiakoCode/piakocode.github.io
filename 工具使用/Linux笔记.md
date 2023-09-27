@@ -48,6 +48,7 @@ shell中1&将STDERR和STDOUT的输出重定向到同一个管道
 `chattr` 修改文件属性
 `lsattr` 查看文件属性
 
+**任务管理**
 
 `jobs` 查看终端中的任务列表（在后台运行的任务）
 
@@ -60,8 +61,18 @@ shell中1&将STDERR和STDOUT的输出重定向到同一个管道
 
 [Linux中的管道与连接符号 - 知乎](https://zhuanlan.zhihu.com/p/223681357)
 
+
+**获得两个文件之间的相对路径**
+
+```sh
+realpath FILE(traget)  --relative-to=FILE(current)
+```
+
+[Linux获取两个路径之间的相对路径(https://www.cnblogs.com/jmliao/p/12400597.html)
+
 ## 好用的工具
 
 `cloc` 统计代码行数
 
 `ncdu` 查看文件(夹)占用空间
+

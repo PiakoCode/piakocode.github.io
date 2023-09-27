@@ -44,7 +44,7 @@ ctrl + b -> 方向键
 
 ## 配置文件
 
-鼠标
+开启鼠标
 ```text
 set-option -g mouse on
 ```
