@@ -15,9 +15,9 @@ echo -e "\n${GREEN}Add all complete.\n${NC}"
 LANG=zh_CN.UTF-8 git commit -m "$(date)"
 echo -e "${GREEN}Commit complete.\n${NC}"
 
-echo -e "git push gitee\n"
+echo -e "#{GREEN}git push gitee${NC}\n"
 git push origin main
 
-echo -e "git push github"
+echo -e "\n${BLUE}git push github${NC}\n"
 git push github main
 echo -e "${GREEN}-----Push complete!-----\n${NC}"
