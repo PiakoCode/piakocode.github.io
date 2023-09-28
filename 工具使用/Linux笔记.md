@@ -76,3 +76,5 @@ realpath FILE(traget)  --relative-to=FILE(current)
 
 `ncdu` 查看文件(夹)占用空间
 
+
+
