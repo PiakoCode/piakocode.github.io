@@ -368,6 +368,7 @@ test_dataset = datasets.MNIST(root='./data', train=False, transform=transform, d
 
 ## 查看每一层的结构
 
+1.
 ```python
 X = torch.rand(size = (1,1,28,28),dtype=torch.float32)
 
@@ -392,6 +393,47 @@ Sigmoid output shape: 	 torch.Size([1, 84])
 Linear output shape: 	 torch.Size([1, 10])
 ```
 
+2.
+
+
+```python
+class net(nn.Module):
+    def __init__(self):
+        super(net,self).__init__()
+        self.model = nn.Sequential(
+            nn. Conv2d(1,2,3,1,2)
+        )
+    def forward(self, x):
+        x = self.model(x)
+        return x
+
+
+test =  net().to(torch.device('cuda'))
+summary(test,(1,28,28),batch_size=64)
+```
+
+```text
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [64, 2, 30, 30]              20
+================================================================
+Total params: 20
+Trainable params: 20
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.19
+Forward/backward pass size (MB): 0.88
+Params size (MB): 0.00
+Estimated Total Size (MB): 1.07
+----------------------------------------------------------------
+```
+
+>[!note] 
+>Conv2d结构为 (batch_size, channels, height,width)
+
+
+
 ## pytorch GPU训练
 
 
@@ -406,7 +448,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 
 # 定义训练的设备
-device = torch.device("cuda")
+device =torch.device('cuda')if torch.cuda.is_available() else torch.device('cpu')
 
 train_data = torchvision.datasets.CIFAR10(root="../data", train=True, transform=torchvision.transforms.ToTensor(),
                                           download=True)

@@ -93,3 +93,6 @@ i r a0 # info registers a0
 x/i 0x630 # 查看0x630地址处的指令
 x/g 0x80000000 # 查看0x80000000地址处的值（g表示值的长度有64位）
 ```
+
+
+推荐安装`gdb-dashboard`

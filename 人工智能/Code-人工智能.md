@@ -31,7 +31,7 @@ model = NeuralNetwork()
 target = torch.tensor([[0.0], [1.0]])
 
 # 定义损失函数
-loss_fn = nn.MSELoss()
+loss_fn = nn.MSELoss() # 均方误差
 
 # 定义优化器
 optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
