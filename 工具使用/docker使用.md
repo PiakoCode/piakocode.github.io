@@ -72,7 +72,6 @@ Ubuntu docker开发环境快速配置
 sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list ; #配置ustc镜像源 \
 apt update;\
 apt upgrade -y;\
-apt install -y curl sudo vim fish neofetch tree make git gcc gdb build-essential htop \ 
-               wget python3 tmux;
+apt install -y curl sudo ssh vim fish neofetch tree make git gcc gdb build-essential htop wget python3 tmux;
 
 ```
