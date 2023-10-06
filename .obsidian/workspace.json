@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "工具使用/docker使用.md",
+                "file": "工具使用/CMake使用.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "docker",
+                "query": "cmake",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281
+    "width": 281,
+    "collapsed": true
   },
   "right": {
     "id": "780603ec7a00ca36",
@@ -94,7 +95,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "工具使用/docker使用.md"
+                "file": "工具使用/CMake使用.md"
               }
             }
           },
@@ -104,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "工具使用/docker使用.md",
+                "file": "工具使用/CMake使用.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "工具使用/docker使用.md",
+                "file": "工具使用/CMake使用.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,21 +181,28 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": true,
       "templates:插入模板": false,
+      "obsidian-file-cleaner:清理文件": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "terminal:Open terminal": false,
       "obsidian-excalidraw-plugin:新建 Excalidraw 绘图": true,
-      "obsidian-trash-explorer:Open trash explorer": false,
-      "obsidian-file-cleaner:清理文件": false
+      "obsidian-trash-explorer:Open trash explorer": false
     }
   },
   "active": "c488389125aafe41",
   "lastOpenFiles": [
-    "工具使用/Linux笔记.md",
-    "工具使用/docker使用.md",
+    "软件开发/C++/C++-Code.md",
+    "工具使用/CMake使用.md",
+    "我的笔记/小记.md",
+    "工具使用/Make使用.md",
+    "软件开发/Rust/simple but useful code.md",
     "软件开发/Rust/构建多线程web服务器.md",
+    "Record.md",
+    "软件开发/C++/C++.md",
+    "软件开发/C++/clang-format.md",
+    "工具使用/docker使用.md",
+    "工具使用/Linux笔记.md",
     "软件开发/Rust/14. 进阶.md",
     "软件开发/Rust/13.并发.md",
-    "软件开发/Rust/simple but useful code.md",
     "软件开发/Rust/12.智能指针.md",
     "软件开发/Rust/11.闭包和迭代器.md",
     "软件开发/Rust/9.Trait.md",
@@ -208,13 +216,6 @@
     "工具使用/gdb常用命令.md",
     "工具使用/tmux.md",
     "人工智能/深度学习/卷积神经网络/卷积神经网络基础.md",
-    "人工智能/Pytorch使用.md",
-    "人工智能/Code-人工智能.md",
-    "其他/MIT6.S081 操作系统/4. Lab Traps.md",
-    "软件开发/Rust/0.安装Rust和Hello,World.md",
-    "我的笔记/小记.md",
-    "其他/CSAPP/异常.md",
-    "软件开发/C/ELF文件结构.md",
     "人工智能/深度学习/Python-matplotlib画图.pdf",
     "人工智能/Picture/Pasted image 20230926193355.png",
     "人工智能/机器学习/pdf_file/4. [上] 线性回归 .pdf",
