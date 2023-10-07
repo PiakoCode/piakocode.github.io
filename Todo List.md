@@ -32,7 +32,7 @@
 
 - [ ] 复习高数 10月 start
 - [ ] 复习线性代数
-
+- [ ] 微分算子法
 
 
 https://fengmuzi2003.gitbook.io/csapp3e/#you-qing-zan-zhu

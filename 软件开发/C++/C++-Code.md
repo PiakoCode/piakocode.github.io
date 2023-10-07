@@ -86,3 +86,94 @@ String& String::operator=(const String &str)
     return *this;
 }
 ```
+
+String.cpp
+```cpp
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <ostream>
+#include "String.hpp"
+
+String::String(const char *str)
+{
+    if (str == nullptr)
+    {
+        m_size = 0;
+        m_data = new char[1];
+        m_data[0] = '\0';
+    }
+    else
+    {
+        m_size = strlen(str);
+        m_data = new char[m_size+1];
+        strcpy(m_data, str);
+    }
+}
+
+String::String(const String &str) {
+    m_size = str.m_size;
+    m_data = new char[m_size];
+    strcpy(m_data, str.m_data);
+}
+
+String::~String() {
+    delete [] m_data;
+}
+
+String& String::operator=(const String &str) {
+    if (this != &str) {
+        String strTemp(str);
+
+        char* pTemp = strTemp.m_data;
+        strTemp.m_data = m_data;
+        m_data = pTemp;
+
+    }
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& stream, const String &str) {
+    stream<<str.m_data;
+    return stream;
+}
+```
+
+String.hpp
+```cpp
+#include <ostream>
+class String
+{
+  private:
+    char *m_data;
+    int m_size;
+
+  public:
+    String(const char *str = nullptr);
+    String(const String &str);
+
+    String &operator=(const String &str);
+    friend std::ostream& operator<<(std::ostream &stream, const String &str);
+    
+    ~String();
+};
+
+
+```
+
+main.cpp
+```cpp
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include "string/String.hpp"
+
+
+int main()
+{
+    String a = "asdfadsf";
+    std::cout<<a<<std::endl;
+    return 0;
+}
+```

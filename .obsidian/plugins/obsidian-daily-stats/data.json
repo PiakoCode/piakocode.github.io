@@ -27,24 +27,13 @@
     "2023/9/3": 484,
     "2023/9/4": 1,
     "2023/9/5": 387,
-    "2023/9/6": 551
+    "2023/9/6": 2685,
+    "2023/9/7": 165
   },
   "todaysWordCount": {
-    "Record.md": {
-      "initial": 12,
-      "current": 31
-    },
-    "软件开发/Rust/simple but useful code.md": {
-      "initial": 80,
-      "current": 80
-    },
-    "工具使用/CMake使用.md": {
-      "initial": 1,
-      "current": 290
-    },
-    "工具使用/Make使用.md": {
-      "initial": 0,
-      "current": 243
+    "软件开发/C++/C++-Code.md": {
+      "initial": 361,
+      "current": 526
     }
   }
 }
