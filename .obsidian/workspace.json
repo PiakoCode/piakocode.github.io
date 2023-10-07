@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "软件开发/C++/C++.md",
+                "file": "Record.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "af86214f4289c0e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Readme.md.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -48,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "C++",
+                "query": "docker",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -77,8 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281,
-    "collapsed": true
+    "width": 281
   },
   "right": {
     "id": "780603ec7a00ca36",
@@ -94,7 +106,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "软件开发/C++/C++.md"
+                "file": "Readme.md.md"
               }
             }
           },
@@ -104,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "软件开发/C++/C++.md",
+                "file": "Readme.md.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "软件开发/C++/C++.md",
+                "file": "Readme.md.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -187,10 +199,13 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "8c5b371e2530f818",
+  "active": "af86214f4289c0e0",
   "lastOpenFiles": [
-    "软件开发/C++/C++-Code.md",
+    "Record.md",
+    "Readme.md.md",
+    "工具使用/docker使用.md",
     "软件开发/C++/C++.md",
+    "软件开发/C++/C++-Code.md",
     "人工智能/深度学习/深度学习.md",
     "人工智能/深度学习/卷积神经网络/卷积神经网络基础.md",
     "人工智能/Pytorch使用.md",
@@ -199,14 +214,12 @@
     "其他/CMU15445/CMU-15-445-spring2023通关记录.md",
     "其他/CMU15445",
     "工具使用/Linux笔记.md",
-    "工具使用/docker使用.md",
     "工具使用/CMake使用.md",
     "Todo List.md",
     "我的笔记/小记.md",
     "工具使用/Make使用.md",
     "软件开发/Rust/simple but useful code.md",
     "软件开发/Rust/构建多线程web服务器.md",
-    "Record.md",
     "软件开发/C++/clang-format.md",
     "软件开发/Rust/14. 进阶.md",
     "软件开发/Rust/13.并发.md",
@@ -216,7 +229,6 @@
     "软件开发/Rust/8.泛型.md",
     "软件开发/Rust/7.错误处理.md",
     "软件开发/Rust/6.模块.md",
-    "软件开发/Rust/5.常见集合(Vec、string、map).md",
     "人工智能/Picture/Pasted image 20230926193355.png",
     "人工智能/机器学习/pdf_file/4. [上] 线性回归 .pdf",
     "人工智能/机器学习/pdf_file/3. KNN.pdf",
