@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md.md",
+                "file": "软件开发/C++/C++.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,7 +106,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Readme.md.md"
+                "file": "软件开发/C++/C++.md"
               }
             }
           },
@@ -116,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Readme.md.md",
+                "file": "软件开发/C++/C++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Readme.md.md",
+                "file": "软件开发/C++/C++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,8 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 332.5,
-    "collapsed": true
+    "width": 332.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -201,11 +200,16 @@
   },
   "active": "af86214f4289c0e0",
   "lastOpenFiles": [
-    "Record.md",
-    "Readme.md.md",
-    "工具使用/docker使用.md",
-    "软件开发/C++/C++.md",
     "软件开发/C++/C++-Code.md",
+    "软件开发/Java/SpringBoot/SpringBoot笔记（一）核心内容.md",
+    "软件开发/Java/SpringCloud/SpringCould笔记（二）.md",
+    "软件开发/Jwt结构.md",
+    "软件开发/架构.md",
+    "软件开发/Debug个人经验.md",
+    "软件开发/C++/C++.md",
+    "Record.md",
+    "README.md",
+    "工具使用/docker使用.md",
     "人工智能/深度学习/深度学习.md",
     "人工智能/深度学习/卷积神经网络/卷积神经网络基础.md",
     "人工智能/Pytorch使用.md",
@@ -224,11 +228,6 @@
     "软件开发/Rust/14. 进阶.md",
     "软件开发/Rust/13.并发.md",
     "软件开发/Rust/12.智能指针.md",
-    "软件开发/Rust/11.闭包和迭代器.md",
-    "软件开发/Rust/9.Trait.md",
-    "软件开发/Rust/8.泛型.md",
-    "软件开发/Rust/7.错误处理.md",
-    "软件开发/Rust/6.模块.md",
     "人工智能/Picture/Pasted image 20230926193355.png",
     "人工智能/机器学习/pdf_file/4. [上] 线性回归 .pdf",
     "人工智能/机器学习/pdf_file/3. KNN.pdf",
