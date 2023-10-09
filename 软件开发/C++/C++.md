@@ -566,3 +566,21 @@ int main()
     return 0;
 }
 ```
+
+
+
+## 并发编程
+
+在C++中，有多种方法可以实现并发编程。以下是一些常见的方法：
+
+1. 多线程：使用线程库（如std::thread）创建多个线程来并发执行任务。
+2. 互斥锁：使用互斥锁（如std::mutex）来保护共享资源，以避免多个线程同时访问导致的数据竞争。
+3. 条件变量：使用条件变量（如std::condition_variable）可以实现线程间的同步和通信。
+4. 原子操作：使用原子操作（如std::atomic）来保证对共享数据的原子性操作，避免出现数据竞争。
+5. 异步编程：使用异步任务（如std::async）来实现任务的异步执行，可以在任务完成之前继续执行其他任务。
+6. 并行算法：使用并行算法（如std::for_each、std::transform等）可以并发地处理大量数据。
+
+
+详情参见 
+English:[Concurrency support library (since C++11) - cppreference.com](https://en.cppreference.com/w/cpp/thread)
+Chinese:[并发支持库 - cppreference.com](https://zh.cppreference.com/w/cpp/thread)
