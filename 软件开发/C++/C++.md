@@ -584,3 +584,140 @@ int main()
 详情参见 
 English:[Concurrency support library (since C++11) - cppreference.com](https://en.cppreference.com/w/cpp/thread)
 Chinese:[并发支持库 - cppreference.com](https://zh.cppreference.com/w/cpp/thread)
+
+
+### thread
+
+```cpp
+#include <iostream>
+#include <thread>
+
+using namespace std;
+
+// basic_thread
+
+int x = 0;
+
+auto add_x() {
+    for (int i = 1; i <= 10000; i++) {
+        x += 1;
+    }
+}
+
+auto print() {
+    cout<<"value: "<<x<<endl;
+} 
+
+
+
+auto main() -> int {
+    const int numThreads = 10000;
+    thread threads[numThreads];
+
+    for (int i = 0; i < numThreads; i++) {
+        threads[i] = thread(add_x);
+    }
+
+    for (int i = 0;i<numThreads; i++) {
+        threads[i].join();
+    }
+
+    print();
+    return 0;
+}
+```
+
+
+### mutex
+
+```cpp
+#include <iostream>
+#include <mutex>
+#include <thread>
+
+using namespace std;
+
+// basic_mutex
+
+mutex m_lock;
+
+int x = 0;
+
+auto add_x() {
+    m_lock.lock();
+    for (int i = 1; i <= 10000; i++) {
+        x += 1;
+    }
+    m_lock.unlock();
+}
+
+auto print() {
+    cout<<"value: "<<x<<endl;
+} 
+
+
+
+auto main() -> int {
+    const int numThreads = 10000;
+    thread threads[numThreads];
+
+    for (int i = 0; i < numThreads; i++) {
+        threads[i] = thread(add_x);
+    }
+
+    for (int i = 0;i<numThreads; i++) {
+        threads[i].join();
+    }
+
+    print();
+    return 0;
+}
+```
+
+### condition_variable
+
+```cpp
+#include <condition_variable>
+#include <iostream>
+#include <mutex>
+#include <thread>
+
+using namespace std;
+
+
+int x = 0;
+
+condition_variable cv;
+mutex m; 
+
+auto add_x() {
+    unique_lock<mutex> lock(m);
+    for (int i = 1; i <= 10000; i++) {
+        x += 1;
+    }
+    cv.notify_all();
+}
+
+auto print() {
+    cout<<"value: "<<x<<endl;
+} 
+
+
+
+auto main() -> int {
+
+    const int numThreads = 10000;
+    thread threads[numThreads];
+
+    for (int i = 0; i < numThreads; i++) {
+        threads[i] = thread(add_x);
+    }
+
+    for (int i = 0;i<numThreads; i++) {
+        threads[i].join();
+    }
+
+    print();
+    return 0;
+}
+```
