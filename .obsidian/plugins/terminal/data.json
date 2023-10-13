@@ -7,7 +7,6 @@
   "focusOnNewInstance": true,
   "hideStatusBar": "focused",
   "language": "zh-Hans",
-  "lastReadChangelogVersion": "3.12.3",
   "newInstanceBehavior": "newHorizontalSplit",
   "noticeTimeout": 5,
   "openChangelogOnUpdate": true,
@@ -78,6 +77,5 @@
       "type": "integrated",
       "useWin32Conhost": true
     }
-  },
-  "recovery": {}
+  }
 }

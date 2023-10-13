@@ -96,7 +96,7 @@ var EditorWidthSlider = class extends import_obsidian.Plugin {
     else {
       styleElement.innerText = `
 			body {
-			  	--file-line-width: calc(700px + 10 * ${this.settings.sliderPercentage}px);
+			  	--file-line-width: calc(700px + 10 * ${this.settings.sliderPercentage}px) !important;
 			}
 		`;
     }

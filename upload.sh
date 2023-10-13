@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+# 笔记备份脚本
+# 每周五-12点进行备份
+
+
+
 BLUE='\033[1;34m'  # 蓝色
 GREEN='\033[0;32m' # 绿色
 NC='\033[0m'       # 恢复默认颜色
@@ -20,4 +25,4 @@ git push gitee main
 
 echo -e "\n${BLUE}git push github${NC}\n"
 git push github main
-echo -e "${GREEN}-----Push complete!-----\n${NC}"
+echo -e "${GREEN}-----Push Complete!-----\n${NC}"
