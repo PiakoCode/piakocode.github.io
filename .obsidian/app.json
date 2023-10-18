@@ -11,5 +11,7 @@
   "readableLineLength": true,
   "showUnsupportedFiles": false,
   "showIndentGuide": true,
-  "rightToLeft": false
+  "rightToLeft": false,
+  "showLineNumber": false,
+  "promptDelete": false
 }

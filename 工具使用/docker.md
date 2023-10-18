@@ -1,18 +1,25 @@
 # docker 使用
 
+## 基本使用
 
 将docker添加到用户组
-```
+```shell
 # sudo
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp - docker
 ```
 
+搜索镜像
+```
+docker search [keyword]
+```
+
+
 
 创建一个容器，并可以使用bash交互
 ```shell
-docker run -it 镜像名 bash
+docker run -it <image> bash
 ```
 
 列出容器
@@ -31,24 +38,30 @@ docker ps -a
 docker image ls 
 ```
 
-运行镜像, 端口映射到80
+运行镜像, 创建容器，端口映射到80
 ```shell
 docker run -p 80:8080 <image>
 ```
 
+创建一个容器并后台运行
+```shell
+docker run -d [image]
+```
+
+
 获取并查看容器的日志
 ```shell
-docker logs -f 容器名称
+docker logs -f <container>
 ```
 
 修改docker默认使用的shell(需要容器正在运行)
 ```shell
-docker exec -it 容器名 /bin/bash
+docker exec -it <container> /bin/bash
 ```
 
 本地目录挂载到docker容器目录
 ```shell
-docker run -v /本地文件夹路径:/容器内目标路径 镜像名称
+docker run -v /本地文件夹路径:/容器内目标路径 <image>
 ```
 
 指定容器内命令的工作目录
@@ -74,4 +87,11 @@ apt update;\
 apt upgrade -y;\
 apt install -y curl sudo ssh vim fish neofetch tree make git gcc gdb build-essential htop wget python3 tmux;
 
+```
+
+
+## Dockerfile
+
+```shell
+docker build --tag <image-name>:<image-version> -f /path/to/Dockefile .
 ```

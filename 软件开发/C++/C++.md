@@ -1,6 +1,32 @@
 # C++
 
 #基础
+
+## 构造函数
+
+```cpp
+struct S {
+    // 我不想自己写默认构造函数，就按照预置的来就行
+    S() = default;
+    // 默认初始化所有成员（调用默认构造或不初始化）
+
+
+    // 我也不想自己写复制构造函数，就按照预置的来就行
+    S(const S&) = default;
+    // 复制初始化所有成员（调用复制构造或直接复制）
+
+    S(/* 其它构造函数 */) { /* [...] */ }
+};
+```
+
+
+```cpp
+struct S {
+    // 不许生成默认构造函数
+    S() = delete;
+};
+```
+
 ## static 静态变量
 
 当声明一个静态方法或者静态变量，这个静态方法或静态变量只能在该cpp文件中使用，而不能够被其他cpp文件所使用。除非两个文件声明了两个名字相同的变量，并都为静态变量
@@ -535,8 +561,22 @@ String second = str;
 `.reserve()` 设定vector大小
 `.emplace_back()` 用设定的参数构造对象，比`.push_back()`效率更高
 
+C++17前
+```cpp
+std::vector<int> v = {4, 3, 2, 1};
+```
+
+C++17后
+```cpp
+std::vector<int> v = {4, 3, 2, 1}; // CTAD 编译期参数推断
+```
+
+
+
 
 ## Template 模板
+
+[模版实战](模版实战.md)
 
 ```
 template <typename T>
@@ -545,6 +585,10 @@ void func(T value)
     
 }
 ```
+
+>[!note]
+>`template <class T>` 和 `template <typename T>` **完全**等价
+
 
 只有调用Template时，才会在编译时真正生成Template的代码。
 
@@ -568,6 +612,182 @@ int main()
 ```
 
 
+### 自动推导参数类型
+
+```cpp
+template <typename T>
+void my_swap(T &a, T &b) // 非优先调用
+{
+    auto temp = a;
+    a = b;
+    b = temp;
+}
+```
+
+
+### 特化的重载
+
+```cpp
+#include <iostream>
+
+template <typename  T>
+T twice(T t) {
+    return t * 2;
+}
+
+std::string twice(std::string t) {
+    return t + t;
+}
+
+int main() {
+    std::cout<<twice(2.3)<<std::endl;
+    std::cout<<twice(std::string("Hello"))<<std::endl; // 不会隐式转换
+    return 0;
+}
+```
+
+[C++模板进阶指南：SFINAE - 知乎](https://zhuanlan.zhihu.com/p/21314708)
+
+
+### 默认参数类型
+
+如果模板类型参数 T 没有出现在函数的参数中，那么编译器就无法推断，就不得不手动指定
+```cpp
+template <typename  T = int>
+T two() {
+    return 2;
+}
+
+int main() {
+    std::cout<<two()<<std::endl;
+    return 0;
+}
+```
+
+### 模版参数（只支持整数）
+
+```cpp
+template <int N>
+void echo_times(std::string str)
+{
+    for (int i = 0; i < N; i++)
+    {
+        std::cout << str << std::endl;
+    }
+}
+
+int main()
+{
+    echo_times<3>("Hello");
+    return 0;
+}
+```
+
+
+## 常用数值算法
+### for_each
+
+```cpp
+int sum = 0;
+
+void func(int value)
+{
+    sum += value;
+}
+
+int main()
+{
+    std::vector<int> v = {4, 3, 2, 1};
+    std::for_each(v.begin(), v.end(), func);
+    std::cout << sum << std::endl; // 10
+
+    return 0;
+}
+```
+
+### reduce
+
+c++17引入
+
+```cpp
+int main()
+{
+    std::vector<int> v = {4, 3, 2, 1};
+
+    int sum = std::reduce(v.begin(), v.end());
+    std::cout << sum << std::endl; // 10
+
+    return 0;
+}
+```
+
+```cpp
+#include <iostream>
+#include <numeric>
+#include <vector>
+
+int main()
+{
+    std::vector<int> v = {4, 3, 2, 1};
+
+    int sum = std::reduce(v.begin(), v.end(),0,std::plus());
+    std::cout << sum << std::endl; // 10
+
+    return 0;
+}
+```
+
+
+## lambda 表达式
+
+lambda表达式的一般形式如下：
+```cpp
+[capture-list](parameters) -> return-type {
+    // 函数体
+}
+```
+在`capture-list`中，可以指定一组变量，这些变量可以在lambda表达式中被捕获并在函数体中使用。捕获可以是按值（`[=]`）或按引用（`[&]`）进行。当然，还有其他的捕获方式，如按值捕获单个变量（`[x]`）或按引用捕获单个变量（`[&x]`）等。
+
+`parameters`是lambda表达式的参数列表，可以指定参数的类型，也可以使用`auto`进行类型推断。
+
+`return-type`是返回类型，可以使用`auto`进行类型推断，也可以显式指定。
+
+
+```cpp
+int main()
+{
+    std::vector<int> v = {4, 3, 2, 1};
+    
+    int sum = 0;
+    
+    std::for_each(v.begin(), v.end(),[&] (int value){
+        sum += value;
+    });
+    std::cout << sum << std::endl;
+
+    return 0;
+}
+```
+
+
+C++14的lambda表达式允许使用auto
+```cpp
+int main()
+{
+    std::vector<int> v = {4, 3, 2, 1};
+    
+    int sum = 0;
+    
+    std::for_each(v.begin(), v.end(),[&] (auto value){
+        sum += value;
+    });
+    std::cout << sum << std::endl;
+
+    return 0;
+}
+```
+
+
 
 ## 并发编程
 
@@ -585,7 +805,7 @@ int main()
 English:[Concurrency support library (since C++11) - cppreference.com](https://en.cppreference.com/w/cpp/thread)
 Chinese:[并发支持库 - cppreference.com](https://zh.cppreference.com/w/cpp/thread)
 
-
+[C++多线程并发基础入门教程](https://www.zhihu.com/tardis/zm/art/194198073)
 ### thread
 
 ```cpp
@@ -615,11 +835,11 @@ auto main() -> int {
     thread threads[numThreads];
 
     for (int i = 0; i < numThreads; i++) {
-        threads[i] = thread(add_x);
+        threads[i] = thread(add_x); // thread构造函数的第一个参数为函数名，之后的参数为这个函数的参数
     }
 
     for (int i = 0;i<numThreads; i++) {
-        threads[i].join();
+        threads[i].join(); // 对线程进行阻塞
     }
 
     print();
@@ -627,7 +847,43 @@ auto main() -> int {
 }
 ```
 
+**detach()**
 
+`.detach()`方法用于将线程与主线程分离。一旦线程被分离，它就可以独立运行，不再与主线程关联。主线程不会等待被分离的线程结束，也无法获取被分离线程的返回值。
+
+下面是一个示例：
+
+```cpp
+#include <iostream>
+#include <thread>
+
+void threadFunction() {
+    std::cout << "子线程开始运行" << std::endl;
+    // 线程执行一些任务
+    // ...
+    std::cout << "子线程结束" << std::endl;
+}
+
+int main() {
+    std::cout << "主线程开始" << std::endl;
+    std::thread myThread(threadFunction);
+
+    myThread.detach(); // 分离线程
+
+    std::cout << "主线程结束" << std::endl;
+    return 0;
+}
+```
+
+在上述示例中，主线程创建了一个名为`myThread`的子线程，并使用`.detach()`将其分离。主线程继续执行，不会等待子线程结束。因此，当主线程执行完毕后，程序会立即终止，而不管子线程是否执行完毕。当子线程的任务完成后，它会自动退出。
+
+这会使程序不发生如下错误
+```
+terminate called without an active exception
+[2]    132526 IOT instruction (core dumped)
+```
+
+但可能访问已经销毁的变量、造成更严重的风险
 ### mutex
 
 ```cpp
@@ -649,6 +905,13 @@ auto add_x() {
         x += 1;
     }
     m_lock.unlock();
+}
+
+auto add_xx() {
+    lock_guard<std::mutex> lock(m_lock);
+    for (int i = 1; i <= 10000; i++) {
+        x += 1;
+    }
 }
 
 auto print() {
@@ -676,48 +939,79 @@ auto main() -> int {
 
 ### condition_variable
 
+条件变量通常与互斥锁（mutex）一起使用，以确保线程之间的正确同步。互斥锁用于保护共享数据的访问，而条件变量用于线程之间的等待和唤醒通知。
+C++中的条件变量主要由以下两个类组成：
+
+1. `std::condition_variable`：条件变量类，用于等待和唤醒线程。
+2. `std::condition_variable_any`：通用条件变量类，可以与任何互斥量一起使用。
+
+
+使用条件变量，需要进行以下步骤：
+
+1. 创建一个条件变量对象。
+2. 创建一个互斥锁对象来保护共享数据。
+3. 在等待线程中，使用互斥锁和条件变量的 `wait()` 函数等待满足条件。
+4. 在唤醒线程中，用互斥锁锁定共享数据，然后使用条件变量的 `notify_one()` 或 `notify_all()` 函数唤醒等待线程。
+5. 在等待线程被唤醒后，重新获取互斥锁，然后检查条件是否满足，如果不满足，则继续等待。
+
+
+`wait()`: 线程调用`wait()`方法后，会进入等待状态，直到其他线程调用了`notify_one()`或`notify_all()`方法来唤醒它。
+
+`notify_one()`: 唤醒一个等待在条件变量上的线程。
+
+`notify_all()`: 唤醒所有等待在条件变量上的线程。
+
+
+下面是一个简单的示例代码，演示了如何使用条件变量：
 ```cpp
-#include <condition_variable>
 #include <iostream>
-#include <mutex>
+#include <queue>
 #include <thread>
+#include <condition_variable>
 
-using namespace std;
+std::queue<int> data_queue;
+std::mutex mtx;
+std::condition_variable cond;
 
-
-int x = 0;
-
-condition_variable cv;
-mutex m; 
-
-auto add_x() {
-    unique_lock<mutex> lock(m);
-    for (int i = 1; i <= 10000; i++) {
-        x += 1;
+void producer()
+{
+    for (int i = 1; i <= 10; ++i) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));  // 模拟生产时间
+        std::lock_guard<std::mutex> lock(mtx);
+        data_queue.push(i);
+        std::cout << "Produced: " << i << std::endl;
+        cond.notify_all();  // 通知等待的消费者线程
     }
-    cv.notify_all();
 }
 
-auto print() {
-    cout<<"value: "<<x<<endl;
-} 
-
-
-
-auto main() -> int {
-
-    const int numThreads = 10000;
-    thread threads[numThreads];
-
-    for (int i = 0; i < numThreads; i++) {
-        threads[i] = thread(add_x);
+void consumer()
+{
+    while (true) {
+        std::unique_lock<std::mutex> lock(mtx); // 使wait时，线程处于阻塞状态
+        cond.wait(lock, []{ return !data_queue.empty(); });  // 等待条件满足
+        int data = data_queue.front();
+        data_queue.pop();
+        std::cout << "Consumed: " << data << std::endl;
     }
+}
 
-    for (int i = 0;i<numThreads; i++) {
-        threads[i].join();
-    }
+int main()
+{
+    std::thread producer_thread(producer);
+    std::thread consumer_thread(consumer);
 
-    print();
+    producer_thread.join();
+    consumer_thread.join();
+
     return 0;
 }
 ```
+
+在这个示例中，生产者线程通过循环不断地生产数据，并使用条件变量通知等待的消费者线程。消费者线程在消费数据前等待条件变量的满足，一旦满足就消费数据。两个线程通过互斥量mtx对共享资源data_queue进行保护，保证数据的正确访问。
+
+
+`.notify_all()` 唤醒所有等待的线程
+
+`.notify_one()`  随机唤醒一个等待的线程
+
+`wait()` 

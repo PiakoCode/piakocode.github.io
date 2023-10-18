@@ -67,6 +67,36 @@ realpath FILE(traget)  --relative-to=FILE(current)
 
 [Linux获取两个路径之间的相对路径](https://www.cnblogs.com/jmliao/p/12400597.html)
 
+ln：
+  - 创建指向文件或目录的符号链接：
+    ln -s /路径/到/文件或目录 路径/到/符号链接
+
+  - 覆盖现有的符号链接以指向其他文件：
+    ln -sf /路径/到/新文件 路径/到/符号链接
+
+  - 创建文件的硬链接：
+    ln /路径/到/文件 路径/到/硬链接
+
+
+软链接类似于Windows的快捷方式
+
+而对于硬链接类似于一种clone，原文件被修改也会同步到硬链接上，但删除不会。
+硬链接不能链接目录，只能链接文件。
+
+
+**scp 传输文件**
+
+```shell
+scp 本地文件路径 remote_username@remote_ip:remote_文件名 # 本地文件复制到远程
+
+scp remote_username@remote_ip:remote_文件名 本地文件路径 # 远程文件复制到本地
+```
+
+使用方式类似于`cp`
+
+`-r` 递归复制目录
+
+
 ## 好用的工具
 
 `cloc` 统计代码行数

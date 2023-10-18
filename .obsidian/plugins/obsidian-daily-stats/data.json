@@ -32,12 +32,44 @@
     "2023/9/8": 259,
     "2023/9/10": 34,
     "2023/9/11": 400,
-    "2023/9/13": 0
+    "2023/9/13": 971,
+    "2023/9/14": 1761,
+    "2023/9/15": 942,
+    "2023/9/16": 5,
+    "2023/9/17": 969
   },
   "todaysWordCount": {
-    "软件开发/C++/C++-Code.md": {
-      "initial": 526,
-      "current": 526
+    "工具使用/Linux笔记.md": {
+      "initial": 534,
+      "current": 599
+    },
+    "工具使用/docker.md": {
+      "initial": 306,
+      "current": 341
+    },
+    "工具使用/tmux.md": {
+      "initial": 123,
+      "current": 154
+    },
+    "工具使用/Nginx.md": {
+      "initial": 5,
+      "current": 165
+    },
+    "工具使用/MongoDB.md": {
+      "initial": 0,
+      "current": 77
+    },
+    "工具使用/Make.md": {
+      "initial": 243,
+      "current": 243
+    },
+    "我的笔记/RISC-V.md": {
+      "initial": 0,
+      "current": 39
+    },
+    "我的笔记/RISC-V/RISC-V.md": {
+      "initial": 44,
+      "current": 606
     }
   }
 }

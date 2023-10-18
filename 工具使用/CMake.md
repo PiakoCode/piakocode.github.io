@@ -108,3 +108,21 @@ aux_source_directory(. DIR_LIB_SRCS)
 # 生成链接库
 add_library(StringFunctions ${DIR_LIB_SRCS})
 ```
+
+CMakeLists.txt
+```cmake
+cmake_minimum_required(VERSION 3.10)
+
+project(hello)
+
+
+aux_source_directory(. DIR_SRCS)
+
+# 添加String子目录
+add_subdirectory(String)
+
+add_executable(hello main.cpp)
+
+# 添加链接库
+target_link_libraries(hello StringFunctions)
+```
