@@ -56,6 +56,8 @@ git config --global init.defaultBranch <名称>
 ```
 
 
+**.gitignore**
+
 
 
 

@@ -102,3 +102,7 @@ scp remote_username@remote_ip:remote_文件名 本地文件路径 # 远程文件
 `cloc` 统计代码行数
 
 `ncdu` 查看文件(夹)占用空间
+
+`hyperfine` benchmark工具
+
+`valgrind` C++应用内存泄露检查

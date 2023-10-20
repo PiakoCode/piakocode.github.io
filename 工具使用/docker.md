@@ -54,11 +54,6 @@ docker run -d [image]
 docker logs -f <container>
 ```
 
-修改docker默认使用的shell(需要容器正在运行)
-```shell
-docker exec -it <container> /bin/bash
-```
-
 本地目录挂载到docker容器目录
 ```shell
 docker run -v /本地文件夹路径:/容器内目标路径 <image>
@@ -69,14 +64,20 @@ docker run -v /本地文件夹路径:/容器内目标路径 <image>
 docker run -w /app myimage 命令
 ```
 
-`-w`选项仅影响容器内部的命令。它不会改变容器本身的工作目录。
-
+> `-w`选项仅影响容器内部的命令。它不会改变容器本身的工作目录。
 
 
 docker run
 
 -i 允许输入输出
 -t 给予容器一个tty
+
+
+修改docker默认使用的shell(需要容器正在运行)
+```shell
+docker exec -it <container> /bin/bash
+```
+
 
 
 Ubuntu docker开发环境快速配置
