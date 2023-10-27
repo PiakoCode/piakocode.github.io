@@ -1,23 +1,29 @@
-## 2023.9.15
+## 2023.9
+### 9.15
 
 1. pandoc
 2. rust 3/4
 3. java spring
 
-## 2023.10.6
+## 2023.10
+### 10.6
 
 1. java springboot
 2. 深度学习.卷积神经网络
 3. rust
 
-## 2023.10.13
+### 10.13
 
 1. Rustlings 100/100 耗时2天
 2. C++ 模版、并发编程 -- 基础
 3. CMU15445 project 0
 4. CMake入门
 
-## 2023.10.20
+### 10.20
 
 1. A Simple Database 6/14
 2. nginx 入门
+
+### 10.27
+
+1. A Simple Database 8/14

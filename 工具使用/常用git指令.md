@@ -37,17 +37,17 @@ ssh-keygen -t rsa -C "github上注册的电子邮箱"              # 生成SSH
 
 ```bash
 git pull      					  # 下载远程代码并合并
+git pull origin ${branch_name}
+```
+
+```shell
+git fetch
 ```
 
 ```bash
 git push      				      # 上传文件至远程库
 git push origin ${branch_name}
 git push origin master            # 上传文件至名为origin的远程库的master分支
-```
-
-```shell
-git pull
-git pull origin ${branch_name}
 ```
 
 ```bash
