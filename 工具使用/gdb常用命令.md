@@ -96,3 +96,5 @@ x/g 0x80000000 # 查看0x80000000地址处的值（g表示值的长度有64位�
 
 
 推荐安装`gdb-dashboard`
+
+[GitHub - cyrus-and/gdb-dashboard: Modular visual interface for GDB in Python](https://github.com/cyrus-and/gdb-dashboard)

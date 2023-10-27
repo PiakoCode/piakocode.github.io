@@ -126,3 +126,22 @@ add_executable(hello main.cpp)
 # 添加链接库
 target_link_libraries(hello StringFunctions)
 ```
+
+
+## vscode + cmake命令行参数debug
+
+1. 在.vscode文件夹里新建一个`settings.json`
+2. 粘贴以下参数
+
+```json
+{
+    "cmake.debugConfig": {
+        "args": [
+            "-code",
+            "8"
+        ]
+    }
+}
+```
+
+就相当于命令行参数 -code 8

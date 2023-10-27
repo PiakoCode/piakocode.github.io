@@ -19,4 +19,5 @@
 
 ## 2023.10.20
 
-一事无成
+1. A Simple Database 6/14
+2. nginx 入门

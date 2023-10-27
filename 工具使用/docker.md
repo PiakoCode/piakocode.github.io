@@ -69,16 +69,29 @@ docker run -w /app myimage 命令
 
 docker run
 
--i 允许输入输出
+-i 获取STDIN
 -t 给予容器一个tty
 
+重启容器
+```shell
+docker restart <container> 
+```
 
-修改docker默认使用的shell(需要容器正在运行)
+
+修改docker默认使用的shell(需要容器正在运行)，退出后容器不会停止运行
 ```shell
 docker exec -it <container> /bin/bash
 ```
 
+```shell
+docker exec -it <container> /bin/bash -c "apt update" # 打开容器，并执行'apt update',随后退出
+docker exec -it <container> /bin/bash -c "apt update; bash" # 打开容器，并执行'apt update',随后不会退出
+```
 
+连接容器（退出后，容器便会停止运行）
+```shell
+docker attach <container>
+```
 
 Ubuntu docker开发环境快速配置
 

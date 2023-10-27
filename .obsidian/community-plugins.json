@@ -4,7 +4,6 @@
   "templater-obsidian",
   "obsidian-kanban",
   "obsidian-icon-folder",
-  "obsidian-excalidraw-plugin",
   "dataview",
   "table-editor-obsidian",
   "obsidian-admonition",
@@ -21,5 +20,5 @@
   "file-explorer-note-count",
   "obsidian-wakatime",
   "obsidian-file-cleaner",
-  "better-word-count"
+  "obsidian-excalidraw-plugin"
 ]

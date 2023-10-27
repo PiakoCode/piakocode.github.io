@@ -97,6 +97,18 @@ scp remote_username@remote_ip:remote_文件名 本地文件路径 # 远程文件
 `-r` 递归复制目录
 
 
+**环境变量**
+
+```shell
+vim ~/.bashrc
+```
+
+```shell
+export PATH=$PATH:/usr/local/src/python3/bin
+# 或
+export PATH=/usr/local/src/python3/bin:$PATH
+```
+
 ## 好用的工具
 
 `cloc` 统计代码行数

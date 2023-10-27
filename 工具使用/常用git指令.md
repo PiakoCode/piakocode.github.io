@@ -6,18 +6,21 @@ git init					    # 初始化仓库
 
 ```bash
 git add 文件名   				  # 将文件添加到缓存区
+git add .
 ```
 
 ```bash
-git commit -m "添加信息标注" 		# 将缓存区的文件添加到本地仓库
+git commit -m "message" 		# 将缓存区的文件添加到本地仓库
 ```
 
 ```bash
 git status					    # 查看仓库当前的状态
+git status -vv                  # 查看仓库当前的详细状态
 ```
 
 ```bash
 git diff						# 缓存区和工作区文件的差异
+git diff <文件...>              # 缓存区和工作区<文件...>的差异
 ```
 
 ```bash
@@ -38,15 +41,26 @@ git pull      					  # 下载远程代码并合并
 
 ```bash
 git push      				      # 上传文件至远程库
-git push origin master
-```
-
-```bash
-git remote add origin <server>	  # 添加远程服务器
+git push origin ${branch_name}
+git push origin master            # 上传文件至名为origin的远程库的master分支
 ```
 
 ```shell
-git checkout 分支名     # 切换分支
+git pull
+git pull origin ${branch_name}
+```
+
+```bash
+git remote add origin <server>	  # 添加远程服务器的url或路径，并命名为 "origin"
+```
+
+```shell
+git checkout <分支名>     # 切换分支
+git checkout -b <分支名>  # 切换分支(如果该分支不存在，则创建该分支)
+```
+
+```shell
+git cherry-pick ${commit_hash}
 ```
 
 设定初始分支名
@@ -55,9 +69,23 @@ git checkout 分支名     # 切换分支
 git config --global init.defaultBranch <名称>
 ```
 
+`git clone`指定分支
+```shell
+git clone -b {branch_name} {git_url}
+```
+
 
 **.gitignore**
+```
+# 忽略所有文件，除了.cpp、.txt文件、makefile以及.gitignore
 
+*
+
+!*.cpp
+!*.txt
+!makefile
+!.gitignore
+```
 
 
 

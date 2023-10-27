@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "c46831e0c44c5a79",
+        "id": "687297ed6636af67",
         "type": "tabs",
         "children": [
           {
-            "id": "e1076a372a134be7",
+            "id": "e6c6ec406eeaf445",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "工具使用/Linux笔记.md",
+                "file": "软件开发/C++/C++.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "linux",
+                "query": "C++",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281,
-    "collapsed": true
+    "width": 281
   },
   "right": {
     "id": "780603ec7a00ca36",
@@ -95,7 +94,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "工具使用/Linux笔记.md"
+                "file": "软件开发/C++/C++.md"
               }
             }
           },
@@ -105,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "工具使用/Linux笔记.md",
+                "file": "软件开发/C++/C++.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "工具使用/Linux笔记.md",
+                "file": "软件开发/C++/C++.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,12 +164,12 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 332.5,
-    "collapsed": true
+    "width": 332.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,50 +184,50 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false,
       "obsidian-trash-explorer:Open trash explorer": true,
       "templater-obsidian:Templater": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "terminal:Open terminal": true
+      "terminal:Open terminal": true,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e1076a372a134be7",
+  "active": "e6c6ec406eeaf445",
   "lastOpenFiles": [
-    "工具使用/常用git指令.md",
-    "软件开发/C++/clang-format.md",
-    "Record.md",
+    "软件开发/C++/C++-Code.md",
+    "我的笔记/C++库函数.md",
+    "软件开发/C++/C++.md",
+    "我的笔记/rCore/ch1.md",
+    "我的笔记/rCore/ch0.md",
+    "我的笔记/rCore/rCore学习记录/rCore学习记录.md",
+    "工具使用/gdb常用命令.md",
     "Todo List.md",
-    "工具使用/docker.md",
+    "其他/CSAPP/虚拟内存.md",
+    "其他/CSAPP/3.程序的机器级表示.md",
+    "工具使用/常用git指令.md",
     "我的笔记/RISC-V/RISC-V.md",
+    "Excalidraw/Drawing 2023-10-24 20.21.26.excalidraw.md",
+    "工具使用/docker.md",
+    "工具使用/Linux笔记.md",
+    "我的笔记/小记.md",
+    "软件开发/Go/Go项目结构规范.md",
+    "工具使用/tmux.md",
+    "工具使用/Bash 脚本.md",
+    "Excalidraw/链接脚本的结构.md",
+    "我的笔记/rCore/rCore学习记录",
+    "我的笔记/System.md",
+    "Excalidraw",
+    "我的笔记/rCore",
+    "工具使用/CMake.md",
+    "软件开发/Rust/1.Rust基本语法.md",
+    "Record.md",
+    "软件开发/C++/GTest.md",
+    "软件开发/Go/jwt-go.md",
     "我的笔记/RISC-V/Picture/Pasted image 20231017211359.png",
     "我的笔记/RISC-V/Picture",
     "我的笔记/RISC-V",
-    "工具使用/Vim.md",
-    "工具使用/Make.md",
-    "工具使用/MongoDB.md",
-    "工具使用/MySQL指令.md",
-    "工具使用/Nginx.md",
-    "软件开发/前端/HTML笔记.md",
-    "工具使用/tmux.md",
-    "工具使用/Linux笔记.md",
-    "工具使用/CMake.md",
-    "软件开发/C++/GTest.md",
-    "软件开发/C++/C++.md",
-    "人工智能/深度学习/深度学习.md",
-    "人工智能/机器学习/机器学习.md",
-    "软件开发/Rust/2.所有权.md",
-    "软件开发/C/ELF文件结构.md",
-    "人工智能/机器学习/matplotlib/matplotlib.md",
-    "软件开发/Go/gin/上传、下载文件.md",
-    "Excalidraw/Drawing 2023-10-15 12.19.26.excalidraw.md",
-    "软件开发/Rust/0.安装Rust和Hello,World.md",
-    "软件开发/Go/Go基础语法.md",
-    "Excalidraw",
     "Linux-Unix编程手册",
     "Linux编程/TCP-IP网络编程",
     "人工智能/深度学习/Python-matplotlib画图.pdf",
     "其他/CMU15445",
     "人工智能/Picture/Pasted image 20230926193355.png",
     "人工智能/机器学习/pdf_file/4. [上] 线性回归 .pdf",
-    "人工智能/机器学习/pdf_file/3. KNN.pdf",
-    "人工智能/机器学习/pdf_file/2. Seaborn .pdf",
     "Picture/Pasted image 20230711185717.png",
     "人工智能/遇到的问题/Picture/Pasted image 20230724193222.png",
     "人工智能/Picture/Pasted image 20230502235408.png",

@@ -1015,3 +1015,117 @@ int main()
 `.notify_one()`  随机唤醒一个等待的线程
 
 `wait()` 
+
+### scoped_lock
+
+```cpp
+
+// 这个程序提供了使用std::scoped_lock的一个小例子。
+// std::scoped_lock是一个互斥锁的包装类，提供了一种RAII风格的方法来获取和释放锁。
+// 这意味着当对象被构造时，锁被获取，当对象被销毁时，锁被释放。
+
+// 包含用于演示目的的std::cout（打印）。
+#include <iostream>
+// 包含互斥锁库的头文件。
+#include <mutex>
+// 包含线程库的头文件。
+#include <thread>
+
+// 定义一个全局计数变量和两个互斥锁，供两个线程使用。
+int count = 0;
+std::mutex m;
+
+// add_count函数允许一个线程原子地将计数变量加1。
+void add_count() {
+  // std::scoped_lock的构造函数允许线程获取互斥锁m。
+  std::scoped_lock slk(m);
+  count += 1;
+
+  // 一旦add_count函数执行完毕，对象slk就超出了作用域，在其析构函数中释放了互斥锁m。
+}
+
+// main方法与mutex.cpp中的相同。它构造线程对象，对两个线程运行add_count，然后打印执行后的计数结果。
+int main() {
+  std::thread t1(add_count);
+  std::thread t2(add_count);
+  t1.join();
+  t2.join();
+
+  std::cout << "Printing count: " << count << std::endl;
+  return 0;
+}
+```
+
+>scoped_lock是C++11中引入的类模板，可以同时管理多个互斥量。scoped_lock通过构造函数接受多个互斥量，并在构造时对这些互斥量进行加锁操作。在析构时，scoped_lock会对所有已加锁的互斥量进行解锁操作。scoped_lock可以防止忘记解锁互斥量而产生死锁的情况。
+>
+>lock_guard是C++11之前的类，只能管理单个互斥量。lock_guard通过构造函数接受一个互斥量，并在构造时对该互斥量进行加锁操作。在析构时，lock_guard会自动对互斥量进行解锁操作。lock_guard的使用方式更简洁，但只能管理单个互斥量。
+
+
+### Misc
+
+
+读写锁
+```cpp
+/**
+ * @file rwlock.cpp
+ * @author Abigale Kim (abigalek)
+ * @brief C++ STL std::shared_lock 和 std::unique_lock 的教程代码
+ * (特别是将它们用作读写锁)
+ */
+
+// 虽然C++没有专门的读写锁库，但可以使用 std::shared_mutex、std::shared_lock 和 std::unique_lock 库来模拟一个。
+// 这个程序展示了如何使用它们作为读写锁的简单示例。
+
+// std::shared_mutex 是一种允许共享只读锁和独占写锁的互斥锁。std::shared_lock 可以用作 RAII 风格的读锁，
+// std::unique_lock 可以用作 RAII 风格的写锁。scoped_lock.cpp 中介绍了 C++ 中的 RAII 风格锁定。
+
+// 如果你更愿意回顾读写锁的概念和读写器问题，可以参考这里的 15-213/513/613 讲义:
+// https://www.cs.cmu.edu/afs/cs/academic/class/15213-s23/www/lectures/25-sync-advanced.pdf
+
+// 包含 std::cout（打印）仅用于演示目的。
+#include <iostream>
+// 包含互斥锁库头文件。
+#include <mutex>
+// 包含共享互斥锁库头文件。
+#include <shared_mutex>
+// 包含线程库头文件。
+#include <thread>
+
+// 定义一个全局 count 变量和一个共享互斥锁，供所有线程使用。
+// std::shared_mutex 是一种允许共享锁定和独占锁定的互斥锁。
+int count = 0;
+std::shared_mutex m;
+
+// 这个函数使用 std::shared_lock（相当于读锁）来获取只读的共享访问 count 变量，并读取 count 变量的值。
+void read_value() {
+  std::shared_lock lk(m);
+  std::cout << "Reading value " + std::to_string(count) + "\n" << std::flush;
+}
+
+// 这个函数使用 std::unique_lock（相当于写锁）来获取独占访问 count 变量，并修改其值。
+void write_value() {
+  std::unique_lock lk(m);
+  count += 3;
+}
+
+// 主函数创建了六个线程对象，其中两个线程运行 write_value 函数，四个线程运行 read_value 函数，所有线程并行运行。
+// 这意味着输出是不确定的，取决于哪个线程首先获取锁。运行程序几次，看看能否获得不同的输出。
+int main() {
+  std::thread t1(read_value);
+  std::thread t2(write_value);
+  std::thread t3(read_value);
+  std::thread t4(read_value);
+  std::thread t5(write_value);
+  std::thread t6(read_value);
+
+  t1.join();
+  t2.join();
+  t3.join();
+  t4.join();
+  t5.join();
+  t6.join();
+
+  return 0;
+}
+// 输出结果显然不同
+```
