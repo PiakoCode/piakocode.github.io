@@ -68,6 +68,8 @@ add_executable(hello main.cpp)
 ```cmake
 cmake_minimum_required(VERSION 3.10)
 
+set(CMAKE_CXX_STANDARD 17) # 设置C++版本
+
 project(hello)
 
 add_executable(hello main.cpp String.cpp)
@@ -114,6 +116,9 @@ CMakeLists.txt
 cmake_minimum_required(VERSION 3.10)
 
 project(hello)
+
+set(CMAKE_C_STANDARD 17) # 设置C语言版本
+set(CMAKE_CXX_STANDARD 17) # 设置C++版本
 
 
 aux_source_directory(. DIR_SRCS)

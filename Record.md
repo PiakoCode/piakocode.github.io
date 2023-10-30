@@ -27,3 +27,16 @@
 ### 10.27
 
 1. A Simple Database 8/14
+2. rCore进行中
+
+***
+
+## Week 5
+#### 10.28
+- Linux网络编程初步(socket bind) [Linux网络编程](Linux编程/Linux网络编程.md)
+- rCore Lab1
+- Kaggle Titanic competitions(Kaggle基本使用)
+
+#### 10.29
+- simple database 9/14
+- Linux-UNIX 系统编程手册（上） 63/602
