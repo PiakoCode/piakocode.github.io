@@ -87,6 +87,33 @@ git clone -b {branch_name} {git_url}
 !.gitignore
 ```
 
+```
+# Ignore all files
+*
+
+# But don't ignore .cpp and .hpp files
+!*.cpp
+!*.hpp
+!*.h
+!*.c
+!CMakeLists.txt
+!README.md
+
+
+*/*
+
+!.gitignore
+!*/
+
+!**/*.cpp
+!**/*.hpp
+!**/*.h
+!**/*.c
+!**/CMakeLists.txt
+!**/.clang-format
+
+*/build
+```
 
 
 

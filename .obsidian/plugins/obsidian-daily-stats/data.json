@@ -49,12 +49,26 @@
     "2023/9/27": 799,
     "2023/9/28": 993,
     "2023/9/29": 370,
-    "2023/9/30": 0
+    "2023/9/30": 13,
+    "2023/9/31": 40,
+    "2023/10/1": 58
   },
   "todaysWordCount": {
+    "Record.md": {
+      "initial": 151,
+      "current": 169
+    },
+    "System/System.md": {
+      "initial": 199,
+      "current": 199
+    },
     "Todo List.md": {
       "initial": 81,
       "current": 81
+    },
+    "软件开发/C++/C++.md": {
+      "initial": 5145,
+      "current": 5185
     }
   }
 }

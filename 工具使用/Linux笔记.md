@@ -97,7 +97,7 @@ scp remote_username@remote_ip:remote_文件名 本地文件路径 # 远程文件
 `-r` 递归复制目录
 
 
-**环境变量**
+**PATH环境变量**
 
 ```shell
 vim ~/.bashrc
@@ -107,6 +107,13 @@ vim ~/.bashrc
 export PATH=$PATH:/usr/local/src/python3/bin
 # 或
 export PATH=/usr/local/src/python3/bin:$PATH
+```
+
+
+**查看端口占用情况**
+
+```shell
+lsof -i [port]
 ```
 
 ## 好用的工具

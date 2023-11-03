@@ -813,6 +813,27 @@ int main()
 }
 ```
 
+递归
+```cpp
+#include <iostream>
+#include <functional>
+
+int main() {
+    std::function<int(int)> factorial = [&](int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    };
+
+    std::cout << factorial(5) << std::endl;  // 输出120
+
+    return 0;
+}
+```
+```
+
 
 C++14的lambda表达式允许使用auto
 ```cpp

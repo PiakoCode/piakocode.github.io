@@ -58,7 +58,7 @@ func main() {
 
 记得要关闭channel，否则接收方会一直等待channel发送过来的消息
 
-![](Picture/Pasted%20image%2020221222110734.png)
+![](../../算法笔记/Picture/Pasted%20image%2020221222110734.png)
 ```go
 func main() {
 	c := make(chan string)
