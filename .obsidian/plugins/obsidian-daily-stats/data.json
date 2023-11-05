@@ -51,24 +51,14 @@
     "2023/9/29": 370,
     "2023/9/30": 13,
     "2023/9/31": 40,
-    "2023/10/1": 58
+    "2023/10/1": 58,
+    "2023/10/4": 2,
+    "2023/10/5": 779
   },
   "todaysWordCount": {
-    "Record.md": {
-      "initial": 151,
-      "current": 169
-    },
-    "System/System.md": {
-      "initial": 199,
-      "current": 199
-    },
-    "Todo List.md": {
-      "initial": 81,
-      "current": 81
-    },
-    "软件开发/C++/C++.md": {
-      "initial": 5145,
-      "current": 5185
+    "System/rCore/rCore学习记录/rCore学习记录.md": {
+      "initial": 47,
+      "current": 826
     }
   }
 }

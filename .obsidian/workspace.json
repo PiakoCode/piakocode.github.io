@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "System/rCore/ch0.md",
+                "file": "System/rCore/rCore学习记录/rCore学习记录.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "gdb",
+                "query": "if let",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -73,8 +73,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -94,7 +93,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "System/rCore/ch0.md"
+                "file": "System/rCore/rCore学习记录/rCore学习记录.md"
               }
             }
           },
@@ -104,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "System/rCore/ch0.md",
+                "file": "System/rCore/rCore学习记录/rCore学习记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "System/rCore/ch0.md",
+                "file": "System/rCore/rCore学习记录/rCore学习记录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -190,13 +189,23 @@
   },
   "active": "7c096f49ea37c6a6",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2023-11-02 21.18.15.excalidraw.md",
     "System/rCore/ch0.md",
+    "System/rCore/ch1.md",
+    "System/rCore/ch5.md",
+    "System/rCore/rCore学习记录/rCore学习记录.md",
+    "软件开发/Rust/4.枚举和模式匹配.md",
+    "软件开发/Rust/7.错误处理.md",
+    "其他/MIT6.S081 操作系统/4. Lab Traps.md",
+    "其他/MIT6.S081 操作系统/7. Lab.md",
+    "其他/MIT6.S081 操作系统/2. Lab system calls.md",
+    "其他/MIT6.S081 操作系统/1. Lab Utilities.md",
+    "软件开发/Rust/1.Rust基本语法.md",
+    "工具使用/CMake.md",
+    "Excalidraw/Drawing 2023-11-02 21.18.15.excalidraw.md",
     "Excalidraw",
     "工具使用/docker.md",
     "工具使用/gdb常用命令.md",
     "软件开发/C++/C++.md",
-    "工具使用/CMake.md",
     "Todo List.md",
     "obsidian 好用的插件.md",
     "README.md",
@@ -212,17 +221,7 @@
     "Misc",
     "System/rCore/Excalidraw/Drawing 2023-10-24 20.21.26.excalidraw.md",
     "软件开发/C++库函数.md",
-    "System/RISC-V/基本指令.md",
-    "System/RISC-V/RISC-V.md",
-    "System/System.md",
-    "System/RISC-V/测试.md",
-    "System/并发.md",
     "System",
-    "memos/2023-07-11.md",
-    "工具使用/常用git指令.md",
-    "其他/MIT6.S081 操作系统/4. Lab Traps.md",
-    "软件开发/Java/linux安装mysql.md",
-    "Linux编程/Linux网络编程.md",
     "软件开发/Java/install_mysql.sh",
     "System/rCore/rCore学习记录",
     "System/rCore/Excalidraw",
