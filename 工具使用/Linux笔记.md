@@ -110,11 +110,33 @@ export PATH=/usr/local/src/python3/bin:$PATH
 ```
 
 
+## 网络
+
+
+### lsof
+
+
 **查看端口占用情况**
 
 ```shell
-lsof -i [port]
+lsof -i:[port]
 ```
+### netstat
+
+netstat命令用于显示网络连接和路由表信息。
+
+-n：直接使用IP地址，而不通过域名服务器。
+-l：显示监控中的服务器的Socket。
+-t：显示TCP传输协议的连线状况。
+-u：显示UDP传输协议的连线状况。
+-p：显示正在使用Socket的程序识别码和程序名称。
+
+
+显示所有活动的网络连接：
+   ```
+   netstat -a
+   ```
+
 
 ## 好用的工具
 
