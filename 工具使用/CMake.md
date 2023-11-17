@@ -133,6 +133,9 @@ target_link_libraries(hello StringFunctions)
 ```
 
 
+
+
+
 ## vscode + cmake命令行参数debug
 
 1. 在.vscode文件夹里新建一个`settings.json`
@@ -150,3 +153,10 @@ target_link_libraries(hello StringFunctions)
 ```
 
 就相当于命令行参数 -code 8
+
+
+## CMake静态编译
+
+```cmake
+set(CMAKE_EXE_LINKER_FLAGS "-static")
+```

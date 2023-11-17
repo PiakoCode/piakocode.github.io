@@ -8,6 +8,7 @@ tmux new -s <name>
 退出会话
 ```shell
 tmux detach
+ctrl + b -> d
 ```
 
 列出所有会话

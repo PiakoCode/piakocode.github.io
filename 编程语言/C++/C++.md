@@ -782,6 +782,39 @@ int main()
 ```
 
 
+## std::function
+
+```cpp
+#include <iostream>
+#include <functional>
+
+// 定义一个函数
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    // 使用 std::function 封装一个函数指针
+    std::function<int(int, int)> func_ptr = &add;
+    std::cout << func_ptr(3, 4) << std::endl;  // 输出 7
+
+    // 使用 std::function 封装一个 Lambda 表达式
+    std::function<int(int, int)> func_lambda = [](int a, int b) { return a * b; };
+    std::cout << func_lambda(3, 4) << std::endl;  // 输出 12
+
+    // 使用 std::function 封装一个函数对象
+    struct MyAdd {
+        int operator()(int a, int b) {
+            return a + b;
+        }
+    };
+    std::function<int(int, int)> func_obj = MyAdd();
+    std::cout << func_obj(3, 4) << std::endl;  // 输出 7
+
+    return 0;
+}
+```
+
 ## lambda 表达式
 
 lambda表达式的一般形式如下：

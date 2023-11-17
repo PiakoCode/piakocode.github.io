@@ -1,4 +1,17 @@
-@charset "UTF-8";
+/*===============================================================
+                           AnuPpuccin
+                           ----------
+                  Personal theme for Obsidian
+
+AnuPpuccin is licensed under the GPL-3.0 license which allows you
+  to modify the code freely, however the Copyright and license
+notices must be preserved in your CSS. If you redistribute a part
+of my code, please credit my theme in your CSS file, and specify
+  which code you are using. Please keep my Buy Me a Coffee link
+                  in your README if you do so.
+
+            https://www.buymeacoffee.com/anubisnekhet
+*===============================================================*/
 /* @settings
 name: AnuPpuccin
 id: anuppuccin-theme-settings
@@ -200,6 +213,13 @@ settings:
   -
     id: ctp-custom-red
     title: Red
+    type: variable-themed-color
+    default-light: '#'
+    default-dark: '#'
+    format: 'rgb-values'
+  -
+    id: ctp-custom-maroon
+    title: Maroon
     type: variable-themed-color
     default-light: '#'
     default-dark: '#'
@@ -535,6 +555,20 @@ settings:
     default-light: '#'
     default-dark: '#'
 
+# File Editor & Markdown Elements :: Embeds
+  -
+    id: anp-embed-header
+    title: Embeds
+    description: Maximum embed height
+    type: heading
+    level: 2
+    collapsed: true
+  -
+    id: embed-max-height
+    title: Maximum embed height in px
+    type: variable-number
+    default: 200
+
 # File Editor & Markdown Elements :: Lists
 
   -
@@ -649,7 +683,7 @@ settings:
     description: Use anp-table-auto for yaml syntax
     type: class-toggle
   -
-    id: anp-th-highlight
+    id: anp-table-th-highlight
     title: <th> Highlight
     type: class-toggle
   -
@@ -661,19 +695,19 @@ settings:
     options:
       -
         label: None
-        value: anp-td-none
+        value: none
       -
         label: Alternate Rows
-        value: anp-td-alt-rows
+        value: anp-table-row-alt
       -
         label: Alternate Columns
-        value: anp-td-alt-cols
+        value: anp-table-col-alt
       -
         label: Checkered
-        value: anp-td-checkered
+        value: anp-table-checkered
       -
         label: Full
-        value: anp-td-full
+        value: anp-table-full
   -
     id: anp-table-highlight-opacity
     title: Highlight Opacity
@@ -2080,8 +2114,8 @@ settings:
     level: 2
     collapsed: true
   -
-    id: anp-collapse-folders
-    title: Enable folder icons for collapse indicators
+    id: anp-custom-vault-toggle
+    title: Enable custom vault title
     type: class-toggle
   -
     id: anp-file-icons
@@ -2092,8 +2126,8 @@ settings:
     title: Enable floating vault title
     type: class-toggle
   -
-    id: anp-custom-vault-toggle
-    title: Enable custom vault title
+    id: anp-collapse-folders
+    title: Enable folder icons for collapse indicators
     type: class-toggle
   -
     id: anp-file-label-align
@@ -2202,16 +2236,12 @@ settings:
     title: Enable title recolor
     type: class-toggle
   -
-    id: anp-simple-rainbow-icon-folder-toggle
-    title: Enable icon recolor (For icon folder users)
+    id: anp-simple-rainbow-collapse-icon-toggle
+    title: Enable collapse icon recolor
     type: class-toggle
   -
     id: anp-simple-rainbow-indentation-toggle
     title: Enable collapse indent recolor
-    type: class-toggle
-  -
-    id: anp-simple-rainbow-collapse-toggle
-    title: Enable collapse indicator
     type: class-toggle
   -
     id: anp-simple-rainbow-icon-toggle
@@ -3215,6 +3245,10 @@ body.theme-dark {
   --anp-custom-bg-card-fg-opacity: var(--anp-custom-bg-card-fg-opacity-dark);
 }
 
+/*===============================================================
+* CORE
+*===============================================================*/
+/*======== EDITOR ===============*/
 /*-Highlight current line-*/
 .anp-current-line .markdown-source-view .cm-active.cm-line {
   background-color: rgba(var(--ctp-surface1), 0.4);
@@ -3300,6 +3334,7 @@ body.theme-dark {
   font-family: var(--font-monospace);
 }
 
+/*======== CURSOR MODS ==========*/
 .workspace-tab-header,
 .clickable-icon,
 .dropdown,
@@ -3344,13 +3379,14 @@ input.slider,
   cursor: var(--anp-cursor, var(--cursor));
 }
 
-/*----------FILE PREVIEW MARGINS--------------*/
+/*======== FILE PREVIEW =========*/
+/* FILE PREVIEW MARGINS */
 .anp-toggle-preview .markdown-preview-section {
   width: var(--anp-preview-width-pct);
   margin: 0 auto;
 }
 
-/*---------------HIGHLIGHTS-----------------*/
+/* HIGHLIGHTS */
 .markdown-rendered .search-highlight > div {
   box-shadow: none;
   opacity: 0.3;
@@ -3372,7 +3408,7 @@ input.slider,
   border-radius: 2px;
 }
 
-/* Font weights */
+/* FONT WEIGHTS */
 .markdown-preview-view {
   font-weight: var(--anp-font-preview-wt, normal);
 }
@@ -3385,6 +3421,7 @@ input.slider,
   font-weight: var(--anp-font-live-preview-wt, normal);
 }
 
+/*======== GRAPH ================*/
 .workspace-split:not(.mod-root) .graph-controls.is-close,
 .workspace-split:not(.mod-root) .graph-controls,
 .workspace-split:not(.mod-root) .graph-controls:not(.is-close) {
@@ -3403,6 +3440,7 @@ input.slider,
   background-color: rgb(var(--ctp-mantle));
 }
 
+/*======== RTL ==================*/
 .markdown-rendered.rtl .list-bullet {
   float: right;
   margin-right: -12px;
@@ -3425,6 +3463,7 @@ input.slider,
   margin-right: -22px;
 }
 
+/*======== PRINT ================*/
 .anp-print .print.theme-light, .anp-print .print.theme-dark {
   --ctp-crust: inherit;
   --ctp-mantle: inherit;
@@ -3490,6 +3529,8 @@ input.slider,
     color: rgb(var(--ctp-text));
   }
 }
+/*======== PDF ==================*/
+/* PDF Blending */
 .theme-dark.anp-pdf-blend-toggle-dark,
 .theme-light.anp-pdf-blend-toggle-light {
   --pdf-background: var(--background-secondary);
@@ -3513,6 +3554,7 @@ input.slider,
   border-color: var(--pdf-background);
 }
 
+/* Give accent to selected text */
 .textLayer ::selection {
   background: var(--color-accent);
 }
@@ -3752,63 +3794,51 @@ body.is-translucent {
   --title-bar-duration: 300ms;
   --title-bar-target-translate-y: 18px;
   --title-bar-translate-y: 40px;
-  --title-bar-windows-fix: 5;
+  /**
+   * This should fix the drag/click titlebar issue.
+   * 
+   * Invisible boxes are not rendered (as if they were fully transparent),
+   * cannot be interacted with (and behave as if they had pointer-events: none),
+   * and are removed from navigation (similar to display: none).
+   * 
+   * @see: https://drafts.csswg.org/css-display/#visibility
+   */
 }
 .anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header {
   margin-top: calc(var(--title-bar-translate-y) * -1);
   position: relative;
-  transition: transform var(--title-bar-duration) var(--title-bar-delay), margin-right 0s calc(var(--title-bar-duration) + var(--title-bar-delay)), margin-right 0s calc(var(--title-bar-duration) + var(--title-bar-delay)), margin-left 0s calc(var(--title-bar-duration) + var(--title-bar-delay)), padding 0s calc(var(--title-bar-duration) + var(--title-bar-delay));
-  margin-left: 80px;
-  margin-right: 80px;
-}
-.anp-autohide-titlebar:not(.is-mobile):not(.mod-macos) .workspace-tabs:is(.mod-top-right-space, .mod-top-left-space) .workspace-leaf-content .view-header {
-  margin-right: calc(var(--title-bar-windows-fix) * var(--frame-right-space));
-  padding: 0;
-}
-.anp-autohide-titlebar:not(.is-mobile):not(.mod-macos) .workspace-tabs:is(.mod-top-right-space, .mod-top-left-space) .workspace-leaf-content .view-header:is(:hover, :focus-within) {
-  margin-right: 0;
-  transition: transform var(--title-bar-duration) var(--title-bar-delay), margin-right 0s, padding 0s;
-  padding: 0 var(--size-4-3);
-}
-.anp-autohide-titlebar:not(.is-mobile):not(.mod-macos) .workspace-tabs:is(.mod-top-right-space, .mod-top-left-space) .workspace-leaf-content .view-header::before {
-  width: calc(100% + var(--title-bar-windows-fix) * var(--frame-right-space));
-  top: var(--header-height);
+  transition: transform var(--title-bar-duration) var(--title-bar-delay);
 }
 .anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header::before {
   bottom: calc(var(--title-bar-target-translate-y) * -1);
   content: "";
-  left: -80px;
+  left: 0;
   position: absolute;
   top: 0;
   transition: transform var(--title-bar-duration) var(--title-bar-delay);
-  width: calc(100% + 160px);
+  width: 100%;
+  z-index: 0;
+}
+.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:is(:hover, :focus-within)::before {
+  transform: translateY(var(--title-bar-target-translate-y));
+}
+.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:is(:hover, :focus-within),
+.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:is(:hover, :focus-within) + .view-content {
+  transform: translateY(var(--title-bar-translate-y));
 }
 .anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-content {
   transition: transform var(--title-bar-duration) var(--title-bar-delay);
 }
-.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:is(:hover, :focus-within)::before {
-  transform: translateY(var(--title-bar-target-translate-y));
-  left: 0px;
-  width: 100%;
+.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header-title {
+  --file-header-font-size: var(--font-ui-medium);
 }
-.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:is(:hover, :focus-within),
-.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:is(:hover, :focus-within) + .view-content {
-  transition: transform var(--title-bar-duration) var(--title-bar-delay), margin-right 0s, margin-left 0s, padding 0s calc(var(--title-bar-duration) + var(--title-bar-delay));
-  transform: translateY(var(--title-bar-translate-y));
-  margin-left: 0;
-  margin-right: 0;
-}
-.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:not(:hover, :focus-within) .clickable-icon {
-  app-region: drag;
-}
-.anp-autohide-titlebar:not(.is-mobile) .view-header::before {
-  z-index: 0;
-}
-.anp-autohide-titlebar:not(.is-mobile) .view-header > div {
+.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header > div {
+  transition: visibility var(--title-bar-duration) var(--title-bar-delay);
+  visibility: visible;
   z-index: 1;
 }
-.anp-autohide-titlebar:not(.is-mobile) .view-header-title {
-  --file-header-font-size: var(--font-ui-medium);
+.anp-autohide-titlebar:not(.is-mobile) .workspace-leaf-content .view-header:not(:hover, :focus-within) > div {
+  visibility: hidden;
 }
 
 body:not(.anp-alternate-tab-toggle):not(.anp-disable-newtab-align) .workspace-split.mod-vertical .workspace-tab-header-spacer {
@@ -4627,6 +4657,12 @@ Support me: https://buymeacoffee.com/AnubisNekhet
   color: var(--text-normal);
 }
 
+.cm-hmd-internal-link {
+  --link-decoration: none;
+  --link-decoration-hover: none;
+  --link-decoration-active: none;
+}
+
 .external-link,
 .external-link:hover {
   background-image: none;
@@ -4667,82 +4703,79 @@ sup[data-footnote-id] {
   transition: opacity 0.1s;
 }
 
-.frontmatter-section-data-item {
-  background-color: var(--background-secondary);
-  padding: 0 4px;
-  border: 1px solid var(--background-modifier-border);
-  border-radius: var(--radius-m);
-  font-family: var(--font-monospace);
-  font-size: 80%;
-}
-
-.frontmatter-container .frontmatter-section-label {
-  text-transform: uppercase;
-  font-size: 70%;
-}
-.frontmatter-container .frontmatter-section-label::first-letter {
-  font-size: 120%;
-}
-
 /*--------------HEADERS----------------*/
 .markdown-source-view.mod-cm6 .cm-fold-indicator .collapse-indicator {
   margin-left: -22px;
   padding: 0px 6px;
 }
 
-.anp-header-color-toggle.anp-h1-rosewater .app-container, .anp-header-color-toggle.anp-h1-rosewater .print {
+.anp-header-color-toggle.anp-h1-rosewater .app-container,
+.anp-header-color-toggle.anp-h1-rosewater .print {
   --h1-color: rgb(var(--ctp-rosewater));
 }
 
-.anp-header-color-toggle.anp-h1-flamingo .app-container, .anp-header-color-toggle.anp-h1-flamingo .print {
+.anp-header-color-toggle.anp-h1-flamingo .app-container,
+.anp-header-color-toggle.anp-h1-flamingo .print {
   --h1-color: rgb(var(--ctp-flamingo));
 }
 
-.anp-header-color-toggle.anp-h1-pink .app-container, .anp-header-color-toggle.anp-h1-pink .print {
+.anp-header-color-toggle.anp-h1-pink .app-container,
+.anp-header-color-toggle.anp-h1-pink .print {
   --h1-color: rgb(var(--ctp-pink));
 }
 
-.anp-header-color-toggle.anp-h1-mauve .app-container, .anp-header-color-toggle.anp-h1-mauve .print {
+.anp-header-color-toggle.anp-h1-mauve .app-container,
+.anp-header-color-toggle.anp-h1-mauve .print {
   --h1-color: rgb(var(--ctp-mauve));
 }
 
-.anp-header-color-toggle.anp-h1-red .app-container, .anp-header-color-toggle.anp-h1-red .print {
+.anp-header-color-toggle.anp-h1-red .app-container,
+.anp-header-color-toggle.anp-h1-red .print {
   --h1-color: rgb(var(--ctp-red));
 }
 
-.anp-header-color-toggle.anp-h1-maroon .app-container, .anp-header-color-toggle.anp-h1-maroon .print {
+.anp-header-color-toggle.anp-h1-maroon .app-container,
+.anp-header-color-toggle.anp-h1-maroon .print {
   --h1-color: rgb(var(--ctp-maroon));
 }
 
-.anp-header-color-toggle.anp-h1-peach .app-container, .anp-header-color-toggle.anp-h1-peach .print {
+.anp-header-color-toggle.anp-h1-peach .app-container,
+.anp-header-color-toggle.anp-h1-peach .print {
   --h1-color: rgb(var(--ctp-peach));
 }
 
-.anp-header-color-toggle.anp-h1-yellow .app-container, .anp-header-color-toggle.anp-h1-yellow .print {
+.anp-header-color-toggle.anp-h1-yellow .app-container,
+.anp-header-color-toggle.anp-h1-yellow .print {
   --h1-color: rgb(var(--ctp-yellow));
 }
 
-.anp-header-color-toggle.anp-h1-green .app-container, .anp-header-color-toggle.anp-h1-green .print {
+.anp-header-color-toggle.anp-h1-green .app-container,
+.anp-header-color-toggle.anp-h1-green .print {
   --h1-color: rgb(var(--ctp-green));
 }
 
-.anp-header-color-toggle.anp-h1-teal .app-container, .anp-header-color-toggle.anp-h1-teal .print {
+.anp-header-color-toggle.anp-h1-teal .app-container,
+.anp-header-color-toggle.anp-h1-teal .print {
   --h1-color: rgb(var(--ctp-teal));
 }
 
-.anp-header-color-toggle.anp-h1-sky .app-container, .anp-header-color-toggle.anp-h1-sky .print {
+.anp-header-color-toggle.anp-h1-sky .app-container,
+.anp-header-color-toggle.anp-h1-sky .print {
   --h1-color: rgb(var(--ctp-sky));
 }
 
-.anp-header-color-toggle.anp-h1-sapphire .app-container, .anp-header-color-toggle.anp-h1-sapphire .print {
+.anp-header-color-toggle.anp-h1-sapphire .app-container,
+.anp-header-color-toggle.anp-h1-sapphire .print {
   --h1-color: rgb(var(--ctp-sapphire));
 }
 
-.anp-header-color-toggle.anp-h1-blue .app-container, .anp-header-color-toggle.anp-h1-blue .print {
+.anp-header-color-toggle.anp-h1-blue .app-container,
+.anp-header-color-toggle.anp-h1-blue .print {
   --h1-color: rgb(var(--ctp-blue));
 }
 
-.anp-header-color-toggle.anp-h1-lavender .app-container, .anp-header-color-toggle.anp-h1-lavender .print {
+.anp-header-color-toggle.anp-h1-lavender .app-container,
+.anp-header-color-toggle.anp-h1-lavender .print {
   --h1-color: rgb(var(--ctp-lavender));
 }
 
@@ -4760,59 +4793,73 @@ sup[data-footnote-id] {
   color: var(--h1-color);
 }
 
-.anp-header-color-toggle.anp-h2-rosewater .app-container, .anp-header-color-toggle.anp-h2-rosewater .print {
+.anp-header-color-toggle.anp-h2-rosewater .app-container,
+.anp-header-color-toggle.anp-h2-rosewater .print {
   --h2-color: rgb(var(--ctp-rosewater));
 }
 
-.anp-header-color-toggle.anp-h2-flamingo .app-container, .anp-header-color-toggle.anp-h2-flamingo .print {
+.anp-header-color-toggle.anp-h2-flamingo .app-container,
+.anp-header-color-toggle.anp-h2-flamingo .print {
   --h2-color: rgb(var(--ctp-flamingo));
 }
 
-.anp-header-color-toggle.anp-h2-pink .app-container, .anp-header-color-toggle.anp-h2-pink .print {
+.anp-header-color-toggle.anp-h2-pink .app-container,
+.anp-header-color-toggle.anp-h2-pink .print {
   --h2-color: rgb(var(--ctp-pink));
 }
 
-.anp-header-color-toggle.anp-h2-mauve .app-container, .anp-header-color-toggle.anp-h2-mauve .print {
+.anp-header-color-toggle.anp-h2-mauve .app-container,
+.anp-header-color-toggle.anp-h2-mauve .print {
   --h2-color: rgb(var(--ctp-mauve));
 }
 
-.anp-header-color-toggle.anp-h2-red .app-container, .anp-header-color-toggle.anp-h2-red .print {
+.anp-header-color-toggle.anp-h2-red .app-container,
+.anp-header-color-toggle.anp-h2-red .print {
   --h2-color: rgb(var(--ctp-red));
 }
 
-.anp-header-color-toggle.anp-h2-maroon .app-container, .anp-header-color-toggle.anp-h2-maroon .print {
+.anp-header-color-toggle.anp-h2-maroon .app-container,
+.anp-header-color-toggle.anp-h2-maroon .print {
   --h2-color: rgb(var(--ctp-maroon));
 }
 
-.anp-header-color-toggle.anp-h2-peach .app-container, .anp-header-color-toggle.anp-h2-peach .print {
+.anp-header-color-toggle.anp-h2-peach .app-container,
+.anp-header-color-toggle.anp-h2-peach .print {
   --h2-color: rgb(var(--ctp-peach));
 }
 
-.anp-header-color-toggle.anp-h2-yellow .app-container, .anp-header-color-toggle.anp-h2-yellow .print {
+.anp-header-color-toggle.anp-h2-yellow .app-container,
+.anp-header-color-toggle.anp-h2-yellow .print {
   --h2-color: rgb(var(--ctp-yellow));
 }
 
-.anp-header-color-toggle.anp-h2-green .app-container, .anp-header-color-toggle.anp-h2-green .print {
+.anp-header-color-toggle.anp-h2-green .app-container,
+.anp-header-color-toggle.anp-h2-green .print {
   --h2-color: rgb(var(--ctp-green));
 }
 
-.anp-header-color-toggle.anp-h2-teal .app-container, .anp-header-color-toggle.anp-h2-teal .print {
+.anp-header-color-toggle.anp-h2-teal .app-container,
+.anp-header-color-toggle.anp-h2-teal .print {
   --h2-color: rgb(var(--ctp-teal));
 }
 
-.anp-header-color-toggle.anp-h2-sky .app-container, .anp-header-color-toggle.anp-h2-sky .print {
+.anp-header-color-toggle.anp-h2-sky .app-container,
+.anp-header-color-toggle.anp-h2-sky .print {
   --h2-color: rgb(var(--ctp-sky));
 }
 
-.anp-header-color-toggle.anp-h2-sapphire .app-container, .anp-header-color-toggle.anp-h2-sapphire .print {
+.anp-header-color-toggle.anp-h2-sapphire .app-container,
+.anp-header-color-toggle.anp-h2-sapphire .print {
   --h2-color: rgb(var(--ctp-sapphire));
 }
 
-.anp-header-color-toggle.anp-h2-blue .app-container, .anp-header-color-toggle.anp-h2-blue .print {
+.anp-header-color-toggle.anp-h2-blue .app-container,
+.anp-header-color-toggle.anp-h2-blue .print {
   --h2-color: rgb(var(--ctp-blue));
 }
 
-.anp-header-color-toggle.anp-h2-lavender .app-container, .anp-header-color-toggle.anp-h2-lavender .print {
+.anp-header-color-toggle.anp-h2-lavender .app-container,
+.anp-header-color-toggle.anp-h2-lavender .print {
   --h2-color: rgb(var(--ctp-lavender));
 }
 
@@ -4830,59 +4877,73 @@ sup[data-footnote-id] {
   color: var(--h2-color);
 }
 
-.anp-header-color-toggle.anp-h3-rosewater .app-container, .anp-header-color-toggle.anp-h3-rosewater .print {
+.anp-header-color-toggle.anp-h3-rosewater .app-container,
+.anp-header-color-toggle.anp-h3-rosewater .print {
   --h3-color: rgb(var(--ctp-rosewater));
 }
 
-.anp-header-color-toggle.anp-h3-flamingo .app-container, .anp-header-color-toggle.anp-h3-flamingo .print {
+.anp-header-color-toggle.anp-h3-flamingo .app-container,
+.anp-header-color-toggle.anp-h3-flamingo .print {
   --h3-color: rgb(var(--ctp-flamingo));
 }
 
-.anp-header-color-toggle.anp-h3-pink .app-container, .anp-header-color-toggle.anp-h3-pink .print {
+.anp-header-color-toggle.anp-h3-pink .app-container,
+.anp-header-color-toggle.anp-h3-pink .print {
   --h3-color: rgb(var(--ctp-pink));
 }
 
-.anp-header-color-toggle.anp-h3-mauve .app-container, .anp-header-color-toggle.anp-h3-mauve .print {
+.anp-header-color-toggle.anp-h3-mauve .app-container,
+.anp-header-color-toggle.anp-h3-mauve .print {
   --h3-color: rgb(var(--ctp-mauve));
 }
 
-.anp-header-color-toggle.anp-h3-red .app-container, .anp-header-color-toggle.anp-h3-red .print {
+.anp-header-color-toggle.anp-h3-red .app-container,
+.anp-header-color-toggle.anp-h3-red .print {
   --h3-color: rgb(var(--ctp-red));
 }
 
-.anp-header-color-toggle.anp-h3-maroon .app-container, .anp-header-color-toggle.anp-h3-maroon .print {
+.anp-header-color-toggle.anp-h3-maroon .app-container,
+.anp-header-color-toggle.anp-h3-maroon .print {
   --h3-color: rgb(var(--ctp-maroon));
 }
 
-.anp-header-color-toggle.anp-h3-peach .app-container, .anp-header-color-toggle.anp-h3-peach .print {
+.anp-header-color-toggle.anp-h3-peach .app-container,
+.anp-header-color-toggle.anp-h3-peach .print {
   --h3-color: rgb(var(--ctp-peach));
 }
 
-.anp-header-color-toggle.anp-h3-yellow .app-container, .anp-header-color-toggle.anp-h3-yellow .print {
+.anp-header-color-toggle.anp-h3-yellow .app-container,
+.anp-header-color-toggle.anp-h3-yellow .print {
   --h3-color: rgb(var(--ctp-yellow));
 }
 
-.anp-header-color-toggle.anp-h3-green .app-container, .anp-header-color-toggle.anp-h3-green .print {
+.anp-header-color-toggle.anp-h3-green .app-container,
+.anp-header-color-toggle.anp-h3-green .print {
   --h3-color: rgb(var(--ctp-green));
 }
 
-.anp-header-color-toggle.anp-h3-teal .app-container, .anp-header-color-toggle.anp-h3-teal .print {
+.anp-header-color-toggle.anp-h3-teal .app-container,
+.anp-header-color-toggle.anp-h3-teal .print {
   --h3-color: rgb(var(--ctp-teal));
 }
 
-.anp-header-color-toggle.anp-h3-sky .app-container, .anp-header-color-toggle.anp-h3-sky .print {
+.anp-header-color-toggle.anp-h3-sky .app-container,
+.anp-header-color-toggle.anp-h3-sky .print {
   --h3-color: rgb(var(--ctp-sky));
 }
 
-.anp-header-color-toggle.anp-h3-sapphire .app-container, .anp-header-color-toggle.anp-h3-sapphire .print {
+.anp-header-color-toggle.anp-h3-sapphire .app-container,
+.anp-header-color-toggle.anp-h3-sapphire .print {
   --h3-color: rgb(var(--ctp-sapphire));
 }
 
-.anp-header-color-toggle.anp-h3-blue .app-container, .anp-header-color-toggle.anp-h3-blue .print {
+.anp-header-color-toggle.anp-h3-blue .app-container,
+.anp-header-color-toggle.anp-h3-blue .print {
   --h3-color: rgb(var(--ctp-blue));
 }
 
-.anp-header-color-toggle.anp-h3-lavender .app-container, .anp-header-color-toggle.anp-h3-lavender .print {
+.anp-header-color-toggle.anp-h3-lavender .app-container,
+.anp-header-color-toggle.anp-h3-lavender .print {
   --h3-color: rgb(var(--ctp-lavender));
 }
 
@@ -4900,59 +4961,73 @@ sup[data-footnote-id] {
   color: var(--h3-color);
 }
 
-.anp-header-color-toggle.anp-h4-rosewater .app-container, .anp-header-color-toggle.anp-h4-rosewater .print {
+.anp-header-color-toggle.anp-h4-rosewater .app-container,
+.anp-header-color-toggle.anp-h4-rosewater .print {
   --h4-color: rgb(var(--ctp-rosewater));
 }
 
-.anp-header-color-toggle.anp-h4-flamingo .app-container, .anp-header-color-toggle.anp-h4-flamingo .print {
+.anp-header-color-toggle.anp-h4-flamingo .app-container,
+.anp-header-color-toggle.anp-h4-flamingo .print {
   --h4-color: rgb(var(--ctp-flamingo));
 }
 
-.anp-header-color-toggle.anp-h4-pink .app-container, .anp-header-color-toggle.anp-h4-pink .print {
+.anp-header-color-toggle.anp-h4-pink .app-container,
+.anp-header-color-toggle.anp-h4-pink .print {
   --h4-color: rgb(var(--ctp-pink));
 }
 
-.anp-header-color-toggle.anp-h4-mauve .app-container, .anp-header-color-toggle.anp-h4-mauve .print {
+.anp-header-color-toggle.anp-h4-mauve .app-container,
+.anp-header-color-toggle.anp-h4-mauve .print {
   --h4-color: rgb(var(--ctp-mauve));
 }
 
-.anp-header-color-toggle.anp-h4-red .app-container, .anp-header-color-toggle.anp-h4-red .print {
+.anp-header-color-toggle.anp-h4-red .app-container,
+.anp-header-color-toggle.anp-h4-red .print {
   --h4-color: rgb(var(--ctp-red));
 }
 
-.anp-header-color-toggle.anp-h4-maroon .app-container, .anp-header-color-toggle.anp-h4-maroon .print {
+.anp-header-color-toggle.anp-h4-maroon .app-container,
+.anp-header-color-toggle.anp-h4-maroon .print {
   --h4-color: rgb(var(--ctp-maroon));
 }
 
-.anp-header-color-toggle.anp-h4-peach .app-container, .anp-header-color-toggle.anp-h4-peach .print {
+.anp-header-color-toggle.anp-h4-peach .app-container,
+.anp-header-color-toggle.anp-h4-peach .print {
   --h4-color: rgb(var(--ctp-peach));
 }
 
-.anp-header-color-toggle.anp-h4-yellow .app-container, .anp-header-color-toggle.anp-h4-yellow .print {
+.anp-header-color-toggle.anp-h4-yellow .app-container,
+.anp-header-color-toggle.anp-h4-yellow .print {
   --h4-color: rgb(var(--ctp-yellow));
 }
 
-.anp-header-color-toggle.anp-h4-green .app-container, .anp-header-color-toggle.anp-h4-green .print {
+.anp-header-color-toggle.anp-h4-green .app-container,
+.anp-header-color-toggle.anp-h4-green .print {
   --h4-color: rgb(var(--ctp-green));
 }
 
-.anp-header-color-toggle.anp-h4-teal .app-container, .anp-header-color-toggle.anp-h4-teal .print {
+.anp-header-color-toggle.anp-h4-teal .app-container,
+.anp-header-color-toggle.anp-h4-teal .print {
   --h4-color: rgb(var(--ctp-teal));
 }
 
-.anp-header-color-toggle.anp-h4-sky .app-container, .anp-header-color-toggle.anp-h4-sky .print {
+.anp-header-color-toggle.anp-h4-sky .app-container,
+.anp-header-color-toggle.anp-h4-sky .print {
   --h4-color: rgb(var(--ctp-sky));
 }
 
-.anp-header-color-toggle.anp-h4-sapphire .app-container, .anp-header-color-toggle.anp-h4-sapphire .print {
+.anp-header-color-toggle.anp-h4-sapphire .app-container,
+.anp-header-color-toggle.anp-h4-sapphire .print {
   --h4-color: rgb(var(--ctp-sapphire));
 }
 
-.anp-header-color-toggle.anp-h4-blue .app-container, .anp-header-color-toggle.anp-h4-blue .print {
+.anp-header-color-toggle.anp-h4-blue .app-container,
+.anp-header-color-toggle.anp-h4-blue .print {
   --h4-color: rgb(var(--ctp-blue));
 }
 
-.anp-header-color-toggle.anp-h4-lavender .app-container, .anp-header-color-toggle.anp-h4-lavender .print {
+.anp-header-color-toggle.anp-h4-lavender .app-container,
+.anp-header-color-toggle.anp-h4-lavender .print {
   --h4-color: rgb(var(--ctp-lavender));
 }
 
@@ -4970,59 +5045,73 @@ sup[data-footnote-id] {
   color: var(--h4-color);
 }
 
-.anp-header-color-toggle.anp-h5-rosewater .app-container, .anp-header-color-toggle.anp-h5-rosewater .print {
+.anp-header-color-toggle.anp-h5-rosewater .app-container,
+.anp-header-color-toggle.anp-h5-rosewater .print {
   --h5-color: rgb(var(--ctp-rosewater));
 }
 
-.anp-header-color-toggle.anp-h5-flamingo .app-container, .anp-header-color-toggle.anp-h5-flamingo .print {
+.anp-header-color-toggle.anp-h5-flamingo .app-container,
+.anp-header-color-toggle.anp-h5-flamingo .print {
   --h5-color: rgb(var(--ctp-flamingo));
 }
 
-.anp-header-color-toggle.anp-h5-pink .app-container, .anp-header-color-toggle.anp-h5-pink .print {
+.anp-header-color-toggle.anp-h5-pink .app-container,
+.anp-header-color-toggle.anp-h5-pink .print {
   --h5-color: rgb(var(--ctp-pink));
 }
 
-.anp-header-color-toggle.anp-h5-mauve .app-container, .anp-header-color-toggle.anp-h5-mauve .print {
+.anp-header-color-toggle.anp-h5-mauve .app-container,
+.anp-header-color-toggle.anp-h5-mauve .print {
   --h5-color: rgb(var(--ctp-mauve));
 }
 
-.anp-header-color-toggle.anp-h5-red .app-container, .anp-header-color-toggle.anp-h5-red .print {
+.anp-header-color-toggle.anp-h5-red .app-container,
+.anp-header-color-toggle.anp-h5-red .print {
   --h5-color: rgb(var(--ctp-red));
 }
 
-.anp-header-color-toggle.anp-h5-maroon .app-container, .anp-header-color-toggle.anp-h5-maroon .print {
+.anp-header-color-toggle.anp-h5-maroon .app-container,
+.anp-header-color-toggle.anp-h5-maroon .print {
   --h5-color: rgb(var(--ctp-maroon));
 }
 
-.anp-header-color-toggle.anp-h5-peach .app-container, .anp-header-color-toggle.anp-h5-peach .print {
+.anp-header-color-toggle.anp-h5-peach .app-container,
+.anp-header-color-toggle.anp-h5-peach .print {
   --h5-color: rgb(var(--ctp-peach));
 }
 
-.anp-header-color-toggle.anp-h5-yellow .app-container, .anp-header-color-toggle.anp-h5-yellow .print {
+.anp-header-color-toggle.anp-h5-yellow .app-container,
+.anp-header-color-toggle.anp-h5-yellow .print {
   --h5-color: rgb(var(--ctp-yellow));
 }
 
-.anp-header-color-toggle.anp-h5-green .app-container, .anp-header-color-toggle.anp-h5-green .print {
+.anp-header-color-toggle.anp-h5-green .app-container,
+.anp-header-color-toggle.anp-h5-green .print {
   --h5-color: rgb(var(--ctp-green));
 }
 
-.anp-header-color-toggle.anp-h5-teal .app-container, .anp-header-color-toggle.anp-h5-teal .print {
+.anp-header-color-toggle.anp-h5-teal .app-container,
+.anp-header-color-toggle.anp-h5-teal .print {
   --h5-color: rgb(var(--ctp-teal));
 }
 
-.anp-header-color-toggle.anp-h5-sky .app-container, .anp-header-color-toggle.anp-h5-sky .print {
+.anp-header-color-toggle.anp-h5-sky .app-container,
+.anp-header-color-toggle.anp-h5-sky .print {
   --h5-color: rgb(var(--ctp-sky));
 }
 
-.anp-header-color-toggle.anp-h5-sapphire .app-container, .anp-header-color-toggle.anp-h5-sapphire .print {
+.anp-header-color-toggle.anp-h5-sapphire .app-container,
+.anp-header-color-toggle.anp-h5-sapphire .print {
   --h5-color: rgb(var(--ctp-sapphire));
 }
 
-.anp-header-color-toggle.anp-h5-blue .app-container, .anp-header-color-toggle.anp-h5-blue .print {
+.anp-header-color-toggle.anp-h5-blue .app-container,
+.anp-header-color-toggle.anp-h5-blue .print {
   --h5-color: rgb(var(--ctp-blue));
 }
 
-.anp-header-color-toggle.anp-h5-lavender .app-container, .anp-header-color-toggle.anp-h5-lavender .print {
+.anp-header-color-toggle.anp-h5-lavender .app-container,
+.anp-header-color-toggle.anp-h5-lavender .print {
   --h5-color: rgb(var(--ctp-lavender));
 }
 
@@ -5040,59 +5129,73 @@ sup[data-footnote-id] {
   color: var(--h5-color);
 }
 
-.anp-header-color-toggle.anp-h6-rosewater .app-container, .anp-header-color-toggle.anp-h6-rosewater .print {
+.anp-header-color-toggle.anp-h6-rosewater .app-container,
+.anp-header-color-toggle.anp-h6-rosewater .print {
   --h6-color: rgb(var(--ctp-rosewater));
 }
 
-.anp-header-color-toggle.anp-h6-flamingo .app-container, .anp-header-color-toggle.anp-h6-flamingo .print {
+.anp-header-color-toggle.anp-h6-flamingo .app-container,
+.anp-header-color-toggle.anp-h6-flamingo .print {
   --h6-color: rgb(var(--ctp-flamingo));
 }
 
-.anp-header-color-toggle.anp-h6-pink .app-container, .anp-header-color-toggle.anp-h6-pink .print {
+.anp-header-color-toggle.anp-h6-pink .app-container,
+.anp-header-color-toggle.anp-h6-pink .print {
   --h6-color: rgb(var(--ctp-pink));
 }
 
-.anp-header-color-toggle.anp-h6-mauve .app-container, .anp-header-color-toggle.anp-h6-mauve .print {
+.anp-header-color-toggle.anp-h6-mauve .app-container,
+.anp-header-color-toggle.anp-h6-mauve .print {
   --h6-color: rgb(var(--ctp-mauve));
 }
 
-.anp-header-color-toggle.anp-h6-red .app-container, .anp-header-color-toggle.anp-h6-red .print {
+.anp-header-color-toggle.anp-h6-red .app-container,
+.anp-header-color-toggle.anp-h6-red .print {
   --h6-color: rgb(var(--ctp-red));
 }
 
-.anp-header-color-toggle.anp-h6-maroon .app-container, .anp-header-color-toggle.anp-h6-maroon .print {
+.anp-header-color-toggle.anp-h6-maroon .app-container,
+.anp-header-color-toggle.anp-h6-maroon .print {
   --h6-color: rgb(var(--ctp-maroon));
 }
 
-.anp-header-color-toggle.anp-h6-peach .app-container, .anp-header-color-toggle.anp-h6-peach .print {
+.anp-header-color-toggle.anp-h6-peach .app-container,
+.anp-header-color-toggle.anp-h6-peach .print {
   --h6-color: rgb(var(--ctp-peach));
 }
 
-.anp-header-color-toggle.anp-h6-yellow .app-container, .anp-header-color-toggle.anp-h6-yellow .print {
+.anp-header-color-toggle.anp-h6-yellow .app-container,
+.anp-header-color-toggle.anp-h6-yellow .print {
   --h6-color: rgb(var(--ctp-yellow));
 }
 
-.anp-header-color-toggle.anp-h6-green .app-container, .anp-header-color-toggle.anp-h6-green .print {
+.anp-header-color-toggle.anp-h6-green .app-container,
+.anp-header-color-toggle.anp-h6-green .print {
   --h6-color: rgb(var(--ctp-green));
 }
 
-.anp-header-color-toggle.anp-h6-teal .app-container, .anp-header-color-toggle.anp-h6-teal .print {
+.anp-header-color-toggle.anp-h6-teal .app-container,
+.anp-header-color-toggle.anp-h6-teal .print {
   --h6-color: rgb(var(--ctp-teal));
 }
 
-.anp-header-color-toggle.anp-h6-sky .app-container, .anp-header-color-toggle.anp-h6-sky .print {
+.anp-header-color-toggle.anp-h6-sky .app-container,
+.anp-header-color-toggle.anp-h6-sky .print {
   --h6-color: rgb(var(--ctp-sky));
 }
 
-.anp-header-color-toggle.anp-h6-sapphire .app-container, .anp-header-color-toggle.anp-h6-sapphire .print {
+.anp-header-color-toggle.anp-h6-sapphire .app-container,
+.anp-header-color-toggle.anp-h6-sapphire .print {
   --h6-color: rgb(var(--ctp-sapphire));
 }
 
-.anp-header-color-toggle.anp-h6-blue .app-container, .anp-header-color-toggle.anp-h6-blue .print {
+.anp-header-color-toggle.anp-h6-blue .app-container,
+.anp-header-color-toggle.anp-h6-blue .print {
   --h6-color: rgb(var(--ctp-blue));
 }
 
-.anp-header-color-toggle.anp-h6-lavender .app-container, .anp-header-color-toggle.anp-h6-lavender .print {
+.anp-header-color-toggle.anp-h6-lavender .app-container,
+.anp-header-color-toggle.anp-h6-lavender .print {
   --h6-color: rgb(var(--ctp-lavender));
 }
 
@@ -5110,32 +5213,38 @@ sup[data-footnote-id] {
   color: var(--h6-color);
 }
 
-.anp-header-margin-toggle .cm-header-1, .anp-header-margin-toggle .markdown-preview-view h1 {
+.anp-header-margin-toggle .cm-header-1,
+.anp-header-margin-toggle .markdown-preview-view h1 {
   margin-block-start: var(--anp-header-margin-value);
   margin-block-end: var(--anp-header-margin-value);
 }
 
-.anp-header-margin-toggle .cm-header-2, .anp-header-margin-toggle .markdown-preview-view h2 {
+.anp-header-margin-toggle .cm-header-2,
+.anp-header-margin-toggle .markdown-preview-view h2 {
   margin-block-start: var(--anp-header-margin-value);
   margin-block-end: var(--anp-header-margin-value);
 }
 
-.anp-header-margin-toggle .cm-header-3, .anp-header-margin-toggle .markdown-preview-view h3 {
+.anp-header-margin-toggle .cm-header-3,
+.anp-header-margin-toggle .markdown-preview-view h3 {
   margin-block-start: var(--anp-header-margin-value);
   margin-block-end: var(--anp-header-margin-value);
 }
 
-.anp-header-margin-toggle .cm-header-4, .anp-header-margin-toggle .markdown-preview-view h4 {
+.anp-header-margin-toggle .cm-header-4,
+.anp-header-margin-toggle .markdown-preview-view h4 {
   margin-block-start: var(--anp-header-margin-value);
   margin-block-end: var(--anp-header-margin-value);
 }
 
-.anp-header-margin-toggle .cm-header-5, .anp-header-margin-toggle .markdown-preview-view h5 {
+.anp-header-margin-toggle .cm-header-5,
+.anp-header-margin-toggle .markdown-preview-view h5 {
   margin-block-start: var(--anp-header-margin-value);
   margin-block-end: var(--anp-header-margin-value);
 }
 
-.anp-header-margin-toggle .cm-header-6, .anp-header-margin-toggle .markdown-preview-view h6 {
+.anp-header-margin-toggle .cm-header-6,
+.anp-header-margin-toggle .markdown-preview-view h6 {
   margin-block-start: var(--anp-header-margin-value);
   margin-block-end: var(--anp-header-margin-value);
 }
@@ -5188,12 +5297,18 @@ hr {
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table thead tr > th:first-child,
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table thead tr > th,
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table thead tr > th:last-child,
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table,
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table td,
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table th,
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:first-child,
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th,
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:last-child,
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview),
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) td,
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) th,
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) thead tr > th:first-child,
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) thead tr > th,
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) thead tr > th:last-child,
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table,
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table td,
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table th,
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:first-child,
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th,
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:last-child,
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview),
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview) td,
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview) th,
@@ -5206,10 +5321,14 @@ hr {
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table thead tr > th:first-child:not([align]),
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table thead tr > th:not([align]),
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table thead tr > th:last-child:not([align]),
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table th:not([align]),
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:first-child:not([align]),
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:not([align]),
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:last-child:not([align]),
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) th:not([align]),
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) thead tr > th:first-child:not([align]),
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) thead tr > th:not([align]),
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) thead tr > th:last-child:not([align]),
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table th:not([align]),
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:first-child:not([align]),
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:not([align]),
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table thead tr > th:last-child:not([align]),
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview) th:not([align]),
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview) thead tr > th:first-child:not([align]),
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview) thead tr > th:not([align]),
@@ -5217,7 +5336,8 @@ hr {
   text-align: var(--anp-table-align-th, center);
 }
 .anp-table-toggle .markdown-preview-view:not(.cards):not(.table-disable) table td:not([align]),
-.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) .anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table td:not([align]),
+.anp-table-toggle .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) td:not([align]),
+.anp-table-toggle .is-live-preview:not(.cards):not(.table-disable) table td:not([align]),
 .anp-table-toggle .is-live-preview.cards:not(.table-disable) table:not(.dataview) td:not([align]) {
   text-align: var(--anp-table-align-td, center);
 }
@@ -5226,27 +5346,76 @@ table.dataview.table-view-table > tbody > tr:hover {
   background-color: rgba(var(--ctp-surface1), 0.1) !important;
 }
 
-.anp-table-toggle.anp-th-highlight .markdown-preview-view:not(.cards):not(.table-disable) th, .anp-table-toggle.anp-th-highlight .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) th, .anp-table-toggle.anp-th-highlight .is-live-preview:not(.cards):not(.table-disable) th, .anp-table-toggle.anp-th-highlight .is-live-preview.cards:not(.table-disable) table:not(.dataview) th {
+.anp-table-toggle.anp-table-th-highlight .markdown-preview-view:not(.cards):not(.table-disable) th,
+.anp-table-toggle.anp-table-th-highlight .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) th,
+.anp-table-toggle.anp-table-th-highlight .is-live-preview:not(.cards):not(.table-disable) th,
+.anp-table-toggle.anp-table-th-highlight .is-live-preview.cards:not(.table-disable) table:not(.dataview) th {
   background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
 }
-.anp-table-toggle.anp-td-alt-rows .markdown-preview-view:not(.cards):not(.table-disable) table tr:nth-child(2n) td, .anp-table-toggle.anp-td-alt-rows .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td, .anp-table-toggle.anp-td-alt-rows .is-live-preview:not(.cards):not(.table-disable) table tr:nth-child(2n) td, .anp-table-toggle.anp-td-alt-rows .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td {
+
+.th-highlight.markdown-preview-view:not(.cards):not(.table-disable) th, .th-highlight.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) th, .th-highlight.is-live-preview:not(.cards):not(.table-disable) th, .th-highlight.is-live-preview.cards:not(.table-disable) table:not(.dataview) th {
   background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
 }
-.anp-table-toggle.anp-td-alt-cols .markdown-preview-view:not(.cards):not(.table-disable) table tr td:nth-child(2n), .anp-table-toggle.anp-td-alt-cols .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n), .anp-table-toggle.anp-td-alt-cols .is-live-preview:not(.cards):not(.table-disable) table tr td:nth-child(2n), .anp-table-toggle.anp-td-alt-cols .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n) {
+
+.anp-table-toggle.anp-table-row-alt .markdown-preview-view:not(.cards):not(.table-disable) tr:nth-child(2n) td,
+.anp-table-toggle.anp-table-row-alt .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td,
+.anp-table-toggle.anp-table-row-alt .is-live-preview:not(.cards):not(.table-disable) tr:nth-child(2n) td,
+.anp-table-toggle.anp-table-row-alt .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td {
   background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
 }
-.anp-table-toggle.anp-td-checkered .markdown-preview-view:not(.cards):not(.table-disable) table tr td:nth-child(2n),
-.anp-table-toggle.anp-td-checkered .markdown-preview-view:not(.cards):not(.table-disable) table tr:nth-child(2n) td, .anp-table-toggle.anp-td-checkered .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
-.anp-table-toggle.anp-td-checkered .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td, .anp-table-toggle.anp-td-checkered .is-live-preview:not(.cards):not(.table-disable) table tr td:nth-child(2n),
-.anp-table-toggle.anp-td-checkered .is-live-preview:not(.cards):not(.table-disable) table tr:nth-child(2n) td, .anp-table-toggle.anp-td-checkered .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
-.anp-table-toggle.anp-td-checkered .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td {
+
+.row-alt.markdown-preview-view:not(.cards):not(.table-disable) tr:nth-child(2n) td, .row-alt.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td, .row-alt.is-live-preview:not(.cards):not(.table-disable) tr:nth-child(2n) td, .row-alt.is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td {
   background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
 }
-.anp-table-toggle.anp-td-checkered .markdown-preview-view:not(.cards):not(.table-disable) table tr:nth-child(2n) td:nth-child(2n), .anp-table-toggle.anp-td-checkered .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td:nth-child(2n), .anp-table-toggle.anp-td-checkered .is-live-preview:not(.cards):not(.table-disable) table tr:nth-child(2n) td:nth-child(2n), .anp-table-toggle.anp-td-checkered .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td:nth-child(2n) {
+
+.anp-table-toggle.anp-table-col-alt .markdown-preview-view:not(.cards):not(.table-disable) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-col-alt .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-col-alt .is-live-preview:not(.cards):not(.table-disable) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-col-alt .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n) {
+  background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
+}
+
+.col-alt.markdown-preview-view:not(.cards):not(.table-disable) tr td:nth-child(2n), .col-alt.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n), .col-alt.is-live-preview:not(.cards):not(.table-disable) tr td:nth-child(2n), .col-alt.is-live-preview.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n) {
+  background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
+}
+
+.anp-table-toggle.anp-table-full .markdown-preview-view:not(.cards):not(.table-disable) td,
+.anp-table-toggle.anp-table-full .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) td,
+.anp-table-toggle.anp-table-full .is-live-preview:not(.cards):not(.table-disable) td,
+.anp-table-toggle.anp-table-full .is-live-preview.cards:not(.table-disable) table:not(.dataview) td {
+  background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
+}
+
+.table-full.markdown-preview-view:not(.cards):not(.table-disable) td, .table-full.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) td, .table-full.is-live-preview:not(.cards):not(.table-disable) td, .table-full.is-live-preview.cards:not(.table-disable) table:not(.dataview) td {
+  background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
+}
+
+.anp-table-toggle.anp-table-checkered .markdown-preview-view:not(.cards):not(.table-disable) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .markdown-preview-view:not(.cards):not(.table-disable) tr:nth-child(2n) td,
+.anp-table-toggle.anp-table-checkered .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td,
+.anp-table-toggle.anp-table-checkered .is-live-preview:not(.cards):not(.table-disable) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .is-live-preview:not(.cards):not(.table-disable) tr:nth-child(2n) td,
+.anp-table-toggle.anp-table-checkered .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td {
+  background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
+}
+.anp-table-toggle.anp-table-checkered .markdown-preview-view:not(.cards):not(.table-disable) tr:nth-child(2n) td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .is-live-preview:not(.cards):not(.table-disable) tr:nth-child(2n) td:nth-child(2n),
+.anp-table-toggle.anp-table-checkered .is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td:nth-child(2n) {
   background-color: rgba(var(--ctp-crust), var(--anp-table-highlight-opacity, 0.5));
 }
-.anp-table-toggle.anp-td-full .markdown-preview-view:not(.cards):not(.table-disable) table td, .anp-table-toggle.anp-td-full .markdown-preview-view.cards:not(.table-disable) table:not(.dataview) td, .anp-table-toggle.anp-td-full .is-live-preview:not(.cards:not(.table-disable)) table td, .anp-table-toggle.anp-td-full .is-live-preview.cards:not(.table-disable) table:not(.dataview) td {
+
+.checkered.markdown-preview-view:not(.cards):not(.table-disable) tr td:nth-child(2n),
+.checkered.markdown-preview-view:not(.cards):not(.table-disable) tr:nth-child(2n) td, .checkered.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
+.checkered.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td, .checkered.is-live-preview:not(.cards):not(.table-disable) tr td:nth-child(2n),
+.checkered.is-live-preview:not(.cards):not(.table-disable) tr:nth-child(2n) td, .checkered.is-live-preview.cards:not(.table-disable) table:not(.dataview) tr td:nth-child(2n),
+.checkered.is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td {
   background-color: rgba(var(--ctp-mantle), var(--anp-table-highlight-opacity, 0.5));
+}
+.checkered.markdown-preview-view:not(.cards):not(.table-disable) tr:nth-child(2n) td:nth-child(2n), .checkered.markdown-preview-view.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td:nth-child(2n), .checkered.is-live-preview:not(.cards):not(.table-disable) tr:nth-child(2n) td:nth-child(2n), .checkered.is-live-preview.cards:not(.table-disable) table:not(.dataview) tr:nth-child(2n) td:nth-child(2n) {
+  background-color: rgba(var(--ctp-crust), var(--anp-table-highlight-opacity, 0.5));
 }
 
 .anp-table-auto.markdown-rendered:not(.cards):not(.table-disable) table,
@@ -5319,22 +5488,26 @@ body.rainbow-tags {
   --r7-color-light: rgba(var(--ctp-mauve), var(--rainbow-tags-opacity));
 }
 
-.anp-collapse-folders .nav-folder .nav-folder-collapse-indicator,
-.anp-collapse-folders [data-type=bookmarks] .tree-item .collapse-icon {
+.anp-collapse-folders .workspace-leaf-content:not([data-type=search]) .nav-folder.mod-root .nav-folder > .nav-folder-children :is(.nav-file, .nav-folder) {
+  margin-left: var(--size-2-1);
+}
+.anp-collapse-folders .workspace-leaf-content:not([data-type=search]) .tree-item .nav-folder-title {
+  align-items: center;
+}
+.anp-collapse-folders .workspace-leaf-content:not([data-type=search]) .tree-item .collapse-icon {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 24' fill='none' stroke='currentColor' stroke-linejoin='round' stroke-linecap='round' stroke-width='2'%3E%3Cpath d='M6 14l1.45-2.9A2 2 0 0 1 9.24 10H22a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H20a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E%0A");
   -webkit-mask-repeat: no-repeat;
   background-color: currentColor;
+  display: flex;
+  flex-basis: 100%;
   height: 16px;
   width: 17px;
-  margin-right: 4px;
 }
-.anp-collapse-folders .nav-folder.is-collapsed .nav-folder-collapse-indicator,
-.anp-collapse-folders [data-type=bookmarks] .tree-item.is-collapsed .collapse-icon {
+.anp-collapse-folders .workspace-leaf-content:not([data-type=search]) .tree-item.is-collapsed .collapse-icon {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 24' fill='none' stroke='currentColor' stroke-linejoin='round' stroke-linecap='round' stroke-width='2'%3E%3Cpath d='M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2z'/%3E%3Cpath d='M2 10h20' /%3E%3C/svg%3E%0A");
 }
-.anp-collapse-folders .nav-folder-collapse-indicator svg.svg-icon,
-.anp-collapse-folders [data-type=bookmarks] .collapse-icon svg.svg-icon {
-  color: transparent !important;
+.anp-collapse-folders .workspace-leaf-content:not([data-type=search]) .tree-item .collapse-icon svg {
+  display: none;
 }
 
 .anp-color-transition-toggle .horizontal-tab-content,
@@ -6501,16 +6674,22 @@ None of the original code was used and the feature was implemented from scratch.
   display: none;
 }
 
+.anp-file-icons .nav-file .nav-file-title[data-path] {
+  align-items: center;
+}
+
 .anp-file-icons .nav-file .nav-file-title[data-path]::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z'/%3E%3Cpath d='M14 2v6h6'/%3E%3C/svg%3E%0A");
   -webkit-mask-repeat: no-repeat;
-  background-color: currentColor;
+  background-color: var(--icon-color);
   content: "";
-  display: inline-flex;
+  display: flex;
   flex-shrink: 0;
-  height: 16px;
-  width: 16px;
-  margin-right: 5px;
+  height: var(--size-4-4);
+  margin-left: calc(-1 * var(--size-4-5));
+  opacity: var(--icon-opacity);
+  position: absolute;
+  width: var(--size-4-4);
 }
 
 .anp-file-icons .nav-file .nav-file-title[data-path$=".md"]::before {
@@ -6555,10 +6734,6 @@ None of the original code was used and the feature was implemented from scratch.
 .anp-file-icons .nav-file .nav-file-title[data-path$=".mkv"]::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 11v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8H4Z'/%3E%3Cpath d='m4 11-.88-2.87a2 2 0 0 1 1.33-2.5l11.48-3.5a2 2 0 0 1 2.5 1.32l.87 2.87L4 11.01Z'/%3E%3Cpath d='M6.6 4.99l3.38 4.2m1.88-5.81l3.38 4.2'/%3E%3C/svg%3E");
   -webkit-mask-repeat: no-repeat;
-}
-
-.anp-file-icons .nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title {
-  padding-left: var(--size-4-2);
 }
 
 .anp-background-image-toggle:not(.anp-colorful-frame) {
@@ -6651,8 +6826,20 @@ None of the original code was used and the feature was implemented from scratch.
   --italic-color: var(--text-muted) !important;
 }
 
-/*------------RAINBOW FOLDERS-------------*/
-/* Rainbow colors */
+/*===============================================================
+* RAINBOW FOLDERS
+* Author: AnubisNekhet
+* https://www.buymeacoffee.com/anubisnekhet
+*===============================================================*/
+/*---------------------------------------------------------------
+* RAIBOW FOLDER VARIABLE
+
+* --rainbow-folder-color is a raw rgb variable whose value
+* is cycled per child folder in a folder tree.
+* Applying "inherit" to every child folder excluding first-order
+* child folders results in folders "inheriting" their parent
+* folder colors.
+*---------------------------------------------------------------*/
 .nav-folder-children > .nav-folder:nth-child(11n+2),
 [data-type=bookmarks] .tree-item:nth-child(11n+2) {
   --rainbow-folder-color: var(--ctp-red);
@@ -6703,9 +6890,12 @@ None of the original code was used and the feature was implemented from scratch.
   --rainbow-folder-color: inherit;
 }
 
-/*-Full rainbow theme-*/
+/*---------------------------------------------------------------
+* FULL RAINBOW STYLE
+*---------------------------------------------------------------*/
 .anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title,
 .anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-file-title,
+.anp-full-rainbow-color-toggle .nav-folder.mod-root .collapse-icon svg.svg-icon,
 .anp-full-rainbow-color-toggle .tree-item-self .tree-item-icon {
   color: var(--anp-full-rainbow-text-inverted, var(--background-primary));
 }
@@ -6722,9 +6912,7 @@ None of the original code was used and the feature was implemented from scratch.
   border-radius: 5px;
   margin-bottom: 2px;
 }
-.anp-full-rainbow-color-toggle:not(.is-grabbing) .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title:hover {
-  background-color: rgba(var(--ctp-base), 0.1);
-}
+.anp-full-rainbow-color-toggle:not(.is-grabbing) .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title:hover,
 .anp-full-rainbow-color-toggle:not(.is-grabbing) .nav-folder.mod-root > .nav-folder-children .nav-file .nav-file-title:hover {
   background-color: rgba(var(--ctp-base), 0.1);
 }
@@ -6735,12 +6923,14 @@ None of the original code was used and the feature was implemented from scratch.
 .anp-full-rainbow-color-toggle .nav-file {
   overflow-y: hidden;
 }
-.anp-full-rainbow-color-toggle .nav-file-title-content.is-being-renamed, .anp-full-rainbow-color-toggle .nav-folder-title-content.is-being-renamed {
+.anp-full-rainbow-color-toggle .nav-file-title-content.is-being-renamed,
+.anp-full-rainbow-color-toggle .nav-folder-title-content.is-being-renamed {
   cursor: text;
   border-color: var(--interactive-accent);
   background-color: rgba(var(--ctp-crust), 0.2);
 }
-.anp-full-rainbow-color-toggle .nav-file-title-content.is-being-renamed::selection, .anp-full-rainbow-color-toggle .nav-folder-title-content.is-being-renamed::selection {
+.anp-full-rainbow-color-toggle .nav-file-title-content.is-being-renamed::selection,
+.anp-full-rainbow-color-toggle .nav-folder-title-content.is-being-renamed::selection {
   background-color: hsla(var(--color-accent-hsl), 0.2);
 }
 .anp-full-rainbow-color-toggle .nav-file-title-content.is-being-renamed::selection {
@@ -6763,10 +6953,12 @@ None of the original code was used and the feature was implemented from scratch.
   border-left: none;
   border-color: rgb(var(--ctp-accent));
 }
-.anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-file.has-focus > .nav-file-title, .anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-file > .nav-file-title {
+.anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-file > .nav-file-title, .anp-full-rainbow-color-toggle .nav-folder.mod-root > .nav-folder-children > .nav-file.has-focus > .nav-file-title {
   margin-bottom: 0;
 }
-.anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-folder.has-focus > .nav-folder-title:focus-within, .anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-file.has-focus > .nav-file-title:focus-within, .anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-folder.has-focus > .nav-folder-title, .anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-file.has-focus > .nav-file-title {
+.anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-folder.has-focus > .nav-file-title, .anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-folder.has-focus > .nav-file-title:focus-within,
+.anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-folder.has-focus > .nav-folder-title,
+.anp-full-rainbow-color-toggle .workspace-leaf.mod-active .nav-folder.has-focus > .nav-folder-title:focus-within {
   box-shadow: none;
 }
 
@@ -6778,31 +6970,51 @@ None of the original code was used and the feature was implemented from scratch.
   --anp-full-rainbow-text-inverted: rgb(var(--ctp-text));
 }
 
-/*-Simple rainbow theme-*/
+/*---------------------------------------------------------------
+* SIMPLE RAINBOW STYLE
+*---------------------------------------------------------------*/
 .anp-simple-rainbow-color-toggle.anp-simple-rainbow-title-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title,
-.anp-simple-rainbow-color-toggle.anp-simple-rainbow-title-toggle [data-type=bookmarks] > .view-content > div > .tree-item .tree-item-inner {
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-title-toggle [data-type=bookmarks] .tree-item .tree-item-inner {
   transition: color 0.4s;
   color: rgba(var(--rainbow-folder-color), var(--anp-simple-rainbow-opacity, 1));
   --nav-item-background-hover: rgba(var(--rainbow-folder-color), 0.1);
-  --nav-item-background-active: rgba(var(--rainbow-folder-color), 0.1) ;
+  --nav-item-background-active: rgba(var(--rainbow-folder-color), 0.1);
 }
-.anp-simple-rainbow-color-toggle.anp-simple-rainbow-icon-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title:after, .anp-simple-rainbow-color-toggle.anp-simple-rainbow-icon-toggle [data-type=bookmarks] > .view-content > div > .tree-item .tree-item-inner:after {
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-icon-toggle .nav-folder.mod-root > .nav-folder-children > .nav-folder .nav-folder-title:after,
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-icon-toggle [data-type=bookmarks] .tree-item .tree-item-inner:after {
   transition: color 0.4s;
   color: rgba(var(--rainbow-folder-color), var(--anp-simple-rainbow-opacity, 1));
   content: "⬤";
+  font-size: 10px;
   position: relative;
   margin-left: 4px;
-  top: 1px;
   opacity: 0.5;
+  top: -0.5px;
 }
-.anp-simple-rainbow-color-toggle.anp-simple-rainbow-indentation-toggle .nav-folder.mod-root .nav-folder > .nav-folder-children, .anp-simple-rainbow-color-toggle.anp-simple-rainbow-indentation-toggle [data-type=bookmarks] > .view-content > div > .tree-item .tree-item-children {
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-icon-toggle [data-type=bookmarks] .tree-item .tree-item-inner {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-indentation-toggle .nav-folder.mod-root .nav-folder > .nav-folder-children,
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-indentation-toggle [data-type=bookmarks] .tree-item .tree-item-children {
   transition: color 0.4s;
   border-color: rgba(var(--rainbow-folder-color), 0.5);
 }
-.anp-simple-rainbow-color-toggle.anp-simple-rainbow-collapse-toggle .tree-item-self .tree-item-icon {
-  --icon-color: rgba(var(--rainbow-folder-color), var(--anp-simple-rainbow-opacity, 1));
-  --nav-collapse-icon-color: rgba(var(--rainbow-folder-color), var(--anp-simple-rainbow-opacity, 1));
-  --nav-collapse-icon-color-collapsed: rgba(var(--rainbow-folder-color), var(--anp-simple-rainbow-opacity, 1));
+.anp-simple-rainbow-color-toggle.anp-simple-rainbow-collapse-icon-toggle .tree-item-self .tree-item-icon {
+  --icon-color: rgba(
+  	var(--rainbow-folder-color),
+  	var(--anp-simple-rainbow-opacity, 1)
+  );
+  --nav-collapse-icon-color: rgba(
+  	var(--rainbow-folder-color),
+  	var(--anp-simple-rainbow-opacity, 1)
+  );
+  --nav-collapse-icon-color-collapsed: rgba(
+  	var(--rainbow-folder-color),
+  	var(--anp-simple-rainbow-opacity, 1)
+  );
 }
 
 .modal {
@@ -7450,75 +7662,100 @@ None of the original code was used and the feature was implemented from scratch.
   padding-left: 8px;
 }
 
-.theme-dark .excalidraw, .theme-dark .excalidraw.theme--dark, .theme-light .excalidraw, .theme-light .excalidraw.theme--dark {
-  --button-destructive-bg-color: rgba(var(--ctp-red), 0.2);
-  --button-destructive-color: rgb(var(--ctp-red));
-  --button-gray-1: rgb(var(--ctp-base));
-  --button-gray-2: rgb(var(--ctp-mantle));
-  --button-gray-3: rgb(var(--ctp-crust));
-  --button-special-active-bg-color: rgb(var(--ctp-base));
-  --dialog-border-color: rgb(var(--ctp-surface1));
-  --focus-highlight-color: rgb(var(--ctp-accent, var(--ctp-teal)));
-  --icon-fill-color: var(--text-normal);
-  --icon-green-fill-color: rgb(var(--ctp-green));
-  --default-bg-color: rgb(var(--ctp-base));
-  --input-bg-color: rgb(var(--ctp-mantle));
-  --input-border-color: rgb(var(--ctp-surface1));
-  --input-hover-bg-color: rgb(var(--ctp-surface0));
-  --input-label-color: rgb(var(--ctp-text));
-  --island-bg-color: rgba(var(--ctp-base), 0.96);
-  --keybinding-color: rgb(var(--ctp-crust));
-  --link-color: var(--color-accent);
-  --overlay-bg-color: rgba(var(--ctp-base), 0.88);
-  --popup-bg-color: rgb(var(--ctp-base));
-  --popup-secondary-bg-color: rgb(var(--ctp-mantle));
-  --popup-text-color: rgb(var(--ctp-text));
-  --popup-text-inverted-color: rgb(var(--ctp-base));
-  --select-highlight-color: var(--color-accent);
-  --shadow-island: 0 0 0 1px rgba(var(--ctp-text), 0.01), 1px 1px 5px rgb(var(--ctp-text) / 12%);
-  --text-primary-color: rgb(var(--ctp-text));
-  --color-primary: var(--color-accent);
-  --color-primary-darker: var(--color-accent);
-  --color-primary-darkest: var(--color-accent);
-  --color-primary-light: rgb(var(--ctp-base));
+/* WIP, not implemented due to volatile excalidraw updates
+.theme-light .excalidraw.excalidraw-container:not(.theme--dark),
+.theme-dark .excalidraw.excalidraw-container.theme--dark {
+  --button-destructive-bg-color: #ffe3e3;
+  --button-destructive-color: #c92a2a;
+  --button-gray-1: #e9ecef;
+  --button-gray-2: #ced4da;
+  --button-gray-3: #adb5bd;
+  --button-special-active-bg-color: #ebfbee;
+  --dialog-border-color: var(--color-gray-20);
+  --dropdown-icon: url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"292.4\" height=\"292.4\" viewBox=\"0 0 292 292\"><path d=\"M287 197L159 69c-4-3-8-5-13-5s-9 2-13 5L5 197c-3 4-5 8-5 13s2 9 5 13c4 4 8 5 13 5h256c5 0 9-1 13-5s5-8 5-13-1-9-5-13z\"/></svg>");
+  --focus-highlight-color: #a5d8ff;
+  --icon-fill-color: var(--color-gray-80);
+  --icon-green-fill-color: #2b8a3e;
+  --default-bg-color: #ffffff;
+  --input-bg-color: #ffffff;
+  --input-border-color: #ced4da;
+  --input-hover-bg-color: #f1f3f5;
+  --input-label-color: #495057;
+  --island-bg-color: rgba(255, 255, 255, 0.96);
+  --keybinding-color: var(--color-gray-40);
+  --link-color: #1c7ed6;
+  --overlay-bg-color: rgba(255, 255, 255, 0.88);
+  --popup-bg-color: #ffffff;
+  --popup-secondary-bg-color: #f1f3f5;
+  --popup-text-color: #000000;
+  --popup-text-inverted-color: #ffffff;
+  --select-highlight-color: #339af0;
+  --shadow-island: 0px 7px 14px rgba(0, 0, 0, 0.05), 0px 0px 3.12708px rgba(0, 0, 0, 0.0798), 0px 0px 0.931014px rgba(0, 0, 0, 0.1702);
+  --button-hover-bg: var(--color-gray-10);
+  --default-border-color: var(--color-gray-30);
+  --default-button-size: 2rem;
+  --default-icon-size: 1rem;
+  --lg-button-size: 2.25rem;
+  --lg-icon-size: 1rem;
+  --editor-container-padding: 1rem;
+  --scrollbar-thumb: var(--button-gray-2);
+  --scrollbar-thumb-hover: var(--button-gray-3);
+  --modal-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+  --avatar-border-color: var(--color-gray-20);
+  --sidebar-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+  --sidebar-border-color: var(--color-gray-20);
+  --sidebar-bg-color: #fff;
+  --library-dropdown-shadow: 0px 15px 6px rgba(0, 0, 0, 0.01), 0px 8px 5px rgba(0, 0, 0, 0.05), 0px 4px 4px rgba(0, 0, 0, 0.09), 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  --space-factor: 0.25rem;
+  --text-primary-color: var(--color-gray-80);
+  --color-selection: var(--color-accent);
+  --color-icon-white: #ffffff;
+  --color-primary: var(--color-accent) !important;
+  --color-primary-darker: color-mix(in hsl, var(--color-accent), #000000, 70%) !important;
+  --color-primary-darkest: color-mix(in hsl, var(--color-accent), #000000) !important;
+  --color-primary-light: color-mix(in hsl, var(--color-accent), #FFFFFF) !important;
+  --color-primary-light-darker: color-mix(in hsl, var(--color-accent), var(--color-primary)) !important;
+  --color-gray-10: #f5f5f5;
+  --color-gray-20: #ebebeb;
+  --color-gray-30: #d6d6d6;
+  --color-gray-40: #b8b8b8;
+  --color-gray-50: #999999;
+  --color-gray-60: #7a7a7a;
+  --color-gray-70: #5c5c5c;
+  --color-gray-80: #3d3d3d;
+  --color-gray-85: #242424;
+  --color-gray-90: #1e1e1e;
+  --color-gray-100: #121212;
+  --color-warning: #fceeca;
+  --color-warning-dark: #f5c354;
+  --color-warning-darker: #f3ab2c;
+  --color-warning-darkest: #ec8b14;
+  --color-text-warning: var(--text-primary-color);
+  --color-danger: #db6965;
+  --color-danger-dark: #db6965;
+  --color-danger-darker: #d65550;
+  --color-danger-darkest: #d1413c;
+  --color-danger-text: black;
+  --color-danger-background: #fff0f0;
+  --color-danger-icon-background: #ffdad6;
+  --color-danger-color: #700000;
+  --color-danger-icon-color: #700000;
+  --color-warning-background: var(--color-warning);
+  --color-warning-icon-background: var(--color-warning-dark);
+  --color-warning-color: var(--text-primary-color);
+  --color-warning-icon-color: var(--text-primary-color);
+  --color-muted: var(--color-gray-30);
+  --color-muted-darker: var(--color-gray-60);
+  --color-muted-darkest: var(--color-gray-100);
+  --color-muted-background: var(--color-gray-80);
+  --color-muted-background-darker: var(--color-gray-100);
+  --color-promo: #e70078;
+  --color-success: #268029;
+  --color-success-lighter: #cafccc;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
 }
-
-.excalidraw-tooltip {
-  background: rgb(var(--ctp-crust)) !important;
-  color: var(--text-normal) !important;
-}
-
-.excalidraw .ToolIcon--plain,
-.excalidraw .reset-zoom-button,
-.excalidraw .ToolIcon[aria-label="Zoom in"],
-.excalidraw .ToolIcon[aria-label="Zoom out"],
-.excalidraw .ToolIcon[aria-label="Reset the canvas"] {
-  background-color: rgb(var(--ctp-crust)) !important;
-}
-.excalidraw .Dialog__titleContent {
-  font-family: var(--font-interface) !important;
-  font-variant-caps: normal;
-  --h2-color: var(--color-accent);
-}
-.excalidraw .confirm-dialog--confirm.ToolIcon_type_button {
-  background-color: rgb(var(--ctp-red)) !important;
-}
-.excalidraw .confirm-dialog--confirm.ToolIcon_type_button .ToolIcon__icon {
-  color: var(--background-primary) !important;
-}
-
-[data-type=excalidraw] .view-header {
-  margin: 0;
-}
-
-body .excalidraw .library-menu-items-container .library-actions--load, body .excalidraw .library-menu-items-container .library-actions--load:hover {
-  background-color: var(--color-accent);
-}
-
-.excalidraw h3 {
-  --h3-font: var(--font-interface);
-}
-
+*/
 .obsidian-icon-folder-icon {
   margin-top: -5px;
 }

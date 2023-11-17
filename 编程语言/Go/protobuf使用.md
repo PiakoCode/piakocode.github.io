@@ -71,9 +71,58 @@ func main() {
 
 ## proto文件格式
 
-#TODO:
+`proto` 文件遵循以下基本格式：
+
+1. 语法标识：指定 proto 文件应使用的语法版本，例如 `syntax = "proto3";` 表示使用 Protocol Buffers version 3 的语法规则。
+    
+2. 包声明：（可选）定义一个包的名称，用于防止命名冲突。
+    
+3. 导入语句：（可选）可以导入其他 proto 文件中的定义。
+    
+4. 消息定义：描述一个消息的格式，包括字段名、数据类型以及字段标签（用于序列化的唯一数字标识符）。
+    
+5. 服务定义：（针对 RPC 系统）定义 RPC 服务和方法。
 
 
+下面是一个简单的例子，显示了一个基本的`proto`文件内容：
+
+```proto
+syntax = "proto3";
+
+package example;
+
+// 定义一个消息
+message Person {
+  // 字段编号必须为正整数
+  string name = 1;    // 字段标签为1的字符串类型
+  int32 id = 2;       // 字段标签为2的整型
+  string email = 3;   // 字段标签为3的字符串
+
+  // 定义一个枚举类型
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  // 包含其他消息的消息
+  message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+  }
+
+  // 重复字段表示可有多个电话号码
+  repeated PhoneNumber phones = 4;
+}
+
+// 定义一个服务
+service MyService {
+  // 定义调用方法及其请求和响应类型
+  rpc GetMyData (Person) returns (Person);
+}
+```
+
+在这个例子中，我们定义了一个简单的人员信息的数据结构，该人员具有姓名、ID、电子邮件和电话号码列表，并描述了一个服务，其具有一个方法来获取人员数据。在实际应用中，`proto` 文件的结构可能会更复杂，包含多种嵌套消息和复杂类型。
 
 ## grpc使用步骤
 
@@ -107,6 +156,8 @@ service Greeter {
 
 **编写服务端代码**
 
+> "pb" 为 proto生成后的文件位置
+
 ```go
 package main  
   
@@ -126,7 +177,8 @@ const (
 type server struct {  
    pb.UnimplementedGreeterServer  
 }  
-  
+
+// 实现方法
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {  
    log.Printf("Received: %v", in.Name)  
    return &pb.HelloReply{Message: "Hello " + in.Name}, nil  
@@ -176,6 +228,7 @@ const (
 func main() {  
    // Set up a connection to the server.
    conn, err := grpc.Dial(address, grpc.WithTransportCredentials(insecure.NewCredentials()))  
+   // 更推荐 grpc.DialContext(context.Background(), address, grpc.WithBlock(), grpc.WithTransportCredentials(insecure.NewCredentials())
    
    if err != nil {  
       log.Fatal(err)  

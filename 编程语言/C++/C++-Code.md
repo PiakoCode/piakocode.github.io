@@ -177,3 +177,22 @@ int main()
     return 0;
 }
 ```
+
+
+## 读取文件内容
+
+```cpp
+#include <fstream>
+#include <string>
+#include <sstream>
+
+std::string getFileContent(const std::string& filePath) {
+    std::ifstream fileStream(filePath);
+    if(!fileStream)
+        throw std::runtime_error("Cannot open file at path: " + filePath);
+   
+    std::stringstream stringStream;
+    stringStream << fileStream.rdbuf();
+    return stringStream.str();
+}
+```

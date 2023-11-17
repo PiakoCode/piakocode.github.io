@@ -147,3 +147,17 @@ netstat命令用于显示网络连接和路由表信息。
 `hyperfine` benchmark工具
 
 `valgrind` C++应用内存泄露检查
+
+`webbench` 网络压力测试
+
+```shell
+webbench -c [并发量] -t [时间-秒] [target]
+
+# sample
+webbench -c 500 -t 60 localhost:8080
+```
+
+
+`locust` 性能测试
+
+[Locust - A modern load testing framework](https://locust.io/)
