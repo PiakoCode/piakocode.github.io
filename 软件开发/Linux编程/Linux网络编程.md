@@ -30,6 +30,7 @@
 
 ***
 
+## function
 
 **socket()**
 
@@ -227,6 +228,8 @@ server端
 
 
 ***
+
+## server
 
 服务器端代码：
 
@@ -518,6 +521,184 @@ void error_handing(char *message) {
 ```
 
 
+
+## 使用epoll的server
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <sys/epoll.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+
+#define MAX_EVENTS 10
+#define PORT 8080
+
+/* 设置套接字为非阻塞 */
+int make_socket_non_blocking(int sfd) {
+    int flags = fcntl(sfd, F_GETFL, 0);
+    if (flags == -1) {
+        perror("fcntl");
+        return -1;
+    }
+
+    flags |= O_NONBLOCK;
+    if (fcntl(sfd, F_SETFL, flags) == -1) {
+        perror("fcntl");
+        return -1;
+    }
+
+    return 0;
+}
+
+int main() {
+    /* 创建套接字，设置套接字选项，绑定和监听 */
+    int sfd, s;
+    int efd;
+    struct epoll_event event;
+    struct epoll_event *events;
+
+    sfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sfd == -1) {
+        perror("socket");
+        exit(EXIT_FAILURE);
+    }
+
+    make_socket_non_blocking(sfd);
+
+    int optval = 1;
+    setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+
+    struct sockaddr_in addr;
+    memset(&addr, 0, sizeof(struct sockaddr_in));
+    addr.sin_family = AF_INET;
+    addr.sin_addr.s_addr = INADDR_ANY;
+    addr.sin_port = htons(PORT);
+
+    if (bind(sfd, (struct sockaddr *)&addr, sizeof(struct sockaddr_in)) == -1) {
+        perror("bind");
+        exit(EXIT_FAILURE);
+    }
+
+    if (listen(sfd, SOMAXCONN) == -1) {
+        perror("listen");
+        exit(EXIT_FAILURE);
+    }
+
+    /* 创建epoll实例，然后添加监听socket到事件列表 */
+    efd = epoll_create1(0);
+    if (efd == -1) {
+        perror("epoll_create");
+        exit(EXIT_FAILURE);
+    }
+
+    event.data.fd = sfd;
+    event.events = EPOLLIN | EPOLLET;
+    s = epoll_ctl(efd, EPOLL_CTL_ADD, sfd, &event);
+    if (s == -1) {
+        perror("epoll_ctl");
+        exit(EXIT_FAILURE);
+    }
+
+    /* 缓冲区，用于存放epoll返回的事件 */
+    events = calloc(MAX_EVENTS, sizeof(event));
+
+    /* 事件循环 */
+    while (1) {
+        /* 等待事件发生 */
+        int n, i;
+        n = epoll_wait(efd, events, MAX_EVENTS, -1);
+        for (i = 0; i < n; i++) {
+            if ((events[i].events & EPOLLERR) ||
+                (events[i].events & EPOLLHUP) ||
+                (!(events[i].events & EPOLLIN))) {
+                /* 发生错误，或者socket未就绪，关闭这个文件描述符 */
+                fprintf(stderr, "epoll error\n");
+                close(events[i].data.fd);
+                continue;
+            } else if (sfd == events[i].data.fd) {
+                /* 监听socket收到通知，表示有一个或多个将要入站连接 */
+                while (1) {
+                    /* 接收连接，并将新的socket添加到epoll事件列表 */
+                    struct sockaddr in_addr;
+                    socklen_t in_len = sizeof(in_addr);
+                    int infd = accept(sfd, &in_addr, &in_len);
+                    if (infd == -1) {
+                        if ((errno == EAGAIN) ||
+                            (errno == EWOULDBLOCK)) {
+                            /* 所有连接已经处理完毕 */
+                            break;
+                        } else {
+                            perror("accept");
+                            break;
+                        }
+                    }
+
+                    /* 设置新的socket为非阻塞，然后将它添加到epoll的事件列表 */
+                    make_socket_non_blocking(infd);
+
+                    event.data.fd = infd;
+                    event.events = EPOLLIN | EPOLLET;
+                    s = epoll_ctl(efd, EPOLL_CTL_ADD, infd, &event);
+                    if (s == -1) {
+                        perror("epoll_ctl");
+                        exit(EXIT_FAILURE);
+                    }
+                }
+                continue;
+            } else {
+                /* fd上有数据等待读取 */
+                int done = 0;
+
+                while (1) {
+                    ssize_t count;
+                    char buf[512];
+                    count = read(events[i].data.fd, buf, sizeof buf);
+                    if (count == -1) {
+                        /* 如果errno等于EAGAIN，说明我们已经读取了所有数据，此时返回到主循环 */
+                        if (errno != EAGAIN) {
+                            perror("read");
+                            done = 1;
+                        }
+                        break;
+                    } else if (count == 0) {
+                        /* 文件结束符，表示远程已关闭连接 */
+                        done = 1;
+                        break;
+                    }
+
+                    /* 将缓冲区的内容写入标准输出 */
+                    s = write(1, buf, count);
+                    if (s == -1) {
+                        perror("write");
+                        exit(EXIT_FAILURE);
+                    }
+
+                    /* 向客户端发送一个基本的HTTP响应 */
+                    char response[] = "HTTP/1.1 200 OK\r\nContent-Length: 14\r\nContent-Type: text/plain\r\n\r\nHello, world!\n";
+                    write(events[i].data.fd, response, sizeof(response) - 1);
+                }
+
+                if (done) {
+                    printf("Closed connection on descriptor %d\n", events[i].data.fd);
+
+                    /* 关闭文件描述符，epoll会将其从监控列表中删除 */
+                    close(events[i].data.fd);
+                }
+            }
+        }
+    }
+
+    free(events);
+    close(sfd);
+
+    return EXIT_SUCCESS;
+}
+```
 
 
 

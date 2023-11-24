@@ -3,16 +3,13 @@
   "obsidian-style-settings",
   "templater-obsidian",
   "obsidian-kanban",
-  "obsidian-icon-folder",
   "dataview",
   "table-editor-obsidian",
-  "obsidian-admonition",
   "editing-toolbar",
   "obsidian-trash-explorer",
   "obsidian-minimal-settings",
   "obsidian-auto-link-title",
   "find-unlinked-files",
-  "terminal",
   "obsidian-daily-stats",
   "obsidian-html-plugin",
   "editor-width-slider",
@@ -21,5 +18,6 @@
   "obsidian-wakatime",
   "obsidian-file-cleaner",
   "obsidian-excalidraw-plugin",
-  "obsidian-tikzjax"
+  "obsidian-tikzjax",
+  "obsidian-admonition"
 ]

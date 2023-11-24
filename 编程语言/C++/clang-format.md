@@ -2,6 +2,7 @@
 
 `.clang-format`
 
+
 ```
 BasedOnStyle: LLVM 
 UseTab: Never 
@@ -14,6 +15,22 @@ ColumnLimit: 0
 AccessModifierOffset: -4
 NamespaceIndentation: All
 FixNamespaceComments: false
+```
+
+```
+Language: Cpp
+BasedOnStyle: WebKit
+```
+
+```
+Language: Cpp
+BasedOnStyle: Microsoft
+```
+
+BasedOnStyle
+
+```
+LLVM, Google, Chromium, Mozilla, WebKit, Microsoft
 ```
 
 

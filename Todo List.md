@@ -21,8 +21,6 @@
 
 - C++开发
     - CMU 15-445
-- 后端开发
-    - Java (Finished)
 
 
 
