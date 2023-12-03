@@ -1,4 +1,4 @@
-# Golang基础语法
+windo# Golang基础语法
 
 #go #基础
 
@@ -11,7 +11,13 @@
 go env GOPATH
 ```
 
+交叉编译
+```shell
+# Windows amd64
+CGO_ENABLED=0 GOOS=windows  GOARCH=amd64  go build .
 
+
+```
 ## 基础
 ### Hello,World!
 

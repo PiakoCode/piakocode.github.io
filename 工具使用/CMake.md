@@ -134,6 +134,37 @@ target_link_libraries(hello StringFunctions)
 
 
 
+### 为每个cpp文件进行单独编译
+
+```cmake
+# 设置CMake的最小版本要求
+cmake_minimum_required(VERSION 3.10)
+
+# 设置项目名称
+project(SingleFileExecutables)
+
+# 获取当前目录下所有的.cpp文件
+file(GLOB APP_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
+
+# 遍历所有的.cpp文件
+foreach(testsourcefile ${APP_SOURCES})
+    # 获取单个文件的文件名，不包含扩展名
+    get_filename_component(testname ${testsourcefile} NAME_WE)
+    
+    # 添加一个可执行文件的构建目标
+    add_executable(${testname} ${testsourcefile})
+
+    # 如果你的项目有特定的编译选项或需要链接额外的库
+    # 可以在此处设置这些属性。
+    # target_compile_options(${testname} PRIVATE -Wall -O2)
+    # target_link_libraries(${testname} your_libraries_here)
+
+endforeach(testsourcefile ${APP_SOURCES})
+
+```
+
+
+
 
 
 ## vscode + cmake命令行参数debug

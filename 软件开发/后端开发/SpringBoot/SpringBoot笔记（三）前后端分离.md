@@ -121,7 +121,7 @@ public class SecurityConfiguration {
     void onAuthenticationFailure(HttpServletRequest request,
                                  HttpServletResponse response,
                                  AuthenticationException exception) {
-
+:
     }
 
     void onAuthenticationSuccess(HttpServletRequest request, 
