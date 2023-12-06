@@ -1,5 +1,9 @@
 # SpringBoot
 
+
+## 网络请求
+
+
 在Spring Boot中，`@RestController` 和 `@Controller` 注解的区别在于它们处理 HTTP 请求的方式不同。
 
 `@RestController` 会将处理方法的返回值直接转换成 JSON 或 XML 格式，并将其响应给客户端。这意味着当你使用 `@RestController` 注解时，你不需要每个方法上都加上 `@ResponseBody` 注解。
@@ -51,6 +55,72 @@ public class UserController {
 
 这样listUsers()方法就只会拦截到/user/list路径下的GET请求，userDetails()方法就只会拦截到/user/details路径下的GET请求。
 ```
+
+
+
+### GET请求
+
+
+
+```java
+@CrossOrigin
+@RestController
+public class HelloController {
+    @GetMapping ("/hello")
+    public String hello(@RequestParam(value = "name") String name) { // value -> 前端发送的表单数据
+        return String.format("Hello %s!",name);
+    }
+}
+
+```
+
+
+```java
+@CrossOrigin // 处理跨域问题
+@RestController
+public class UserController {
+
+    @Autowired
+    UserService userService;
+
+    @GetMapping(value = "/{id}") //从路径获取值
+    public ResponseVo<User> getUserById(@PathVariable int id) { // 此处的 User 必须有getter和setter方法
+        User user = userService.getUserById(id);
+        System.out.println(user);
+        if (user != null) {
+            System.out.println("Success");
+            return ResponseVo.success(user); // springboot 自带的 jackjson 会将自动其转化为json数据
+        } else {
+            System.out.println("Failed");
+
+            return ResponseVo.failure();
+        }
+    }
+}
+```
+
+
+### POST请求
+
+
+```java
+@CrossOrigin
+@RestController
+public class HelloController {
+    @PostMapping ("/hello")
+    public String hello(@RequestBody String name) { // springboot会对传入的数据进行解析
+        return String.format("Hello %s!",name);
+    }
+}
+```
+
+
+
+
+
+
+
+
 
 ## Mabatis Plus
 
@@ -107,8 +177,8 @@ mapper/UserMapper.java
 
 ```java
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
-
+public interface UserMapper extends BaseMapper<User> { // BaseMapper 是 Mybatis-plus 中的
+    // 不需要写任何方法，MyBatis-Plus 会自动创建基本的 CRUD 操作
 }
 ```
 
