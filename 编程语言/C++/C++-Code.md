@@ -186,13 +186,16 @@ int main()
 #include <string>
 #include <sstream>
 
-std::string getFileContent(const std::string& filePath) {
+std::string readFile(const std::string& filePath) {
     std::ifstream fileStream(filePath);
-    if(!fileStream)
-        throw std::runtime_error("Cannot open file at path: " + filePath);
+    if(!fileStream) {
+        std::cerr << "无法打开文件: " << fileName << std::endl;
+        exit(1);
+    }
    
     std::stringstream stringStream;
     stringStream << fileStream.rdbuf();
     return stringStream.str();
 }
+
 ```

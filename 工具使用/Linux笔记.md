@@ -161,3 +161,32 @@ webbench -c 500 -t 60 localhost:8080
 `locust` 性能测试
 
 [Locust - A modern load testing framework](https://locust.io/)
+
+
+
+
+## 桌面环境
+
+kde查看哪些应用运行在x11或wayland下
+
+```shell
+qdbus org.kde.KWin /KWin org.kde.KWin.showDebugConsole
+```
+
+
+chrome electron wayland配置
+
+chrome-flags.conf
+```
+--enable-features=UseOzonePlatform
+--ozone-platform=wayland
+--enable-wayland-ime 
+```
+
+
+20 之后
+electron-flags.conf
+```
+--ozone-platform-hint=auto
+--enable-wayland-ime 
+```

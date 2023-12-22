@@ -8,7 +8,7 @@
   "vimMode": false,
   "useTab": false,
   "spellcheck": false,
-  "readableLineLength": true,
+  "readableLineLength": false,
   "showUnsupportedFiles": false,
   "showIndentGuide": true,
   "rightToLeft": false,
