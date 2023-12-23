@@ -1,9 +1,7 @@
 {
   "accentColor": "",
-  "cssTheme": "Minimal",
-  "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF",
-  "theme": "obsidian",
-  "interfaceFontFamily": "",
-  "textFontFamily": "微软雅黑",
-  "baseFontSize": 15
+  "cssTheme": "Catppuccin",
+  "textFontFamily": "Arial",
+  "interfaceFontFamily": "Arial",
+  "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF"
 }

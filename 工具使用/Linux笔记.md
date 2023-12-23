@@ -164,7 +164,59 @@ webbench -c 500 -t 60 localhost:8080
 
 
 
+火焰图 flamegraph
 
+安装
+```
+sudo yay -S flamegraph-git
+```
+
+使用
+
+```shell
+# 生成文件 perf.data
+sudo perf record -F 99 -p {pid} -g -- sleep 60 # 使用 Linux perf_events（又名“perf”）捕获 60 秒的 99 赫兹堆栈样本，程序PID为{pid}
+
+# 生成 out.perf
+sudo perf script > out.perf
+
+# 生成 out.folder
+sudo stackcollapse-perf out.perf > out.folded
+
+# 生成svg图片
+sudo flamegraph.pl out.folded > {name}.svg
+```
+
+*快速bash脚本*
+
+使用:
+```shell
+./script.sh {pid}
+```
+
+```bash
+#! /usr/bin/env bash
+
+sudo perf record -F 99 -p "$1" -g -- sleep 30 # 使用 Linux perf_events（又名“perf”）捕获 60 秒的 99 赫兹堆栈样本，程序PID为{pid}
+
+# 生成 out.perf
+sudo perf script > out.perf
+
+# 生成 out.folder
+sudo stackcollapse-perf out.perf > out.folded
+
+# 生成svg图片
+sudo flamegraph out.folded > "$1".svg
+
+sudo chmod +r "$1".svg
+```
+
+结果:
+![](Picture/graph.svg)
+
+reference:
+[GitHub - brendangregg/FlameGraph: Stack trace visualizer](https://github.com/brendangregg/FlameGraph)
+[利用火焰图分析程序性能瓶颈 | 齐浩天的博客](https://blog.angelmsger.com/%E5%88%A9%E7%94%A8%E7%81%AB%E7%84%B0%E5%9B%BE%E5%88%86%E6%9E%90%E7%A8%8B%E5%BA%8F%E6%80%A7%E8%83%BD%E7%93%B6%E9%A2%88/)
 ## 桌面环境
 
 kde查看哪些应用运行在x11或wayland下
@@ -190,3 +242,5 @@ electron-flags.conf
 --ozone-platform-hint=auto
 --enable-wayland-ime 
 ```
+
+
