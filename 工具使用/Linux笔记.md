@@ -212,6 +212,7 @@ sudo chmod +r "$1".svg
 ```
 
 结果:
+![[Picture/graph.svg]]
 ![](Picture/graph.svg)
 
 reference:
