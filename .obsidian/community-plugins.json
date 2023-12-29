@@ -3,10 +3,8 @@
   "obsidian-style-settings",
   "templater-obsidian",
   "obsidian-kanban",
-  "dataview",
   "table-editor-obsidian",
   "editing-toolbar",
-  "obsidian-minimal-settings",
   "obsidian-auto-link-title",
   "find-unlinked-files",
   "obsidian-daily-stats",
@@ -16,8 +14,5 @@
   "file-explorer-note-count",
   "obsidian-wakatime",
   "obsidian-file-cleaner",
-  "obsidian-excalidraw-plugin",
-  "obsidian-tikzjax",
-  "obsidian-admonition",
-  "obsidian-git"
+  "dataview"
 ]

@@ -144,7 +144,7 @@ netstat命令用于显示网络连接和路由表信息。
 
 `ncdu` 查看文件(夹)占用空间
 
-`hyperfine` benchmark工具
+`hyperfine` benchmark工具 
 
 `valgrind` C++应用内存泄露检查
 
@@ -164,7 +164,7 @@ webbench -c 500 -t 60 localhost:8080
 
 
 
-火焰图 flamegraph
+**火焰图 flamegraph**
 
 安装
 ```
@@ -197,7 +197,7 @@ sudo flamegraph.pl out.folded > {name}.svg
 ```bash
 #! /usr/bin/env bash
 
-sudo perf record -F 99 -p "$1" -g -- sleep 30 # 使用 Linux perf_events（又名“perf”）捕获 60 秒的 99 赫兹堆栈样本，程序PID为{pid}
+sudo perf record -F 99 -p "$1" -g -- sleep 30 # 使用 Linux perf_events（又名“perf”）捕获 30 秒的 99 赫兹堆栈样本，程序PID为{pid}
 
 # 生成 out.perf
 sudo perf script > out.perf
@@ -212,7 +212,6 @@ sudo chmod +r "$1".svg
 ```
 
 结果:
-![[Picture/graph.svg]]
 ![](Picture/graph.svg)
 
 reference:
