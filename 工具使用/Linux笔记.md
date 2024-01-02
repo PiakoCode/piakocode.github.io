@@ -148,6 +148,11 @@ netstat命令用于显示网络连接和路由表信息。
 
 `valgrind` C++应用内存泄露检查
 
+```shell
+valgrind --tool=helgrind ./my_program # 检查并发问题
+```
+
+
 `webbench` 网络压力测试
 
 ```shell
