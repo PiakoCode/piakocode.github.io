@@ -163,10 +163,61 @@ endforeach(testsourcefile ${APP_SOURCES})
 
 ```
 
+## 其他
+
+```
+.
+├── CMakeLists.txt
+├── main.cpp
+├── mandel.cpp
+├── mandel.h
+├── rainbow.cpp
+├── rainbow.h
+├── README.md
+└── stbiw
+    ├── CMakeLists.txt <------- this file
+    ├── stb_image_write.cpp
+    └── stb_image_write.h
+
+```
 
 
+```cmake
+add_library(stbiw STATIC stb_image_write.cpp)
+target_include_directories(stbiw PUBLIC .)
+```
+
+stb_image_write.cpp
+
+```cpp
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
+```
 
 
+`add_library(stbiw STATIC stb_image_write.cpp)`:
+add_library 是一个CMake命令，用于将一个库添加到项目中。
+stbiw 是库的名称，你可以根据需要更改它。
+STATIC 指定库的类型，这里是一个静态库。静态库在链接时会被整体地链接到可执行文件中。
+stb_image_write.cpp 是库的源代码文件，它将被编译并链接到最终的库中。
+
+`target_include_directories(stbiw PUBLIC .)`:
+target_include_directories 是用于向目标（在这里是库 stbiw）添加包含目录的命令。
+stbiw 是目标的名称，你可以根据实际情况修改。
+PUBLIC 表示这些包含目录将被添加到库的接口（即公共头文件）中，以便其他使用该库的目标也可以访问这些头文件。
+. 是当前目录的路径，这里指定将当前目录包含到 stbiw 库的接口中，使得在使用该库的其他目标中可以直接包含 #include 声明指向当前目录的头文件。
+这两行代码一起完成了将 stb_image_write.cpp 编译成一个静态库 stbiw，并将该库的包含目录设置为当前目录。这样，其他项目或目标可以使用 stbiw 库，并通过 #include 指令包含库中的头文件。
+
+**编译选项**
+
+```cmake
+# 在这里添加你的项目配置
+
+# 添加 -ffast-math 编译选项
+add_executable(your_target source1.cpp source2.cpp)
+target_compile_options(your_target PRIVATE -ffast-math) # 使用`-ffast-math`可能会导致一些数学计算的不确定性
+
+```
 ## vscode + cmake命令行参数debug
 
 1. 在.vscode文件夹里新建一个`settings.json`
@@ -191,3 +242,6 @@ endforeach(testsourcefile ${APP_SOURCES})
 ```cmake
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 ```
+
+
+

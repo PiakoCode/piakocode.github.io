@@ -1,6 +1,8 @@
+
 # C++-Code
 
 自己实现String类
+
 ```cpp
 #include <iostream>
 #include <cstring>
@@ -88,6 +90,7 @@ String& String::operator=(const String &str)
 ```
 
 String.cpp
+
 ```cpp
 #include <cstdlib>
 #include <cstring>
@@ -198,4 +201,49 @@ std::string readFile(const std::string& filePath) {
     return stringStream.str();
 }
 
+```
+
+递归搜索文件夹中文件
+
+```c++
+#include <iostream>
+#include <filesystem>
+#include <chrono>
+#include <memory>
+
+namespace fs = std::filesystem;
+
+const std::string PATH = "./";
+
+int search(const std::string& path, std::shared_ptr<int> sum) {
+    try {
+        for (const auto& entry : fs::directory_iterator(path)) {
+            std::string name = entry.path().filename().string();
+            std::cout << "file: " << name << std::endl;
+
+            if (fs::is_directory(entry.status())) {
+                search(entry.path().string() + "/", sum);
+            } else {
+                (*sum)++;
+            }
+        }
+    } catch (const std::filesystem::filesystem_error& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+
+int main() {
+    auto now = std::chrono::steady_clock::now();
+    auto sum = std::make_shared<int>(0);
+
+    search(PATH, sum);
+
+    auto elapsed_time = std::chrono::steady_clock::now() - now;
+    std::cout << "Elapsed time: " << std::chrono::duration_cast<std::chrono::milliseconds>(elapsed_time).count() << " ms" << std::endl;
+    std::cout << "Count: " << *sum << std::endl;
+
+    return 0;
+}
 ```

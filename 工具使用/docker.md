@@ -104,6 +104,23 @@ apt install -y curl sudo ssh vim fish neofetch tree make git gcc gdb build-essen
 ```
 
 
+Dockerfile
+```
+# Set the base image 
+FROM ubuntu:latest
+
+RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list
+
+# Update the repository sources list
+RUN apt update
+
+# Upgrade any pre-installed packages
+RUN apt upgrade -y
+
+# Install necessary packages
+RUN apt install -y curl sudo ssh vim fish neofetch tree make git gcc gdb build-essential htop wget python3 tmux
+```
+
 ## Dockerfile
 
 ```shell

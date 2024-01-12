@@ -3,5 +3,6 @@
   "cssTheme": "Catppuccin",
   "textFontFamily": "Arial",
   "interfaceFontFamily": "Arial",
-  "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF"
+  "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF",
+  "baseFontSize": 15
 }

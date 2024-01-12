@@ -74,6 +74,19 @@ git config --global init.defaultBranch <名称>
 git clone -b [branch_name] [git_url]
 ```
 
+clone子模组
+```git 
+git submodule update --init [submodule nams]
+```
+
+merge
+
+合并无关的分支
+
+```shell
+git merge [branch_name] --allow-unrelated-histories
+```
+
 
 **.gitignore**
 

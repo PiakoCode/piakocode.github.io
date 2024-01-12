@@ -146,6 +146,10 @@ netstat命令用于显示网络连接和路由表信息。
 
 `hyperfine` benchmark工具 
 
+```shell
+hyperfine --prepare zsh --warmup 10 --min-runs=1000 './path/to/program > /dev/null'
+```
+
 `valgrind` C++应用内存泄露检查
 
 ```shell
