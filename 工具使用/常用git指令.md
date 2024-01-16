@@ -87,6 +87,25 @@ merge
 git merge [branch_name] --allow-unrelated-histories
 ```
 
+tag
+
+```shell
+git tag # 列出本地所有标签
+git tag -l
+```
+
+```shell
+git ls-remote --tag # 列出远程标签
+```
+
+```shell
+git tag [标签名]
+git tag v0.1.1
+```
+
+
+
+
 
 **.gitignore**
 

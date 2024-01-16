@@ -208,6 +208,41 @@ PUBLIC 表示这些包含目录将被添加到库的接口（即公共头文件�
 . 是当前目录的路径，这里指定将当前目录包含到 stbiw 库的接口中，使得在使用该库的其他目标中可以直接包含 #include 声明指向当前目录的头文件。
 这两行代码一起完成了将 stb_image_write.cpp 编译成一个静态库 stbiw，并将该库的包含目录设置为当前目录。这样，其他项目或目标可以使用 stbiw 库，并通过 #include 指令包含库中的头文件。
 
+
+---
+
+`include_directories`
+
+```cmake
+# 添加 include 目录作为包含目录
+include_directories(include)
+
+add_executable(hello src/test.c)
+```
+
+```shell
+# 结构
+.
+├── CMakeLists.txt
+├── include
+│   └── test.h
+└── src
+    └── test.c
+```
+
+```c
+#include "test.h" // 实现效果
+#include <stdio.h>
+
+int main() {
+    int a = add(2, 3);
+}
+```
+
+
+
+
+
 **编译选项**
 
 ```cmake
@@ -217,6 +252,11 @@ PUBLIC 表示这些包含目录将被添加到库的接口（即公共头文件�
 add_executable(your_target source1.cpp source2.cpp)
 target_compile_options(your_target PRIVATE -ffast-math) # 使用`-ffast-math`可能会导致一些数学计算的不确定性
 
+```
+
+
+```cmake
+add_compile_options(-fcoroutines)
 ```
 ## vscode + cmake命令行参数debug
 
