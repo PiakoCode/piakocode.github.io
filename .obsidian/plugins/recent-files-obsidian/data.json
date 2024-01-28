@@ -1,0 +1,67 @@
+{
+  "recentFiles": [
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "clang-format",
+      "path": "编程语言/C++/clang-format.md"
+    },
+    {
+      "basename": "CMake",
+      "path": "工具使用/CMake.md"
+    },
+    {
+      "basename": "rCore学习记录",
+      "path": "System/rCore/rCore学习记录/rCore学习记录.md"
+    },
+    {
+      "basename": "Rust-Code",
+      "path": "编程语言/Rust/Rust-Code.md"
+    },
+    {
+      "basename": "Async Rust vs RTOS showdown!",
+      "path": "其他/LearningOS-note/Async Rust vs RTOS showdown!.md"
+    },
+    {
+      "basename": "200行Rust Futures",
+      "path": "其他/LearningOS-note/200行Rust Futures.md"
+    },
+    {
+      "basename": "ICPC 模板",
+      "path": "算法笔记/ICPC 模板.md"
+    },
+    {
+      "basename": "13.并发",
+      "path": "编程语言/Rust/13.并发.md"
+    },
+    {
+      "basename": "simple but useful code",
+      "path": "编程语言/Rust/simple but useful code.md"
+    },
+    {
+      "basename": "Java的坑",
+      "path": "软件开发/后端开发/Java的坑.md"
+    },
+    {
+      "basename": "Jwt结构",
+      "path": "软件开发/后端开发/Jwt结构.md"
+    },
+    {
+      "basename": "考研院校",
+      "path": "Misc/考研院校.md"
+    },
+    {
+      "basename": "GTest",
+      "path": "编程语言/C++/GTest.md"
+    },
+    {
+      "basename": "C++",
+      "path": "编程语言/C++/C++.md"
+    }
+  ],
+  "omittedPaths": [],
+  "maxLength": null,
+  "openType": "tab"
+}

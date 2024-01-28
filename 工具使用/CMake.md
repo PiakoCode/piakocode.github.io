@@ -6,6 +6,7 @@
 CMake项目的配置文件：`CMakeLists.txt`
 
 
+
 `cmake .`
 
 执行后的结构
@@ -46,10 +47,13 @@ CMake项目的配置文件：`CMakeLists.txt`
 基本
 ```cmake
 # CMake 最低版本号要求
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.25)
 
 # 项目信息
 project(hello)
+
+# 设置C++标准
+set(CMAKE_CXX_STANDARD 20
 
 # 指定生成目标
 add_executable(hello main.cpp)

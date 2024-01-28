@@ -1,8 +1,8 @@
 {
   "accentColor": "",
   "cssTheme": "Catppuccin",
-  "textFontFamily": "Arial",
-  "interfaceFontFamily": "Arial",
+  "textFontFamily": "Maple Mono SC NF",
+  "interfaceFontFamily": "Maple Mono SC NF",
   "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF",
   "baseFontSize": 15
 }

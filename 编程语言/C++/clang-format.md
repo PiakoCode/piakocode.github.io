@@ -26,6 +26,14 @@ Language: Cpp
 BasedOnStyle: Microsoft
 ```
 
+```
+BasedOnStyle: Google
+DerivePointerAlignment: false
+PointerAlignment: Right
+ColumnLimit: 120
+IncludeBlocks: Preserve
+```
+
 BasedOnStyle
 
 ```

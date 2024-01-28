@@ -620,7 +620,9 @@ std::vector<int> v = {4, 3, 2, 1}; // CTAD 编译期参数推断
 
 ## Template 模板
 
-[模版实战](模版实战.md)
+[C++ Template](C++%20Template.md)
+
+C++20 模板
 
 ```
 template <typename T>
