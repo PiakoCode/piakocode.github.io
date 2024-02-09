@@ -4,5 +4,7 @@
   "textFontFamily": "Maple Mono SC NF",
   "interfaceFontFamily": "Maple Mono SC NF",
   "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF",
-  "baseFontSize": 15
+  "baseFontSize": 15,
+  "showViewHeader": true,
+  "nativeMenus": false
 }

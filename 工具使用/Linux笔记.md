@@ -206,7 +206,11 @@ sudo flamegraph.pl out.folded > {name}.svg
 ```bash
 #! /usr/bin/env bash
 
-sudo perf record -F 99 -p "$1" -g -- sleep 30 # 使用 Linux perf_events（又名“perf”）捕获 30 秒的 99 赫兹堆栈样本，程序PID为{pid}
+# 使用 Linux perf_events（又名“perf”）捕获 30 秒的 99 赫兹堆栈样本，程序PID为{pid}
+# sudo perf record -F 99 -p "$1" -g -- sleep 30 
+
+# 分析程序 $1
+sudo perf record "$1" -F 99 -g -- sleep 30
 
 # 生成 out.perf
 sudo perf script > out.perf
