@@ -289,3 +289,40 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 
 
+---
+
+
+## 常用代码
+
+`set` 设置环境变量
+
+```cmake
+# 设置C++标准
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS True)
+```
+
+`include_directories`
+
+```cmake
+# 设置头文件目录
+include_directories("${CMAKE_SOURCE_DIR}/src/include")
+include_directories("${CMAKE_SOURCE_DIR}/third_party/gtest/googletest/include")
+```
+
+`add_subdirectory` 添加子目录
+
+```cmake
+add_subdirectory(src)
+add_subdirectory(test)
+add_subdirectory("${CMAKE_SOURCE_DIR}/third_party/gtest")
+```
+
+
+`aux_source_directory` 自动寻找、添加源代码
+
+```cmake
+aux_source_directory(. DIR_SRCS)
+```
+

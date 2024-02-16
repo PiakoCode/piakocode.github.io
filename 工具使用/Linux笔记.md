@@ -144,6 +144,9 @@ netstat命令用于显示网络连接和路由表信息。
 
 `ncdu` 查看文件(夹)占用空间
 
+`tealdeer` [tealdeer(tldr的rust客户端，速度更快)](https://github.com/dbrgn/tealdeer)
+
+
 `hyperfine` benchmark工具 
 
 ```shell

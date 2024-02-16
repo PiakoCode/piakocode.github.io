@@ -74,9 +74,34 @@ git config --global init.defaultBranch <名称>
 git clone -b [branch_name] [git_url]
 ```
 
-clone子模组
+**submodule**
+
+向当前git仓库添加submodule
+
+```shell
+git submodule add <url> <path/to/directory>
+```
+
+添加后会生成`.gitmodules`文件
+
+
+下载/更新submodule
+
 ```git 
-git submodule update --init [submodule nams]
+git submodule update --init [submodule names]
+
+git submodule init
+
+git submodule update
+
+git submodule update --init --recursive
+
+git submodule sync
+```
+
+clone时同时clone子模组
+```shell
+git clone --recurse-submodules [remote_url]
 ```
 
 merge
@@ -98,12 +123,18 @@ git tag -l
 git ls-remote --tag # 列出远程标签
 ```
 
+创建tag
+
 ```shell
 git tag [标签名]
 git tag v0.1.1
 ```
 
+切换tag并创建分支(直接checkout会出现分离的头指针)
 
+```shell
+git checkout -b [branch_name] [tag_name]
+```
 
 
 
