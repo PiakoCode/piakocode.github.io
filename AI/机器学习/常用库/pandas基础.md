@@ -2,7 +2,7 @@
 
 #pandas #python #基础
 
-相关内容：[matplotlib](常用库/matplotlib/matplotlib.md), [numpy](常用库/numpy.md), [sklearn 入门](常用库/sklearn/sklearn%20入门.md), [机器学习](机器学习.md)
+相关内容：[matplotlib](matplotlib/matplotlib.md), [numpy](numpy.md), [sklearn 入门](sklearn/sklearn%20入门.md), [机器学习](../机器学习.md)
 
 
 ## pandas 基本数据类型
@@ -712,7 +712,7 @@ df.apply(custom_function, axis=1)
 
 ## 绘图
 
-[matplotlib](常用库/matplotlib/matplotlib.md)
+[matplotlib](matplotlib/matplotlib.md)
 
 ```python 
 # 创建一个DataFrame对象

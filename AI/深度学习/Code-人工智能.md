@@ -6,7 +6,7 @@
 
 ### Pytorch基础训练
 
-[线性回归](深度学习/深度学习.md#线性回归)
+[线性回归](深度学习.md#线性回归)
 
 ```python
 import torch
@@ -89,9 +89,9 @@ plt.legend(loc = 'upper left')
 plt.show()
 ```
 
-![](Picture/Pasted%20image%2020230926193355.png)
+![](../Picture/Pasted%20image%2020230926193355.png)
 
-如何使用matplotlib，参见[Python-matplotlib画图](深度学习/Python-matplotlib画图.pdf)
+如何使用matplotlib，参见[Python-matplotlib画图](Python-matplotlib画图.pdf)
 
 
 

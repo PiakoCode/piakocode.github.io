@@ -1,13 +1,19 @@
 # GTest
 
-使用GTest对C++进行测试
+#CPP
 
 ## 安装
 
-Archlinux
+Archlinux 包管理
 
 ```
 sudo pacman -S gtest
+```
+
+git clone
+
+```shell
+git clone https://github.com/google/googletest.git
 ```
 
 ## 基础

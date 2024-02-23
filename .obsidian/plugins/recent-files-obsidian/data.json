@@ -1,16 +1,52 @@
 {
   "recentFiles": [
     {
+      "basename": "Todo List",
+      "path": "Misc/Todo List.md"
+    },
+    {
+      "basename": "GTest",
+      "path": "C++/GTest.md"
+    },
+    {
+      "basename": "B-tree",
+      "path": "B-tree.md"
+    },
+    {
+      "basename": "RPC学习",
+      "path": "Misc/RPC学习.md"
+    },
+    {
+      "basename": "C++代码样例",
+      "path": "C++/C++代码样例.md"
+    },
+    {
       "basename": "clang-format  & clang-tidy",
-      "path": "编程语言/C++/clang-format  & clang-tidy.md"
+      "path": "C++/clang-format  & clang-tidy.md"
+    },
+    {
+      "basename": "C++库函数",
+      "path": "C++/语法/C++库函数.md"
+    },
+    {
+      "basename": "C++",
+      "path": "C++/语法/C++.md"
+    },
+    {
+      "basename": "C++ Template",
+      "path": "C++/语法/C++ Template.md"
+    },
+    {
+      "basename": "Pasted image 20230318163847",
+      "path": "C++/Picture/Pasted image 20230318163847.png"
+    },
+    {
+      "basename": "build a simple database",
+      "path": "Web开发/数据库/build a simple database.md"
     },
     {
       "basename": "Doxygen",
       "path": "Doxygen.md"
-    },
-    {
-      "basename": "GTest",
-      "path": "编程语言/C++/GTest.md"
     },
     {
       "basename": "CMake",
@@ -29,12 +65,8 @@
       "path": "工具使用/Linux笔记.md"
     },
     {
-      "basename": "B-tree",
-      "path": "B-tree.md"
-    },
-    {
       "basename": "SpringBoot笔记（二）数据交互",
-      "path": "软件开发/后端开发/SpringBoot/SpringBoot笔记（二）数据交互.md"
+      "path": "Web开发/后端开发/SpringBoot/SpringBoot笔记（二）数据交互.md"
     },
     {
       "basename": "README",
@@ -42,15 +74,15 @@
     },
     {
       "basename": "Pasted image 20230510175221",
-      "path": "软件开发/前端/Picture/Pasted image 20230510175221.png"
+      "path": "Web开发/前端/Picture/Pasted image 20230510175221.png"
     },
     {
       "basename": "CSS基础",
-      "path": "软件开发/前端/CSS基础.md"
+      "path": "Web开发/前端/CSS基础.md"
     },
     {
       "basename": "Pasted image 20230510175203",
-      "path": "软件开发/前端/Picture/Pasted image 20230510175203.png"
+      "path": "Web开发/前端/Picture/Pasted image 20230510175203.png"
     },
     {
       "basename": "tmux",
@@ -106,7 +138,7 @@
     },
     {
       "basename": "ICPC 模板",
-      "path": "算法笔记/ICPC 模板.md"
+      "path": "Algorithm/ICPC 模板.md"
     },
     {
       "basename": "13.并发",
@@ -118,19 +150,15 @@
     },
     {
       "basename": "Java的坑",
-      "path": "软件开发/后端开发/Java的坑.md"
+      "path": "Web开发/后端开发/Java的坑.md"
     },
     {
       "basename": "Jwt结构",
-      "path": "软件开发/后端开发/Jwt结构.md"
+      "path": "Web开发/后端开发/Jwt结构.md"
     },
     {
       "basename": "考研院校",
       "path": "Misc/考研院校.md"
-    },
-    {
-      "basename": "C++",
-      "path": "编程语言/C++/C++.md"
     }
   ],
   "omittedPaths": [],

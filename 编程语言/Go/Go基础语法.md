@@ -117,8 +117,8 @@ a[1] = 9
 ### 切片
 
 切片的长度可变
-![](../../算法笔记/Picture/Pasted%20image%2020221217194803.png)
-![](../../算法笔记/Picture/Pasted%20image%2020221217201342.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221217194803.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221217201342.png)
 ```go
 a := []int{1,2,3,4}
 a = append(a,10) // 结尾添加值为10的变量
@@ -155,8 +155,8 @@ delete(numbers, "one")
 go中的字符串本质是不可变的byte切片
 
 string默认为 ""
-![](../../算法笔记/Picture/Pasted%20image%2020221218210143.png)
-![](../../算法笔记/Picture/Pasted%20image%2020221218205327.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221218210143.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221218205327.png)
 
 ## 循环判断
 
@@ -307,7 +307,7 @@ func main() {
 //同样可以使用指针
 ```
 
-![](../../算法笔记/Picture/Pasted%20image%2020221219165611.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221219165611.png)
 
 vscode 错误：无法安装div ，解决方法：设置GOARCH=amd64
 
@@ -325,10 +325,10 @@ func TestFirst(t *testing.T) {
 go语言变量类型没有隐式转换。例如，int32的变量a不能直接赋值给int64的变量b，必须将a强制转换为int64
 
 
-![](../../算法笔记/Picture/Pasted%20image%2020221216194007.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221216194007.png)
 
 ## defer
-![](../../算法笔记/Picture/Pasted%20image%2020221217195123.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221217195123.png)
 
 ```go
 package main
@@ -348,7 +348,7 @@ world
 
 */
 ```
-![](../../算法笔记/Picture/Pasted%20image%2020221217195318.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221217195318.png)
 
 ## 方法和接口
 ### 方法
@@ -582,7 +582,7 @@ func main() {
 
 ### 接口
 
-![](../../算法笔记/Picture/Pasted%20image%2020221220125904.png)
+![](../../Algorithm/Picture/Pasted%20image%2020221220125904.png)
 
 ### 定义接口
 
@@ -1214,7 +1214,7 @@ func main() {
 ```
 
 output:
-![|left](../../算法笔记/Picture/Pasted%20image%2020221230221653.png)
+![|left](../../Algorithm/Picture/Pasted%20image%2020221230221653.png)
 ## 并发
 ### goroutine
 

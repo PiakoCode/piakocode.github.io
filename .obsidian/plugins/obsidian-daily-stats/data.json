@@ -102,16 +102,13 @@
     "2024/1/11": 99,
     "2024/1/13": 1235,
     "2024/1/14": 249,
-    "2024/1/15": 196
+    "2024/1/15": 196,
+    "2024/1/18": 5
   },
   "todaysWordCount": {
-    "Doxygen.md": {
-      "initial": 38,
-      "current": 38
-    },
-    "编程语言/C++/clang-format  & clang-tidy.md": {
-      "initial": 1783,
-      "current": 1979
+    "C++/GTest.md": {
+      "initial": 470,
+      "current": 475
     }
   }
 }

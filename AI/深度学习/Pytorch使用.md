@@ -47,9 +47,9 @@ print(zero_x)
 
 ### 线性回归
 
-[线性回归](深度学习/深度学习.md#线性回归)
+[线性回归](深度学习.md#线性回归)
 
-[Pytorch基础训练](深度学习/Code-人工智能.md#Pytorch基础训练)
+[Pytorch基础训练](Code-人工智能.md#Pytorch基础训练)
 
 ```python
 # 输入特征x和目标值y
@@ -74,7 +74,7 @@ model = LinearRegression(1, 1)
 
 ### softmax
 
-[softmax](深度学习/深度学习.md#softmax)
+[softmax](深度学习.md#softmax)
 
 在PyTorch中，可以使用torch.nn.functional.softmax函数来进行softmax操作。softmax函数将一个向量映射成一个概率分布，使得向量中的元素都处于0和1之间，并且所有元素的和等于1。
 
@@ -245,7 +245,7 @@ print(random_normal)
 
 ### autograd 自动求导
 
-![](Picture/Pasted%20image%2020230502235408.png)
+![](../Picture/Pasted%20image%2020230502235408.png)
 
 ### 前向传播和反向传播
 

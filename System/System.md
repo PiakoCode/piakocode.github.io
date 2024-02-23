@@ -2,12 +2,12 @@
 
 
 The memory layout of C program ⬇
-![Memory layout of C program](../算法笔记/Picture/Pasted%20image%2020230124203149.png "Memory layout of C program") 
+![Memory layout of C program](../Algorithm/Picture/Pasted%20image%2020230124203149.png "Memory layout of C program") 
 [C程序的内存布局 | FlyingMcdull (wongxingjun.github.io)](https://wongxingjun.github.io/2015/07/25/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/)
 
 
 
-![](../算法笔记/Picture/Pasted%20image%2020230125155017.png)
+![](../Algorithm/Picture/Pasted%20image%2020230125155017.png)
 A typical C’s process memory layout on an x86.
 [The C/C++ typical process image illustration from the memory layout perspective](https://www.installsetupconfig.com/win32programming/processtoolhelpapis12.html)
 
@@ -34,4 +34,4 @@ A typical C’s process memory layout on an x86.
 虚拟地址-->转换成物理地址-->访问物理内存
 
 
-![](../算法笔记/Picture/Pasted%20image%2020230125162920.png)
+![](../Algorithm/Picture/Pasted%20image%2020230125162920.png)
