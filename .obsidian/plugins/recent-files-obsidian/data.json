@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "Cargo",
+      "path": "编程语言/Rust/Cargo.md"
+    },
+    {
+      "basename": "0.安装Rust和Hello,World",
+      "path": "编程语言/Rust/语法/0.安装Rust和Hello,World.md"
+    },
+    {
+      "basename": "3.结构体",
+      "path": "编程语言/Rust/语法/3.结构体.md"
+    },
+    {
+      "basename": "simple but useful code",
+      "path": "编程语言/Rust/simple but useful code.md"
+    },
+    {
+      "basename": "Rust-Code",
+      "path": "编程语言/Rust/Rust-Code.md"
+    },
+    {
+      "basename": "trpl04-06",
+      "path": "编程语言/Rust/语法/Picture/trpl04-06.svg"
+    },
+    {
+      "basename": "trpl04-05",
+      "path": "编程语言/Rust/语法/Picture/trpl04-05.svg"
+    },
+    {
+      "basename": "trpl04-02",
+      "path": "编程语言/Rust/语法/Picture/trpl04-02.svg"
+    },
+    {
+      "basename": "trpl04-01",
+      "path": "编程语言/Rust/语法/Picture/trpl04-01.svg"
+    },
+    {
       "basename": "Todo List",
       "path": "Misc/Todo List.md"
     },
@@ -102,11 +138,7 @@
     },
     {
       "basename": "构建多线程web服务器",
-      "path": "编程语言/Rust/构建多线程web服务器.md"
-    },
-    {
-      "basename": "Rust-Code",
-      "path": "编程语言/Rust/Rust-Code.md"
+      "path": "编程语言/Rust/语法/构建多线程web服务器.md"
     },
     {
       "basename": "Bash 脚本",
@@ -142,11 +174,7 @@
     },
     {
       "basename": "13.并发",
-      "path": "编程语言/Rust/13.并发.md"
-    },
-    {
-      "basename": "simple but useful code",
-      "path": "编程语言/Rust/simple but useful code.md"
+      "path": "编程语言/Rust/语法/13.并发.md"
     },
     {
       "basename": "Java的坑",
