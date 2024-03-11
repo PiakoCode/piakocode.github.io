@@ -1,16 +1,28 @@
 {
   "recentFiles": [
     {
+      "basename": "11.闭包和迭代器",
+      "path": "编程语言/Rust/语法/11.闭包和迭代器.md"
+    },
+    {
+      "basename": "7.错误处理",
+      "path": "编程语言/Rust/语法/7.错误处理.md"
+    },
+    {
+      "basename": "4.枚举和模式匹配",
+      "path": "编程语言/Rust/语法/4.枚举和模式匹配.md"
+    },
+    {
+      "basename": "3.结构体",
+      "path": "编程语言/Rust/语法/3.结构体.md"
+    },
+    {
       "basename": "Cargo",
       "path": "编程语言/Rust/Cargo.md"
     },
     {
       "basename": "0.安装Rust和Hello,World",
       "path": "编程语言/Rust/语法/0.安装Rust和Hello,World.md"
-    },
-    {
-      "basename": "3.结构体",
-      "path": "编程语言/Rust/语法/3.结构体.md"
     },
     {
       "basename": "simple but useful code",
