@@ -1,5 +1,7 @@
 # CMake
 
+模板
+[TemplateCXX · GitHub](https://github.com/PiakoCode/TemplateCXX)
 
 [GitHub - ttroy50/cmake-examples: Useful CMake Examples](https://github.com/ttroy50/cmake-examples)
 
@@ -53,7 +55,7 @@ cmake_minimum_required(VERSION 3.25)
 project(hello)
 
 # 设置C++标准
-set(CMAKE_CXX_STANDARD 20
+set(CMAKE_CXX_STANDARD 20)
 
 # 指定生成目标
 add_executable(hello main.cpp)

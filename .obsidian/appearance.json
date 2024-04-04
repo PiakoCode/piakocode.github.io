@@ -6,5 +6,6 @@
   "monospaceFontFamily": "FiraCode Nerd Font Mono,Maple Mono SC NF",
   "baseFontSize": 15,
   "showViewHeader": true,
-  "nativeMenus": false
+  "nativeMenus": false,
+  "theme": "obsidian"
 }

@@ -191,7 +191,7 @@ git checkout -b [branch_name] [tag_name]
 
 
 
-##  错误
+##  错误解决
 
 OpenSSL SSL_read: Connection was aborted, errno 10054
 
@@ -201,3 +201,7 @@ OpenSSL SSL_read: Connection was aborted, errno 10054
 
 [解决 ssh: connect to host github.com port 22: Connection timed out](https://segmentfault.com/a/1190000040896781)
 
+
+---
+
+如果无法正常验证身份, 试试使用*ssh链接*而非https链接
