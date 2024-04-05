@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "4.枚举和模式匹配",
+      "path": "编程语言/Rust/语法/4.枚举和模式匹配.md"
+    },
+    {
       "basename": "clang-format  & clang-tidy",
       "path": "C++/clang-format  & clang-tidy.md"
     },
@@ -59,10 +63,6 @@
     {
       "basename": "Cargo",
       "path": "编程语言/Rust/Cargo.md"
-    },
-    {
-      "basename": "4.枚举和模式匹配",
-      "path": "编程语言/Rust/语法/4.枚举和模式匹配.md"
     },
     {
       "basename": "10.生命周期",
