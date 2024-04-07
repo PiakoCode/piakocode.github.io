@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "毕业设计",
+      "path": "毕业设计.md"
+    },
+    {
+      "basename": "Doxygen",
+      "path": "Doxygen.md"
+    },
+    {
+      "basename": "README",
+      "path": "README.md"
+    },
+    {
+      "basename": "12.智能指针",
+      "path": "编程语言/Rust/语法/12.智能指针.md"
+    },
+    {
       "basename": "4.枚举和模式匹配",
       "path": "编程语言/Rust/语法/4.枚举和模式匹配.md"
     },
@@ -31,10 +47,6 @@
     {
       "basename": "1.Rust基本语法",
       "path": "编程语言/Rust/语法/1.Rust基本语法.md"
-    },
-    {
-      "basename": "毕业设计",
-      "path": "毕业设计.md"
     },
     {
       "basename": "常用git指令",
@@ -141,20 +153,12 @@
       "path": "Web开发/数据库/build a simple database.md"
     },
     {
-      "basename": "Doxygen",
-      "path": "Doxygen.md"
-    },
-    {
       "basename": "Linux笔记",
       "path": "工具使用/Linux笔记.md"
     },
     {
       "basename": "SpringBoot笔记（二）数据交互",
       "path": "Web开发/后端开发/SpringBoot/SpringBoot笔记（二）数据交互.md"
-    },
-    {
-      "basename": "README",
-      "path": "README.md"
     },
     {
       "basename": "Pasted image 20230510175221",
@@ -195,10 +199,6 @@
     {
       "basename": "Make",
       "path": "工具使用/Make.md"
-    },
-    {
-      "basename": "MySQL指令",
-      "path": "工具使用/MySQL指令.md"
     }
   ],
   "omittedPaths": [],
