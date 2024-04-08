@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Bash 脚本",
+      "path": "工具使用/Bash 脚本.md"
+    },
+    {
       "basename": "毕业设计",
       "path": "毕业设计.md"
     },
@@ -191,10 +195,6 @@
     {
       "basename": "构建多线程web服务器",
       "path": "编程语言/Rust/语法/构建多线程web服务器.md"
-    },
-    {
-      "basename": "Bash 脚本",
-      "path": "工具使用/Bash 脚本.md"
     },
     {
       "basename": "Make",
