@@ -26,7 +26,7 @@ git push gitee main
 echo -e "\n${BLUE}git push github${NC}\n"
 git push github main
 
-echo -e "\n${BLUE}git push github${NC}\n"
+echo -e "\n${BLUE}git push github-page${NC}\n"
 git push github-page main
 
 echo -e "${GREEN}-----Push Complete!-----\n${NC}"

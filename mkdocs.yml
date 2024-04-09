@@ -1,4 +1,4 @@
-site_name: Piako's notebok
+site_name: Piako's notebook
 site_url: https://piakocode.github.io
 theme:
     name: 'material'
@@ -8,7 +8,6 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.tabs.sticky
-    - search.highlight
     palette:
 
     # Light mode
