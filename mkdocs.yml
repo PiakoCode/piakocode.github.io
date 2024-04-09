@@ -1,7 +1,13 @@
 site_name: Piako's notebok
-
+site_url: https://piakocode.github.io
 theme:
     name: 'material'
+    features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
     palette:
 
     # Light mode

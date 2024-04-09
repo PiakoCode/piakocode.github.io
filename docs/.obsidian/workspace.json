@@ -11,8 +11,12 @@
             "id": "5f26ab265bd4cb77",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "编程语言/Rust/语法/2.所有权.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -69,8 +73,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -89,7 +92,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "编程语言/Rust/语法/2.所有权.md"
+              }
             }
           },
           {
@@ -98,6 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "编程语言/Rust/语法/2.所有权.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,6 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "编程语言/Rust/语法/2.所有权.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,7 +178,9 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {}
+              "state": {
+                "file": "编程语言/Rust/语法/2.所有权.md"
+              }
             }
           }
         ]
@@ -194,8 +203,12 @@
       "obsidian-file-cleaner:清理文件": false
     }
   },
-  "active": "3b231e4b255b3ae0",
+  "active": "5f26ab265bd4cb77",
   "lastOpenFiles": [
+    "编程语言/Rust/语法/0.安装Rust和Hello,World.md",
+    "编程语言/Rust/语法/Picture/trpl04-06.svg",
+    "编程语言/Rust/语法/Picture/trpl04-02.svg",
+    "编程语言/Rust/语法/Picture/trpl04-01.svg",
     "index.md",
     "mkdocs.yml",
     "毕业设计.md",
@@ -221,12 +234,7 @@
     "编程语言/Rust/语法/2.所有权.md",
     "编程语言/Rust/语法/11.闭包和迭代器.md",
     "编程语言/Rust/语法/7.错误处理.md",
-    "编程语言/Rust/语法/0.安装Rust和Hello,World.md",
-    "编程语言/Rust/simple but useful code.md",
-    "编程语言/Rust/语法/Picture/trpl04-06.svg",
     "编程语言/Rust/语法/Picture/trpl04-05.svg",
-    "编程语言/Rust/语法/Picture/trpl04-02.svg",
-    "编程语言/Rust/语法/Picture/trpl04-01.svg",
     "编程语言/Rust/语法",
     "C++/Picture/Pasted image 20230318163847.png",
     "Web开发/数据库/Picture/Pasted image 20231118152023.png",

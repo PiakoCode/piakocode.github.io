@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "2.所有权",
+      "path": "编程语言/Rust/语法/2.所有权.md"
+    },
+    {
+      "basename": "0.安装Rust和Hello,World",
+      "path": "编程语言/Rust/语法/0.安装Rust和Hello,World.md"
+    },
+    {
+      "basename": "trpl04-06",
+      "path": "编程语言/Rust/语法/Picture/trpl04-06.svg"
+    },
+    {
+      "basename": "trpl04-02",
+      "path": "编程语言/Rust/语法/Picture/trpl04-02.svg"
+    },
+    {
+      "basename": "trpl04-01",
+      "path": "编程语言/Rust/语法/Picture/trpl04-01.svg"
+    },
+    {
       "basename": "Bash 脚本",
       "path": "工具使用/Bash 脚本.md"
     },
@@ -85,20 +105,12 @@
       "path": "编程语言/Rust/语法/10.生命周期.md"
     },
     {
-      "basename": "2.所有权",
-      "path": "编程语言/Rust/语法/2.所有权.md"
-    },
-    {
       "basename": "11.闭包和迭代器",
       "path": "编程语言/Rust/语法/11.闭包和迭代器.md"
     },
     {
       "basename": "7.错误处理",
       "path": "编程语言/Rust/语法/7.错误处理.md"
-    },
-    {
-      "basename": "0.安装Rust和Hello,World",
-      "path": "编程语言/Rust/语法/0.安装Rust和Hello,World.md"
     },
     {
       "basename": "simple but useful code",
@@ -109,20 +121,8 @@
       "path": "编程语言/Rust/Rust-Code.md"
     },
     {
-      "basename": "trpl04-06",
-      "path": "编程语言/Rust/语法/Picture/trpl04-06.svg"
-    },
-    {
       "basename": "trpl04-05",
       "path": "编程语言/Rust/语法/Picture/trpl04-05.svg"
-    },
-    {
-      "basename": "trpl04-02",
-      "path": "编程语言/Rust/语法/Picture/trpl04-02.svg"
-    },
-    {
-      "basename": "trpl04-01",
-      "path": "编程语言/Rust/语法/Picture/trpl04-01.svg"
     },
     {
       "basename": "Todo List",
