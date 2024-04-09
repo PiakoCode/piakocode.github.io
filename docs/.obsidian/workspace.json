@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程语言/Rust/语法/2.所有权.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程语言/Rust/语法/2.所有权.md"
+                "file": "index.md"
               }
             }
           },
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程语言/Rust/语法/2.所有权.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程语言/Rust/语法/2.所有权.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -179,7 +179,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "编程语言/Rust/语法/2.所有权.md"
+                "file": "index.md"
               }
             }
           }
@@ -205,6 +205,9 @@
   },
   "active": "5f26ab265bd4cb77",
   "lastOpenFiles": [
+    "Picture/82732925_p0_master1200.jpg",
+    "Picture",
+    "编程语言/Rust/语法/2.所有权.md",
     "编程语言/Rust/语法/0.安装Rust和Hello,World.md",
     "编程语言/Rust/语法/Picture/trpl04-06.svg",
     "编程语言/Rust/语法/Picture/trpl04-02.svg",
@@ -231,7 +234,6 @@
     "编程语言/Rust/Cargo.md",
     "编程语言/Rust/语法/10.生命周期.md",
     "编程语言/Rust/语法/1.Rust基本语法.md",
-    "编程语言/Rust/语法/2.所有权.md",
     "编程语言/Rust/语法/11.闭包和迭代器.md",
     "编程语言/Rust/语法/7.错误处理.md",
     "编程语言/Rust/语法/Picture/trpl04-05.svg",
@@ -248,7 +250,6 @@
     "编程语言/Go/Picture/go-spider.exe",
     "System/How Program Run, Big Overview.pdf",
     "Web开发/数据库/Picture",
-    "Web开发/数据库",
-    "人工智能/机器学习/未命名"
+    "Web开发/数据库"
   ]
 }

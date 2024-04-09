@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "index",
+      "path": "index.md"
+    },
+    {
       "basename": "2.所有权",
       "path": "编程语言/Rust/语法/2.所有权.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "构建多线程web服务器",
       "path": "编程语言/Rust/语法/构建多线程web服务器.md"
-    },
-    {
-      "basename": "Make",
-      "path": "工具使用/Make.md"
     }
   ],
   "omittedPaths": [],
