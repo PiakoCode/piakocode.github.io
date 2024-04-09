@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "机器学习",
+      "path": "AI/机器学习/机器学习.md"
+    },
+    {
       "basename": "Google benchmark",
       "path": "C++/Google benchmark.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "200行Rust Futures",
       "path": "其他/LearningOS-note/200行Rust Futures.md"
-    },
-    {
-      "basename": "Async Rust vs RTOS showdown!",
-      "path": "其他/LearningOS-note/Async Rust vs RTOS showdown!.md"
     }
   ],
   "omittedPaths": [],

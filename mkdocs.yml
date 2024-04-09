@@ -3,6 +3,7 @@ site_url: https://piakocode.github.io
 theme:
     name: 'material'
     features:
+    - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.tabs
@@ -32,6 +33,7 @@ theme:
 markdown_extensions:
   - footnotes
   - attr_list
+  - admonition
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.superfences
