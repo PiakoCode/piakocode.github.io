@@ -1,0 +1,246 @@
+{
+  "main": {
+    "id": "22433fc2ae3205de",
+    "type": "split",
+    "children": [
+      {
+        "id": "a15da9e0635435e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5f26ab265bd4cb77",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8ec93863fe206d68",
+    "type": "split",
+    "children": [
+      {
+        "id": "575e092ea445cb51",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bdfa8cfeae9c7b03",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1c3c62f3629a8fa7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "bash",
+                "matchingCase": false,
+                "explainSearch": true,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ab125e0bafc2b843",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "3b231e4b255b3ae0",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 281
+  },
+  "right": {
+    "id": "780603ec7a00ca36",
+    "type": "split",
+    "children": [
+      {
+        "id": "5fb21e555141d217",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6e75d8003413898f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "b1e767943b232c9c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4e6054787b8ea3a1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4f3a58e52558b705",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e228655d8baf8085",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "ee49b589ba474f71",
+            "type": "leaf",
+            "state": {
+              "type": "stats-tracker",
+              "state": {}
+            }
+          },
+          {
+            "id": "202ed76425644d32",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              }
+            }
+          },
+          {
+            "id": "3164cf8f0be72ac4",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "7d29dffd673a33bc",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "random-note:开始漫游笔记": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "command-palette:打开命令面板": false,
+      "canvas:新建白板": false,
+      "templates:插入模板": false,
+      "templater-obsidian:Templater": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-file-cleaner:清理文件": false
+    }
+  },
+  "active": "3b231e4b255b3ae0",
+  "lastOpenFiles": [
+    "mkdocs.yml",
+    "毕业设计.md",
+    "Doxygen.md",
+    "README.md",
+    "编程语言/Rust/语法/12.智能指针.md",
+    "编程语言/Rust/语法/4.枚举和模式匹配.md",
+    "C++/clang-format  & clang-tidy.md",
+    "C++/语法/C++.md",
+    "Algorithm/动态规划.md",
+    "编程语言/Rust/语法/8.泛型.md",
+    "编程语言/Rust/语法/9.Trait.md",
+    "编程语言/Rust/语法/3.结构体.md",
+    "工具使用/常用git指令.md",
+    "编程语言/Rust/rust记录.md",
+    "C++/Google benchmark.md",
+    "C++/GTest.md",
+    "工具使用/CMake.md",
+    "其他/CMU15445/CMU-15-445-spring2023通关记录.md",
+    "编程语言/Rust/Cargo.md",
+    "编程语言/Rust/语法/10.生命周期.md",
+    "编程语言/Rust/语法/1.Rust基本语法.md",
+    "编程语言/Rust/语法/2.所有权.md",
+    "编程语言/Rust/语法/11.闭包和迭代器.md",
+    "编程语言/Rust/语法/7.错误处理.md",
+    "编程语言/Rust/语法/0.安装Rust和Hello,World.md",
+    "编程语言/Rust/simple but useful code.md",
+    "编程语言/Rust/语法/Picture/trpl04-06.svg",
+    "编程语言/Rust/语法/Picture/trpl04-05.svg",
+    "编程语言/Rust/语法/Picture/trpl04-02.svg",
+    "编程语言/Rust/语法/Picture/trpl04-01.svg",
+    "编程语言/Rust/语法",
+    "C++/Picture/Pasted image 20230318163847.png",
+    "Web开发/数据库/Picture/Pasted image 20231118152023.png",
+    "C++/语法",
+    "Web开发/前端/Picture/Pasted image 20230510175221.png",
+    "Web开发/前端/Picture/Pasted image 20230510175203.png",
+    "Misc/Picture/Pasted image 20240113125209.png",
+    "Misc/Picture/Pasted image 20240113124510.png",
+    "Misc/Picture",
+    "工具使用/Picture",
+    "编程语言/Go/Picture/go-spider.exe",
+    "System/How Program Run, Big Overview.pdf",
+    "Web开发/数据库/Picture",
+    "Web开发/数据库",
+    "人工智能/机器学习/未命名",
+    "AI/机器学习/常用库"
+  ]
+}
