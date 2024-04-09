@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Google benchmark",
+      "path": "C++/Google benchmark.md"
+    },
+    {
+      "basename": "clang-format  & clang-tidy",
+      "path": "C++/clang-format  & clang-tidy.md"
+    },
+    {
+      "basename": "82732925_p0_master1200",
+      "path": "Picture/82732925_p0_master1200.jpg"
+    },
+    {
       "basename": "index",
       "path": "index.md"
     },
@@ -49,10 +61,6 @@
       "path": "编程语言/Rust/语法/4.枚举和模式匹配.md"
     },
     {
-      "basename": "clang-format  & clang-tidy",
-      "path": "C++/clang-format  & clang-tidy.md"
-    },
-    {
       "basename": "C++",
       "path": "C++/语法/C++.md"
     },
@@ -83,10 +91,6 @@
     {
       "basename": "rust记录",
       "path": "编程语言/Rust/rust记录.md"
-    },
-    {
-      "basename": "Google benchmark",
-      "path": "C++/Google benchmark.md"
     },
     {
       "basename": "GTest",
@@ -195,10 +199,6 @@
     {
       "basename": "Async Rust vs RTOS showdown!",
       "path": "其他/LearningOS-note/Async Rust vs RTOS showdown!.md"
-    },
-    {
-      "basename": "构建多线程web服务器",
-      "path": "编程语言/Rust/语法/构建多线程web服务器.md"
     }
   ],
   "omittedPaths": [],
