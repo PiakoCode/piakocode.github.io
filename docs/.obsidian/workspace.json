@@ -8,14 +8,14 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5f26ab265bd4cb77",
+            "id": "7f4929aa9d36cb61",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI/机器学习/机器学习.md",
+                "file": "毕业设计/毕业设计.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
@@ -77,7 +77,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 281
+    "width": 281,
+    "collapsed": true
   },
   "right": {
     "id": "780603ec7a00ca36",
@@ -93,7 +94,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI/机器学习/机器学习.md"
+                "file": "毕业设计/毕业设计.md"
               }
             }
           },
@@ -103,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AI/机器学习/机器学习.md",
+                "file": "毕业设计/毕业设计.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +121,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AI/机器学习/机器学习.md",
+                "file": "毕业设计/毕业设计.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -179,7 +180,7 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "AI/机器学习/机器学习.md"
+                "file": "毕业设计/毕业设计.md"
               }
             }
           }
@@ -203,12 +204,20 @@
       "obsidian-file-cleaner:清理文件": false
     }
   },
-  "active": "5f26ab265bd4cb77",
+  "active": "7f4929aa9d36cb61",
   "lastOpenFiles": [
+    "Read List.md",
+    "AI/机器学习/机器学习（二）.md",
+    "index.md",
+    "AI/机器学习/机器学习.md",
+    "毕业设计/毕业设计.md",
+    "毕业设计/未命名.md",
+    "编程语言/C/ELF文件结构.md",
+    "毕业设计",
+    "编程语言/C/C语言的编译.md",
     "C++/Google benchmark.md",
     "C++/clang-format  & clang-tidy.md",
     "Picture/82732925_p0_master1200.jpg",
-    "index.md",
     "Picture",
     "编程语言/Rust/语法/2.所有权.md",
     "编程语言/Rust/语法/0.安装Rust和Hello,World.md",
@@ -230,12 +239,6 @@
     "编程语言/Rust/rust记录.md",
     "C++/GTest.md",
     "工具使用/CMake.md",
-    "其他/CMU15445/CMU-15-445-spring2023通关记录.md",
-    "编程语言/Rust/Cargo.md",
-    "编程语言/Rust/语法/10.生命周期.md",
-    "编程语言/Rust/语法/1.Rust基本语法.md",
-    "编程语言/Rust/语法/11.闭包和迭代器.md",
-    "编程语言/Rust/语法/7.错误处理.md",
     "编程语言/Rust/语法/Picture/trpl04-05.svg",
     "编程语言/Rust/语法",
     "C++/Picture/Pasted image 20230318163847.png",
@@ -248,7 +251,6 @@
     "工具使用/Picture",
     "编程语言/Go/Picture/go-spider.exe",
     "System/How Program Run, Big Overview.pdf",
-    "Web开发/数据库/Picture",
-    "Web开发/数据库"
+    "Web开发/数据库/Picture"
   ]
 }

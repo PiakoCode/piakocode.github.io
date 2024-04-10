@@ -7,7 +7,7 @@
   "useMarkdownLinks": true,
   "vimMode": false,
   "useTab": false,
-  "spellcheck": true,
+  "spellcheck": false,
   "readableLineLength": true,
   "showUnsupportedFiles": false,
   "showIndentGuide": true,
@@ -15,5 +15,8 @@
   "showLineNumber": false,
   "promptDelete": false,
   "propertiesInDocument": "visible",
-  "strictLineBreaks": false
+  "strictLineBreaks": true,
+  "userIgnoreFilters": [
+    "javascripts/"
+  ]
 }

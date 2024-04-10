@@ -1,8 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "毕业设计",
+      "path": "毕业设计/毕业设计.md"
+    },
+    {
+      "basename": "Read List",
+      "path": "Read List.md"
+    },
+    {
+      "basename": "机器学习（二）",
+      "path": "AI/机器学习/机器学习（二）.md"
+    },
+    {
+      "basename": "index",
+      "path": "index.md"
+    },
+    {
       "basename": "机器学习",
       "path": "AI/机器学习/机器学习.md"
+    },
+    {
+      "basename": "ELF文件结构",
+      "path": "编程语言/C/ELF文件结构.md"
+    },
+    {
+      "basename": "C语言的编译",
+      "path": "编程语言/C/C语言的编译.md"
     },
     {
       "basename": "Google benchmark",
@@ -15,10 +39,6 @@
     {
       "basename": "82732925_p0_master1200",
       "path": "Picture/82732925_p0_master1200.jpg"
-    },
-    {
-      "basename": "index",
-      "path": "index.md"
     },
     {
       "basename": "2.所有权",
@@ -179,26 +199,6 @@
     {
       "basename": "Pasted image 20230510175221",
       "path": "Web开发/前端/Picture/Pasted image 20230510175221.png"
-    },
-    {
-      "basename": "CSS基础",
-      "path": "Web开发/前端/CSS基础.md"
-    },
-    {
-      "basename": "Pasted image 20230510175203",
-      "path": "Web开发/前端/Picture/Pasted image 20230510175203.png"
-    },
-    {
-      "basename": "tmux",
-      "path": "工具使用/tmux.md"
-    },
-    {
-      "basename": "Helix",
-      "path": "工具使用/Helix.md"
-    },
-    {
-      "basename": "200行Rust Futures",
-      "path": "其他/LearningOS-note/200行Rust Futures.md"
     }
   ],
   "omittedPaths": [],
