@@ -5,9 +5,10 @@ theme:
     features:
     - navigation.footer
     - navigation.instant
-    - navigation.instant.prefetch
+    - navigation.instant.preview
     - navigation.tabs
     - navigation.top
+    - navigation.tracking
     - navigation.tabs.sticky
     - content.code.copy
     palette:
@@ -35,6 +36,8 @@ markdown_extensions:
   - footnotes
   - attr_list
   - admonition
+  - md_in_html
+  - tables
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.superfences
@@ -60,6 +63,7 @@ markdown_extensions:
 plugins:
   - search
   - roamlinks
+  - glightbox
 
 extra_javascript:
   - javascripts/mathjax.js
