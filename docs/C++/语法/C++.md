@@ -817,6 +817,16 @@ int main() {
 }
 ```
 
+
+未知类型、数量的参数，以及未知类型的返回值
+
+```cpp
+template<typename... Args, typename ReturnType>
+std::function<ReturnType(Args...)> create_function(ReturnType (*func)(Args...)) {
+    return std::function<ReturnType(Args...)>(func);
+}
+```
+
 ## lambda 表达式
 
 lambda表达式的一般形式如下：

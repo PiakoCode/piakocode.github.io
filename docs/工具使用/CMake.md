@@ -7,6 +7,7 @@
 
 CMake项目的配置文件：`CMakeLists.txt`
 
+[获取软件包（FetchContent）(CMake 3.11+) · Modern CMake](https://modern-cmake-cn.github.io/Modern-CMake-zh_CN/chapters/projects/fetch.html)
 
 
 `cmake .`
@@ -290,6 +291,83 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 ```
 
 
+## 构建Lib
+
+```cmake
+# src/CMakeLists.txt
+
+# 指定库的源文件
+set(SOURCES
+    my_library.cpp
+)
+
+# 生成库
+add_library(my_library ${SOURCES})
+
+# 设置头文件路径，供其他项目使用
+target_include_directories(my_library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+```
+
+
+一旦你已经使用CMake构建了库，你可以通过以下几种方式之一来调用它：
+
+1. **链接到另一个CMake项目**：如果你有另一个CMake项目想要使用你构建的库，你可以在它的CMakeLists.txt文件中使用`target_link_libraries()`命令来链接你的库。例如：
+
+
+```cmake
+# CMakeLists.txt  
+project(my_project)  # 添加你的库 
+add_subdirectory(path/to/your/library)  # 添加你的可执行文件 
+add_executable(my_executable main.cpp)  # 链接你的库 
+target_link_libraries(my_executable my_library)
+```
+
+
+2. **手动链接到其他项目**：如果你的库被构建成了静态库（.a文件）或动态库（.so文件），你可以在其他项目中手动链接它。这可以通过在编译时指定库的路径和名称来完成。例如：
+
+
+```bash
+g++ -o my_program main.cpp -L/path/to/library -lmy_library
+```
+
+其中，`-L`选项指定库的路径，`-l`选项指定要链接的库的名称。
+
+
+3. **使用头文件**：如果你的库暴露了公共头文件，其他项目可以通过包含这些头文件来使用库的功能。在CMake中，你可以使用`target_include_directories()`命令来告诉其他项目包含你的库的头文件路径。
+
+
+
+```cmake
+# CMakeLists.txt  
+project(another_project)  # 包含你的库的头文件路径 
+include_directories(path/to/your/library)  # 添加你的可执行文件 
+add_executable(another_executable another_main.cpp)  # 添加链接 
+target_link_libraries(another_executable my_library)
+```
+
+无论你选择哪种方法，你都需要确保在链接和包含你的库时，你的库文件和头文件都可在相应的位置找到。
+
+
+## 获取软件包
+
+```cmake
+
+include(FetchContent)
+
+
+FetchContent_Declare(
+  catch
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG v2.13.6)
+# CMake 3.14+
+FetchContent_MakeAvailable(catch)
+
+
+add_executable(fetch_example main.cpp)
+target_link_libraries(fetch_example PRIVATE Catch2::Catch2)
+```
+
 
 ---
 
@@ -328,3 +406,23 @@ add_subdirectory("${CMAKE_SOURCE_DIR}/third_party/gtest")
 aux_source_directory(. DIR_SRCS)
 ```
 
+
+`find_package()` 寻找本地包
+
+
+`find_library` 寻找本地库
+
+```cmake
+find_library([VAR] NAMES [库名] REQUIRED)
+
+# EXAMPLE
+find_library(A NAMES uring REQUIRED)
+message(${A}) # /usr/lib/liburing.so
+
+
+
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+target_link_libraries(${PROJECT_NAME} uring)
+
+
+```

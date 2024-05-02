@@ -16,9 +16,9 @@ static void bubble(benchmark::State &state) {
     for (int i = 1; i <= 50000; ++i) {
         v.emplace_back(rand() % 10000);
     }
-    for (auto _ : state)
+    for (auto _ : state) {
         bubble_sort(v);
-        benchmark::DoNotOptimize(bubble_sort);
+    }
 }
 BENCHMARK(bubble);
 
@@ -29,9 +29,9 @@ static void select(benchmark::State &state) {
     for (int i = 1; i <= 50000; ++i) {
         v.emplace_back(rand() % 10000);
     }
-    for (auto _ : state)
+    for (auto _ : state) {
         select_sort(v);
-        benchmark::DoNotOptimize(select_sort);
+    }
 }
 BENCHMARK(select);
 

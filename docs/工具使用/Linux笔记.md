@@ -260,3 +260,9 @@ electron-flags.conf
 ```
 
 
+## 应用程序
+
+mpv播放器
+
+启用硬件解码(自动选择解码方式)
+`--hwdec=auto`

@@ -33,6 +33,16 @@ ReflowComments: true
 
 # 对齐连续的尾随的注释
 AlignTrailingComments: true
+
+# 连续声明时，对齐所有声明的变量名
+AlignConsecutiveDeclarations: true
+
+# 总是在template声明后换行
+AlwaysBreakTemplateDeclarations: true
+
+# 连续空行的最大数量
+MaxEmptyLinesToKeep: 1
+
 ```
 
 ```
@@ -473,72 +483,109 @@ AccessModifierOffset: -4
 ```
 
 
+```
+# 基于LLVM
+BasedOnStyle: LLVM
+
+# 设置缩进是 4 空格
+IndentWidth: 4
+
+# 使用空格
+UseTab: Never
+
+AccessModifierOffset: -4
+
+# 允许排序#include
+SortIncludes: false
+
+# 指针和引用的对齐: Left, Right, Middle
+PointerAlignment: Right
+
+# 允许重新排版注释
+ReflowComments: true
+
+# 对齐连续的尾随的注释
+AlignTrailingComments: true
+
+# 总是在template声明后换行
+AlwaysBreakTemplateDeclarations: true
+
+# 连续空行的最大数量
+MaxEmptyLinesToKeep: 1
+
+# false表示函数实参要么都在同一行，要么都各自一行
+BinPackArguments: false
+
+# false表示所有形参要么都在同一行，要么都各自一行
+BinPackParameters: true
+```
+
+
 `.clang-tidy`
 
 ```
 ---
-Checks:    "bugprone-*,\
-            cert-*,\
-            clang-analyzer-*,\
-            concurrency-*,\
-            google-*,\
-            llvm-*,\
-            misc-*,\
-            modernize-*,\
-            portability-*,\
-            performance-*,\
-            readability-*,\
-            -bugprone-easily-swappable-parameters,\
-            -bugprone-reserved-identifier,\
-            -cert-dcl51-cpp,\
-            -cert-dcl37-c,\
-            -readability-magic-numbers,\
-            -readability-identifier-length,\
-            -readability-implicit-bool-conversion,\
-            -readability-isolate-declaration,\
-            -readability-static-accessed-through-instance,\
-            -readability-redundant-access-specifiers,\
-            -google-build-using-namespace,\
-            -google-readability-casting,\
-            -google-readability-todo,\
-            -modernize-avoid-c-arrays,\
-            -modernize-use-trailing-return-type,\
-            -misc-non-private-member-variables-in-classes"
-WarningsAsErrors:   '-*'
-HeaderFilterRegex: '^.*\.hpp$'
+Checks: "bugprone-*,\
+  cert-*,\
+  clang-analyzer-*,\
+  concurrency-*,\
+  google-*,\
+  llvm-*,\
+  misc-*,\
+  modernize-*,\
+  portability-*,\
+  performance-*,\
+  readability-*,\
+  -bugprone-easily-swappable-parameters,\
+  -bugprone-reserved-identifier,\
+  -cert-dcl51-cpp,\
+  -cert-dcl37-c,\
+  -readability-magic-numbers,\
+  -readability-identifier-length,\
+  -readability-implicit-bool-conversion,\
+  -readability-isolate-declaration,\
+  -readability-static-accessed-through-instance,\
+  -readability-redundant-access-specifiers,\
+  -google-build-using-namespace,\
+  -google-readability-casting,\
+  -google-readability-todo,\
+  -modernize-avoid-c-arrays,\
+  -modernize-use-trailing-return-type,\
+  -misc-non-private-member-variables-in-classes"
+WarningsAsErrors: "-*"
+HeaderFilterRegex: '.*'
 FormatStyle: file
 AnalyzeTemporaryDtors: false
 # check https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-naming.html
 CheckOptions:
-  - key:             readability-identifier-naming.ClassCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.ClassConstantCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.ClassConstantPrefix
-    value:           ''
-  - key:             readability-identifier-naming.EnumCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.EnumConstantCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.FunctionCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.GlobalConstantCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.MemberCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.NamespaceCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.PublicMemberSuffix
-    value:           ''
-  - key:             readability-identifier-naming.PrivateMemberSuffix
-    value:           ''
-  - key:             readability-identifier-naming.ProtectedMemberSuffix
-    value:           ''
-  - key:             readability-identifier-naming.MethodCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.ParameterCase
-    value:           aNy_CasE
-  - key:             readability-identifier-naming.VariableCase
-    value:           aNy_CasE
----
+  - key: readability-identifier-naming.ClassCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.ClassConstantCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.ClassConstantPrefix
+    value: ""
+  - key: readability-identifier-naming.EnumCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.EnumConstantCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.FunctionCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.MemberCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.NamespaceCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.PublicMemberSuffix
+    value: ""
+  - key: readability-identifier-naming.PrivateMemberSuffix
+    value: ""
+  - key: readability-identifier-naming.ProtectedMemberSuffix
+    value: ""
+  - key: readability-identifier-naming.MethodCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.ParameterCase
+    value: aNy_CasE
+  - key: readability-identifier-naming.VariableCase
+    value: aNy_CasE
 ```
