@@ -450,3 +450,22 @@ inline ThreadPool::~ThreadPool() {
 
 #endif
 ```
+
+
+## 禁用类的拷贝和移动
+
+```cpp
+ClassName(const ClassName&) = delete;
+ClassName(ClassName&&) = delete;
+ClassName& operator=(const ClassName&) = delete;
+ClassName& operator=(ClassName&&) = delete;
+```
+
+宏形式
+```cpp
+#define DISABLE_COPY_AND_MOVE(ClassName) \
+ClassName(const ClassName &) = delete; \
+ClassName(ClassName &&) = delete; \
+ClassName &operator=(const ClassName &) = delete; \
+ClassName &operator=(ClassName &&) = delete;
+```

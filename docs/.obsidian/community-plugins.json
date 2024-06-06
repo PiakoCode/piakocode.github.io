@@ -14,5 +14,7 @@
   "dataview",
   "obsidian-admonition",
   "obsidian-image-toolkit",
-  "recent-files-obsidian"
+  "recent-files-obsidian",
+  "cm-chs-patch",
+  "obsidian-vimrc-support"
 ]

@@ -12,6 +12,9 @@ doxygen -g
 doxygen ./Doxyfile
 ```
 
+然后在`document`里面打开`index.html`即可
+
+
 ---
 
 reference:

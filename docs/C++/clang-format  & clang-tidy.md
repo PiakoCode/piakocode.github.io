@@ -8,7 +8,6 @@
 
 `.clang-format`
 
-
 ```
 # 基于LLVM
 BasedOnStyle: LLVM
@@ -496,7 +495,7 @@ UseTab: Never
 AccessModifierOffset: -4
 
 # 允许排序#include
-SortIncludes: false
+SortIncludes: Never
 
 # 指针和引用的对齐: Left, Right, Middle
 PointerAlignment: Right
@@ -507,17 +506,17 @@ ReflowComments: true
 # 对齐连续的尾随的注释
 AlignTrailingComments: true
 
+# 连续声明时，对齐所有声明的变量名
+AlignConsecutiveDeclarations: true
+
 # 总是在template声明后换行
-AlwaysBreakTemplateDeclarations: true
+AlwaysBreakTemplateDeclarations: Yes
 
 # 连续空行的最大数量
 MaxEmptyLinesToKeep: 1
 
 # false表示函数实参要么都在同一行，要么都各自一行
 BinPackArguments: false
-
-# false表示所有形参要么都在同一行，要么都各自一行
-BinPackParameters: true
 ```
 
 
@@ -553,7 +552,7 @@ Checks: "bugprone-*,\
   -modernize-use-trailing-return-type,\
   -misc-non-private-member-variables-in-classes"
 WarningsAsErrors: "-*"
-HeaderFilterRegex: '.*'
+HeaderFilterRegex: '^.*\.hpp$'
 FormatStyle: file
 AnalyzeTemporaryDtors: false
 # check https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-naming.html
@@ -588,4 +587,56 @@ CheckOptions:
     value: aNy_CasE
   - key: readability-identifier-naming.VariableCase
     value: aNy_CasE
+```
+
+
+修改了CheckOption的`.clang-tidy`:
+
+```
+---
+Checks: "bugprone-*,\
+  cert-*,\
+  clang-analyzer-*,\
+  concurrency-*,\
+  google-*,\
+  llvm-*,\
+  misc-*,\
+  modernize-*,\
+  portability-*,\
+  performance-*,\
+  readability-*,\
+  -bugprone-easily-swappable-parameters,\
+  -bugprone-reserved-identifier,\
+  -cert-dcl51-cpp,\
+  -cert-dcl37-c,\
+  -readability-magic-numbers,\
+  -readability-identifier-length,\
+  -readability-implicit-bool-conversion,\
+  -readability-isolate-declaration,\
+  -readability-static-accessed-through-instance,\
+  -readability-redundant-access-specifiers,\
+  -google-build-using-namespace,\
+  -google-readability-casting,\
+  -google-readability-todo,\
+  -modernize-avoid-c-arrays,\
+  -modernize-use-trailing-return-type,\
+  -misc-non-private-member-variables-in-classes"
+WarningsAsErrors: "-*"
+HeaderFilterRegex: '^.*\.hpp$'
+FormatStyle: file
+AnalyzeTemporaryDtors: false
+# check https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-naming.html
+
+
+CheckOptions:
+  - { key: readability-identifier-naming.ClassCase, value: CamelCase }
+  - { key: readability-identifier-naming.EnumCase, value: CamelCase }
+  - { key: readability-identifier-naming.FunctionCase, value: CamelCase }
+  - { key: readability-identifier-naming.GlobalConstantCase, value: UPPER_CASE }
+  - { key: readability-identifier-naming.MemberCase, value: lower_case }
+  - { key: readability-identifier-naming.MemberSuffix, value: _ }
+  - { key: readability-identifier-naming.NamespaceCase, value: lower_case }
+  - { key: readability-identifier-naming.StructCase, value: CamelCase }
+  - { key: readability-identifier-naming.UnionCase, value: CamelCase }
+  - { key: readability-identifier-naming.VariableCase, value: lower_case }
 ```
