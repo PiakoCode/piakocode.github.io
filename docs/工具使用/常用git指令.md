@@ -63,6 +63,22 @@ git checkout -b <分支名>  # 切换分支(如果该分支不存在，则创建
 git cherry-pick [commit_hash]
 ```
 
+暂存
+
+```shell
+git commit # 提交
+git stash  # 暂存
+git pull   # 拉取内容
+
+git stash pop  # 恢复暂存的内容
+git stash drop # 删除一个暂存的内容
+```
+
+
+```shell
+git stash list # 显示暂存列表
+```
+
 设定初始分支名
 
 ```shell
