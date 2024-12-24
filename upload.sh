@@ -9,7 +9,7 @@ BLUE='\033[1;34m'  # 蓝色
 GREEN='\033[0;32m' # 绿色
 NC='\033[0m'       # 恢复默认颜色
 
-cd /home/Piako/Documents/markdown笔记 || exit
+cd /home/piako/Documents/markdown-note || exit
 
 echo -e "\n${BLUE}--------Start--------\n${NC}"
 git status
