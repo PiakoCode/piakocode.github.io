@@ -469,3 +469,16 @@ ClassName(ClassName &&) = delete; \
 ClassName &operator=(const ClassName &) = delete; \
 ClassName &operator=(ClassName &&) = delete;
 ```
+
+
+
+## 警告、Assert
+
+```c
+#define Assert(expr)                                                           \
+  if(!(expr)) {                                                                \
+    printf("assert error: %s\n", #expr);                                       \
+    *(volatile int *)0 = 0;                                                    \
+  }
+```
+
