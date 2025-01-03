@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#! /usr/bin/bash
 
 # 笔记备份脚本
 # 每周五-22点进行备份
@@ -9,13 +9,15 @@ BLUE='\033[1;34m'  # 蓝色
 GREEN='\033[0;32m' # 绿色
 NC='\033[0m'       # 恢复默认颜色
 
-cd /home/piako/Documents/markdown-note || exit
+NOTE_PATH='/home/piako/Documents/markdown-note'
+
+cd ${NOTE_PATH} || exit
 
 echo -e "\n${BLUE}--------Start--------\n${NC}"
 git status
 
 git add .
-echo -e "\n${GREEN}Add all complete.\n${NC}"
+echo -e "\n${GREEN}Add all files.\n${NC}"
 
 LANG=zh_CN.UTF-8 git commit -m "$(date)"
 echo -e "${GREEN}Commit complete.\n${NC}"
