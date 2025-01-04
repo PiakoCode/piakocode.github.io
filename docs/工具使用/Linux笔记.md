@@ -142,6 +142,8 @@ netstat命令用于显示网络连接和路由表信息。
 
 `cloc` 统计代码行数
 
+`tokei` 统计代码行数，但是速度更快
+
 `ncdu` 查看文件(夹)占用空间
 
 `tealdeer` [tealdeer(tldr的rust客户端，速度更快)](https://github.com/dbrgn/tealdeer)
