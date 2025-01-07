@@ -255,7 +255,7 @@ public:
 
 Player类型必须实现printName方法，否则它也将是**纯虚函数**，无法实例化。
 
-![](Picture/Pasted%20image%2020230318163847.png)
+![](../Picture/Pasted%20image%2020230318163847.png)
 
 ## 可见性
 
